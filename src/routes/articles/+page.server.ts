@@ -1,8 +1,8 @@
-import type { PageLoad } from '../$types'
 import type { Article } from '../../domain/contents/Article'
 import { createMicroCMSClient } from '../../sdk/microcms'
+import type { PageServerLoad } from './$types'
 
-export const load: PageLoad = async () => {
+export const load: PageServerLoad = async () => {
 	const client = createMicroCMSClient()
 	const articlesRes = await client.getList<Article>({
 		endpoint: 'articles'
@@ -12,4 +12,4 @@ export const load: PageLoad = async () => {
 	}
 }
 
-export const ssr = true
+export const ssr = false

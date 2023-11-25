@@ -9,7 +9,14 @@ export let data: PageData
 </svelte:head>
 
 <section>
-	{JSON.stringify(data.articlesRes.contents)}
+	{#each data.articlesRes.contents as article}
+		<a class="card" href="/articles/{article.id}">
+			<div>
+				<h2>{article.title}</h2>
+				<p>more</p>
+			</div>
+		</a>
+	{/each}
 </section>
 
 <style>
@@ -21,23 +28,17 @@ export let data: PageData
 		flex: 0.6;
 	}
 
-	h1 {
+	.card {
 		width: 100%;
+		display: flex;
+		flex-direction: column;
+		border: 1px solid #ccc;
+		border-radius: 10px;
+		padding: 1rem;
+		margin: 1rem 0;
 	}
 
-	.welcome {
-		display: block;
-		position: relative;
+	h2 {
 		width: 100%;
-		height: 0;
-		padding: 0 0 calc(100% * 495 / 2048) 0;
-	}
-
-	.welcome img {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		display: block;
 	}
 </style>

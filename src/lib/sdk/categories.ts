@@ -28,5 +28,9 @@ type CategoryItem = {
 
 type CategoryName = (typeof categories)[number]['name']
 
-export const getCategoryByName = (name: CategoryName): CategoryItem | undefined =>
-	categories.find(category => category.name === name)
+export const getCategoryByName = (name: CategoryName): CategoryItem => {
+	const cat = categories.find(category => category.name === name)
+	if (cat == null) throw new Error('Category not found')
+
+	return cat
+}

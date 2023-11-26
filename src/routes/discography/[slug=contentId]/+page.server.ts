@@ -8,8 +8,9 @@ export const load: PageServerLoad = async ({ params }) => {
 		endpoint: 'articles',
 		contentId: params.slug
 	})
+
 	return {
-		article: articleRes
+		item: articleRes
 	}
 }
 

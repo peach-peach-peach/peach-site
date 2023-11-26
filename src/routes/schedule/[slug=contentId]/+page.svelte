@@ -1,16 +1,16 @@
 <script lang="ts">
-import type { PageData } from "./$types"
+	import type { PageData } from './$types'
 
-export let data: PageData
+	export let data: PageData
 </script>
 
 <svelte:head>
-	<title>Articles: {data.article.title}</title>
+	<title>Schedule: {data.item.title}</title>
 </svelte:head>
 
 <section>
-	<h1>{data.article.title}</h1>
-	<div class="content">{@html data.article.content}</div>
+	<h1>{data.item.title}</h1>
+	<div class="content">{@html data.item.content}</div>
 </section>
 
 <style>
@@ -19,12 +19,10 @@ export let data: PageData
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		flex: 0.6;
 	}
 
 	h1 {
 		width: 100%;
-		background-color: white;
 	}
 
 	.content {

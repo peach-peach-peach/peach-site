@@ -1,6 +1,20 @@
 <script>
 	import Header from './Header.svelte'
 	import './styles.css'
+
+	import { onNavigate } from '$app/navigation'
+
+	// use Transition API (https://svelte.dev/blog/view-transitions)
+	onNavigate(navigation => {
+		if (!document.startViewTransition) return
+
+		return new Promise(resolve => {
+			document.startViewTransition(async () => {
+				resolve()
+				await navigation.complete
+			})
+		})
+	})
 </script>
 
 <div class="app">

@@ -1,30 +1,29 @@
 <script lang="ts">
 	import { page } from '$app/stores'
-	const isCurrentPage = (pagePath: string) => ($page.url.pathname === pagePath ? 'page' : undefined)
 </script>
 
 <header>
 	<nav>
 		<ul>
-			<li aria-current={isCurrentPage('/')}>
+			<li aria-current={$page.url.pathname === '/' ? 'page' : undefined}>
 				<a href="/">Top</a>
 			</li>
-			<li aria-current={isCurrentPage('/about')}>
+			<li aria-current={$page.url.pathname === '/about' ? 'page' : undefined}>
 				<a href="/about">About</a>
 			</li>
-			<li aria-current={isCurrentPage('/news')}>
+			<li aria-current={$page.url.pathname === '/news' ? 'page' : undefined}>
 				<a href="/news">News</a>
 			</li>
-			<li aria-current={isCurrentPage('/schedule')}>
+			<li aria-current={$page.url.pathname === '/schedule' ? 'page' : undefined}>
 				<a href="/schedule">Schedule</a>
 			</li>
-			<li aria-current={isCurrentPage('/discography')}>
+			<li aria-current={$page.url.pathname === '/discography' ? 'page' : undefined}>
 				<a href="/discography">Discography</a>
 			</li>
-			<li aria-current={isCurrentPage('/videos')}>
+			<li aria-current={$page.url.pathname === '/videos' ? 'page' : undefined}>
 				<a href="/videos">Videos</a>
 			</li>
-			<li aria-current={isCurrentPage('/contact')}>
+			<li aria-current={$page.url.pathname === '/contact' ? 'page' : undefined}>
 				<a href="/contact">Contact</a>
 			</li>
 		</ul>
@@ -72,6 +71,8 @@
 		left: calc(50% - var(--size));
 		border: var(--size) solid transparent;
 		border-top: var(--size) solid var(--color-theme-1);
+
+		view-transition-name: active-page;
 	}
 
 	nav a {

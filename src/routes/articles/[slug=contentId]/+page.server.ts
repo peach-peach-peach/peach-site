@@ -1,7 +1,6 @@
 import type { PageServerLoad } from './$types'
-// import type { PageLoad } from '../../$types'
 import type { Article } from '../../../domain/contents/Article'
-import { createMicroCMSClient } from '../../../sdk/microcms'
+import { createMicroCMSClient } from '$lib/sdk/microcms'
 
 export const load: PageServerLoad = async ({ params }) => {
 	const client = createMicroCMSClient()

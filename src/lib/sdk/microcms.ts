@@ -4,8 +4,8 @@ import { MICROCMS_SERVICE_ID, MICROCMS_API_KEY } from '$env/static/private'
 
 export const createMicroCMSClient = () =>
 	createClient({
-		serviceDomain: MICROCMS_SERVICE_ID!,
-		apiKey: MICROCMS_API_KEY!
+		serviceDomain: MICROCMS_SERVICE_ID,
+		apiKey: MICROCMS_API_KEY
 	})
 
 type HTMLString = string

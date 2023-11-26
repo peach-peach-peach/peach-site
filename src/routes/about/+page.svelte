@@ -4,9 +4,7 @@
 </svelte:head>
 
 <div class="text-column">
-	<h1>About this app</h1>
+	<h1>About</h1>
 
-	<p>
-		Go to <a href="/">Home</a> or <a href="/articles">Articles</a>
-	</p>
+	<p>Peach Peach Peach is ...</p>
 </div>

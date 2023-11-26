@@ -11,26 +11,37 @@
 <h1>Discography</h1>
 
 <section>
-	{#each data.items.contents as article}
-		<a class="card" href="/discography/{article.id}">
-			<div>
-				<h2>{article.title}</h2>
-				<p>→ read more</p>
-			</div>
-		</a>
-	{/each}
+	<ul>
+		{#each data.items.contents as article}
+			<li>
+				<a class="card" href="/videos/{article.id}">
+					<div>
+						<h2>{article.title}</h2>
+						<p>→ read more</p>
+					</div>
+				</a>
+			</li>
+		{/each}
+	</ul>
 </section>
 
 <style>
-	section {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
+	h1 {
+		margin-top: 3rem;
+		text-transform: uppercase;
+	}
+
+	ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	li {
+		display: block;
 	}
 
 	.card {
-		width: 100%;
 		display: flex;
 		flex-direction: column;
 		border: 1px solid #ccc;
@@ -44,6 +55,7 @@
 		width: 100%;
 		color: #333;
 		font-weight: bold;
+		margin: 0;
 	}
 
 	p {

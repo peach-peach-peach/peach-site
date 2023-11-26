@@ -29,6 +29,6 @@
 	}
 
 	:global(#peach-logo) {
-		fill: rgb(223, 128, 128);
+		fill: var(--color-theme-1);
 	}
 </style>

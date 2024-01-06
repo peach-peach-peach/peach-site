@@ -9,7 +9,7 @@ export async function GET({ url }) {
 	const contentType = url.searchParams.get('contentType')
 
 	if (contentId == null || draftKey == null || contentType == null || !isContentType(contentType)) {
-		throw error(400, 'required params are missing')
+		error(400, 'required params are missing')
 	}
 
 	const article = await createMicroCMSClient().get<Article | null>({
@@ -19,10 +19,10 @@ export async function GET({ url }) {
 	})
 
 	if (article == null) {
-		throw error(400, 'article not found')
+		error(400, 'article not found')
 	}
 
-	throw redirect(307, `/${getCategoryByName(article.category.name).value}/${contentId}?draftKey=${draftKey}`)
+	redirect(307, `/${getCategoryByName(article.category.name).value}/${contentId}?draftKey=${draftKey}`)
 }
 
 const isContentType = (contentType: string | null) => contentType === 'articles'

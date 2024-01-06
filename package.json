@@ -19,7 +19,8 @@
 		"test:unit": "vitest"
 	},
 	"dependencies": {
-		"microcms-js-sdk": "^2.7.0"
+		"microcms-js-sdk": "^2.7.0",
+		"three": "^0.160.0"
 	},
 	"devDependencies": {
 		"@fontsource/fira-mono": "^5.0.8",
@@ -30,6 +31,7 @@
 		"@sveltejs/vite-plugin-svelte": "^3.0.1",
 		"@types/cookie": "^0.6.0",
 		"@types/dom-view-transitions": "^1.0.4",
+		"@types/three": "^0.160.0",
 		"@typescript-eslint/eslint-plugin": "^6.17.0",
 		"@typescript-eslint/parser": "^6.17.0",
 		"eslint": "^8.56.0",

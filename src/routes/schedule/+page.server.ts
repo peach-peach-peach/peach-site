@@ -8,7 +8,7 @@ export const load: PageServerLoad = async () => {
 	const articleRes = await client.getList<Article>({
 		endpoint: 'articles',
 		queries: {
-			filters: `category[equals]${getCategoryByName('スケジュール')?.id}`
+			filters: `category[equals]${getCategoryByName('スケジュール').id}`
 		}
 	})
 

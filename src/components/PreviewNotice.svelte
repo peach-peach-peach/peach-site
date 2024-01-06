@@ -1,10 +1,6 @@
-<script lang="ts">
-</script>
-
-<p>プレビュー中です</p>
+<p>現在プレビューモードで閲覧中です</p>
 
 <style lang="scss">
-	/* SP */
 	p {
 		text-align: center;
 		font-size: 1rem;
@@ -16,8 +12,5 @@
 		font-weight: bold;
 		padding: 1rem;
 		border-radius: 12px;
-	}
-	/* PC */
-	@media screen and (min-width: 768px) {
 	}
 </style>

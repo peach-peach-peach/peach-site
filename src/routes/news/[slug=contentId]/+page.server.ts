@@ -27,7 +27,7 @@ export const load: PageServerLoad = async ({ params, url }) => {
 		return { item: articleRes, isPreview: true }
 	} catch (e) {
 		console.log(e)
-		throw error(404, 'ページが見つかりませんでした')
+		error(404, 'ページが見つかりませんでした')
 	}
 }
 

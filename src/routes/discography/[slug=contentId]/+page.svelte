@@ -1,4 +1,5 @@
 <script lang="ts">
+	import PreviewNotice from '../../../components/PreviewNotice.svelte'
 	import type { PageData } from './$types'
 
 	export let data: PageData
@@ -9,6 +10,9 @@
 </svelte:head>
 
 <section>
+	{#if data.isPreview}
+		<PreviewNotice />
+	{/if}
 	<h1>{data.item.title}</h1>
 	<div class="content">{@html data.item.content}</div>
 </section>

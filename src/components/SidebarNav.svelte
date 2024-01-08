@@ -70,7 +70,7 @@
 <button class="menu-btn" class:is-active={open} on:click={toggle}><span></span></button>
 
 <nav>
-	<a href="/" class="logo">
+	<a href="/" class="logo" on:click={close}>
 		<span class="visually-hidden">Top</span>
 		{@html logoSvg}
 	</a>

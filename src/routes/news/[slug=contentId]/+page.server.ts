@@ -1,11 +1,11 @@
 import type { PageServerLoad } from './$types'
 import type { Article } from '../../../domain/contents/Article'
-import { createMicroCMSClient } from '$lib/sdk/microcms'
+import { createCMSClient } from '$lib/sdk/cms/microcms'
 import { error } from '@sveltejs/kit'
 
 export const load: PageServerLoad = async ({ params, url }) => {
 	const draftKey = url.searchParams.get('draftKey')
-	const client = createMicroCMSClient()
+	const client = createCMSClient()
 
 	try {
 		if (draftKey == null) {

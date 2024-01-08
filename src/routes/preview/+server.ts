@@ -1,5 +1,5 @@
-import { getCategoryByName } from '$lib/sdk/categories.js'
-import { createMicroCMSClient, type Article } from '$lib/sdk/microcms.js'
+import { getCategoryByName } from '$lib/sdk/cms/categories.js'
+import { createCMSClient, type Article } from '$lib/sdk/cms/microcms.js'
 import { error, redirect } from '@sveltejs/kit'
 
 /** @type {import('./$types').RequestHandler} */
@@ -12,7 +12,7 @@ export async function GET({ url }) {
 		error(400, 'required params are missing')
 	}
 
-	const article = await createMicroCMSClient().get<Article | null>({
+	const article = await createCMSClient().get<Article | null>({
 		endpoint: contentType,
 		contentId,
 		queries: { draftKey }

@@ -1,6 +1,6 @@
 import type { PrimaryKeyProps, TimestampProps } from './common'
 
 export type Category = {
-  name: string
+	name: string
 } & PrimaryKeyProps &
-  TimestampProps
+	TimestampProps

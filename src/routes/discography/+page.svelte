@@ -61,4 +61,8 @@
 	p {
 		margin: 0;
 	}
+
+	section {
+		padding: 1rem;
+	}
 </style>

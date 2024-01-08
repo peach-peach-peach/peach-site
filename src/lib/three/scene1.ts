@@ -61,10 +61,10 @@ const animate = (scene: Scene, cube: Mesh) => {
 	renderer.render(scene, camera)
 }
 
-const scale = 0.5
 const resize = () => {
-	renderer.setSize(window.innerWidth * scale, window.innerHeight * scale)
-	camera.aspect = window.innerWidth / window.innerHeight
+	const container = renderer.domElement.parentElement!
+	renderer.setSize(container.clientWidth, container.clientHeight)
+	camera.aspect = container.clientWidth / container.clientHeight
 	camera.updateProjectionMatrix()
 }
 

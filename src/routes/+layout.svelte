@@ -38,7 +38,6 @@
 	}
 
 	main {
-		padding: 1rem;
 		width: 100%;
 		margin: 0 auto;
 	}
@@ -57,7 +56,6 @@
 		}
 
 		main {
-			padding: 1rem;
 			width: 100%;
 			max-width: 64rem;
 			margin: 0 auto;

@@ -1,63 +1,50 @@
-import {
-	BoxGeometry,
-	DirectionalLight,
-	HemisphereLight,
-	Mesh,
-	MeshStandardMaterial,
-	PerspectiveCamera,
-	Scene,
-	WebGLRenderer,
-	TextureLoader,
-	Color
-} from 'three'
+import * as t from 'three'
 
 // 適当に作ったScene
 
-let camera: PerspectiveCamera
+let camera: t.PerspectiveCamera
 const createCamera = () => {
-	camera = new PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000)
+	camera = new t.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000)
 	camera.position.z = 5
 }
 
 const createScene = () => {
-	const scene = new Scene()
-	scene.background = new Color(0xffffff)
+	const scene = new t.Scene()
+	scene.background = new t.Color(0xffffff)
 
-	const geometry = new BoxGeometry()
-	geometry.scale(3, 3, 3)
+	const geometry = new t.PlaneGeometry(4, 2, 2)
 
-	const textureLoader = new TextureLoader()
+	const textureLoader = new t.TextureLoader()
 	const textureLogo = textureLoader.load('textures/logo_w.png')
 
-	const material = new MeshStandardMaterial({
+	const material = new t.MeshStandardMaterial({
 		color: 0xffffff,
-		metalness: 0.13,
 		map: textureLogo
 	})
 
-	const cube = new Mesh(geometry, material)
-	scene.add(cube)
+	const logo = new t.Mesh(geometry, material)
+	scene.add(logo)
 
-	const directionalLight = new DirectionalLight(0x9090aa)
+	const directionalLight = new t.DirectionalLight(0x9090aa)
 	directionalLight.position.set(-10, 10, -10).normalize()
 	scene.add(directionalLight)
 
-	const hemisphereLight = new HemisphereLight(0xffffff, 0x444444)
+	const hemisphereLight = new t.HemisphereLight(0xffffff, 0x444444)
 	hemisphereLight.position.set(1, 1, 1)
 	scene.add(hemisphereLight)
 
 	return {
 		scene,
-		object: { cube }
+		object: { logo }
 	}
 }
 
-let renderer: WebGLRenderer
+let renderer: t.WebGLRenderer
 
-const animate = (scene: Scene, cube: Mesh) => {
-	requestAnimationFrame(() => animate(scene, cube))
-	cube.rotation.x += 0.01
-	cube.rotation.y += 0.01
+const animate = (scene: t.Scene, mesh1: t.Mesh) => {
+	requestAnimationFrame(() => animate(scene, mesh1))
+	mesh1.rotation.x += 0.01
+	mesh1.rotation.y += 0.01
 	renderer.render(scene, camera)
 }
 
@@ -71,9 +58,9 @@ const resize = () => {
 export const createScene1 = (el: HTMLCanvasElement) => {
 	createCamera()
 	const { object, scene } = createScene()
-	renderer = new WebGLRenderer({ antialias: true, canvas: el })
+	renderer = new t.WebGLRenderer({ antialias: true, canvas: el })
 	resize()
-	animate(scene, object.cube)
+	animate(scene, object.logo)
 }
 
 export const subscribeResize = () => {

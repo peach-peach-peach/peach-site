@@ -14,6 +14,8 @@
 			unsubscribeResize()
 		}
 	})
+
+	/* eslint-disable svelte/no-at-html-tags */
 </script>
 
 <svelte:head>

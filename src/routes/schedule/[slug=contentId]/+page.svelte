@@ -3,6 +3,8 @@
 	import type { PageData } from './$types'
 
 	export let data: PageData
+
+	/* eslint-disable svelte/no-at-html-tags */
 </script>
 
 <svelte:head>
@@ -14,7 +16,9 @@
 		<PreviewNotice />
 	{/if}
 	<h1>{data.item.title}</h1>
-	<div class="content">{@html data.item.content}</div>
+	<div class="content">
+		{@html data.item.content}
+	</div>
 </section>
 
 <style>

@@ -65,6 +65,8 @@
 	export let open: boolean = false
 	export const toggle = () => (open = !open)
 	export const close = () => (open = false)
+
+	/* eslint-disable svelte/no-at-html-tags */
 </script>
 
 <button class="menu-btn" class:is-active={open} on:click={toggle}><span></span></button>

@@ -1,30 +1,12 @@
 import type { PageServerLoad } from './$types'
-import type { Article } from '../../../domain/contents/Article'
-import { createCMSClient } from '$lib/sdk/cms/microcms'
 import { error } from '@sveltejs/kit'
+import { fetchArticle } from '@/lib/sdk/cms/fetchArticle'
 
 export const load: PageServerLoad = async ({ params, url }) => {
 	const draftKey = url.searchParams.get('draftKey')
-	const client = createCMSClient()
 
 	try {
-		if (draftKey == null) {
-			const articleRes = await client.get<Article>({
-				endpoint: 'articles',
-				contentId: params.slug
-			})
-
-			return { item: articleRes, isPreview: false }
-		}
-
-		// プレビューモード
-		const articleRes = await client.get<Article>({
-			endpoint: 'articles',
-			contentId: params.slug,
-			queries: { draftKey }
-		})
-
-		return { item: articleRes, isPreview: true }
+		return await fetchArticle({ slug: params.slug, draftKey })
 	} catch (e) {
 		console.log(e)
 		error(404, 'ページが見つかりませんでした')

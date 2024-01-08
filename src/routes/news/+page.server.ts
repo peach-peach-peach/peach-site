@@ -1,19 +1,12 @@
-import type { Article } from '../../domain/contents/Article'
-import { createCMSClient } from '$lib/sdk/cms/microcms'
-import { getCategoryByName } from '$lib/sdk/cms/categories'
 import type { PageServerLoad } from './$types'
+import { fetchArticleList } from '@/lib/sdk/cms/fetchArticleList'
+import { error } from '@sveltejs/kit'
 
 export const load: PageServerLoad = async () => {
-	const client = createCMSClient()
-	const articleRes = await client.getList<Article>({
-		endpoint: 'articles',
-		queries: {
-			filters: `category[equals]${getCategoryByName('ニュース').id}`
-		}
-	})
-
-	return {
-		items: articleRes
+	try {
+		return await fetchArticleList({ categoryName: 'ニュース' })
+	} catch (e) {
+		error(404, 'ページが見つかりませんでした')
 	}
 }
 

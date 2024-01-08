@@ -33,6 +33,10 @@
 		min-height: 100vh;
 	}
 
+	aside {
+		background-color: #fff;
+	}
+
 	main {
 		padding: 1rem;
 		width: 100%;

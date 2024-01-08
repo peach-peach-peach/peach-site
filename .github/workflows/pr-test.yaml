@@ -1,0 +1,37 @@
+name: Run Tests on PR
+
+on:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: pnpm
+
+      - name: Set test .env
+        run: cp .env.test .env
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Run check
+        run: pnpm run check
+
+      - name: Run lint
+        run: pnpm run lint
+
+      - name: Run unit tests
+        run: pnpm run test:unit

@@ -1,18 +1,18 @@
 export type HTMLString = string
 
 export type PrimaryKeyProps = {
-  id: string
+	id: string
 }
 
 export type ImageObject = {
-  url: string
-  width?: number
-  height?: number
+	url: string
+	width?: number
+	height?: number
 }
 
 export type TimestampProps = {
-  createdAt: string
-  updatedAt: string
-  publishedAt?: string
-  revisedAt?: string
+	createdAt: string
+	updatedAt: string
+	publishedAt?: string
+	revisedAt?: string
 }

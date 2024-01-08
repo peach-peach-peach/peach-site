@@ -1,4 +1,4 @@
-import type { Category } from '../../lib/sdk/microcms'
+import type { Category } from '../../lib/sdk/cms/microcms'
 import type { HTMLString, ImageObject, PrimaryKeyProps, TimestampProps } from './common'
 
 export type Article = {

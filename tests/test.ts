@@ -1,6 +1,16 @@
-import { expect, test } from '@playwright/test';
+import { expect, test } from '@playwright/test'
 
-test('about page has expected h1', async ({ page }) => {
-	await page.goto('/about');
-	await expect(page.getByRole('heading', { name: 'About this app' })).toBeVisible();
-});
+test('topページにロゴが表示されている', async ({ page }) => {
+	await page.goto('/')
+	await expect(page.getByRole('heading')).toBeVisible()
+})
+
+test('ナビゲーションが表示されている', async ({ page }) => {
+	await page.goto('/')
+	await expect(page.getByRole('link', { name: 'News' })).toBeVisible()
+	await expect(page.getByRole('link', { name: 'Schedule' })).toBeVisible()
+	await expect(page.getByRole('link', { name: 'Profile' })).toBeVisible()
+	await expect(page.getByRole('link', { name: 'Videos' })).toBeVisible()
+	await expect(page.getByRole('link', { name: 'Discography' })).toBeVisible()
+	await expect(page.getByRole('link', { name: 'Store' })).toBeVisible()
+})

@@ -14,7 +14,7 @@
 	<ul>
 		{#each data.items.contents as article}
 			<li>
-				<a class="card" href="/videos/{article.id}">
+				<a class="card" href="/news/{article.id}">
 					<div>
 						<h2>{article.title}</h2>
 						<p>→ read more</p>

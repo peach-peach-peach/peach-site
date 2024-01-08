@@ -1,8 +1,8 @@
 <script>
-	import Header from './Header.svelte'
 	import './styles.css'
 
 	import { onNavigate } from '$app/navigation'
+	import SidebarNav from '@/components/SidebarNav.svelte'
 
 	// use Transition API (https://svelte.dev/blog/view-transitions)
 	onNavigate(navigation => {
@@ -18,51 +18,45 @@
 </script>
 
 <div class="app">
-	<Header />
+	<aside>
+		<SidebarNav />
+	</aside>
 
 	<main>
 		<slot />
 	</main>
-
-	<footer>
-		<p>Copyright © Peach Peach Peach 2023</p>
-	</footer>
 </div>
 
 <style>
+	/* SP */
 	.app {
-		display: flex;
-		flex-direction: column;
 		min-height: 100vh;
 	}
 
 	main {
-		flex: 1;
-		display: flex;
-		flex-direction: column;
 		padding: 1rem;
 		width: 100%;
-		max-width: 64rem;
 		margin: 0 auto;
-		box-sizing: border-box;
 	}
 
-	footer {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		padding: 12px;
-		background-color: #fff;
-	}
+	/* PC */
+	@media screen and (min-width: 768px) {
+		.app {
+			min-height: 100vh;
+			display: grid;
+			grid-template-areas: 'sidebar main';
+			grid-template-columns: calc(24px + 160px + 24px) 1fr;
+		}
 
-	footer a {
-		font-weight: bold;
-	}
+		aside {
+			border-right: 1px solid #ccc;
+		}
 
-	@media (min-width: 480px) {
-		footer {
-			padding: 12px 0;
+		main {
+			padding: 1rem;
+			width: 100%;
+			max-width: 64rem;
+			margin: 0 auto;
 		}
 	}
 </style>

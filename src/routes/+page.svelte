@@ -1,8 +1,16 @@
 <script lang="ts">
-	import logoSvg from '$lib/images/logo.svg?raw'
-
 	import { onMount } from 'svelte'
 	import { createScene1, subscribeResize, unsubscribeResize } from '$lib/three/scene1'
+	import type { PageData } from './$types'
+
+	const formatDate = (dateStr: string | undefined) => {
+		if (dateStr == null) return ''
+		const date = new Date(dateStr)
+		return new Intl.DateTimeFormat('ja-JP').format(date)
+	}
+
+	export let data: PageData
+	const newArrivals = data.feature.new_arrivals
 
 	let el: HTMLCanvasElement
 
@@ -30,60 +38,72 @@
 		<canvas bind:this={el} />
 	</div>
 
-	<p>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-		aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-		Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-		sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-	</p>
-	<p>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-		aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-		Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-		sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-	</p>
-	<p>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-		aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-		Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-		sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-	</p>
-	<p>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-		aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-		Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-		sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-	</p>
-	<p>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-		aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-		Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-		sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-	</p>
-	<p>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-		aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-		Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-		sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-	</p>
-	<p>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-		aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-		Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-		sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-	</p>
-	<p>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-		aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-		Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-		sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-	</p>
-	<p>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-		aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-		Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-		sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-	</p>
+	<section>
+		<h2>Information</h2>
+		<section>
+			<h3>News</h3>
+			<ul>
+				{#each data.news as item}
+					<li>
+						<a href={`/news/${item.id}/`}>{item.title}</a>
+						<time>{formatDate(item.publishedAt)}</time>
+					</li>
+				{/each}
+			</ul>
+		</section>
+		<section>
+			<h3>Schedule</h3>
+			<ul>
+				{#each data.schedule as item}
+					<li>
+						<a href={`/schedule/${item.id}/`}>{item.title}</a>
+						<time>{formatDate(item.publishedAt)}</time>
+					</li>
+				{/each}
+			</ul>
+		</section>
+	</section>
+
+	<section>
+		<h2>Video</h2>
+		<ul>
+			{#each data.videos as item}
+				<li>
+					<a href={`/videos/${item.id}/`}>{item.title}</a>
+					<time>{formatDate(item.publishedAt)}</time>
+				</li>
+			{/each}
+		</ul>
+	</section>
+
+	<section>
+		<h2>New arrivals</h2>
+		<img
+			src={newArrivals.catch_image.url}
+			width={newArrivals.catch_image.width}
+			height={newArrivals.catch_image.height}
+			alt={newArrivals.title}
+			style="width: 100%; height: auto;"
+		/>
+		<h3>{newArrivals.title}</h3>
+		<div>
+			{@html newArrivals.description}
+		</div>
+	</section>
+
+	<section>
+		<h3>Discography</h3>
+		<ul>
+			{#each data.discography as item}
+				<li>
+					<a href={`/discography/${item.id}/`}>{item.title}</a>
+					<time>{formatDate(item.publishedAt)}</time>
+				</li>
+			{/each}
+		</ul>
+	</section>
+
+	<!-- Store -->
 </section>
 
 <style>

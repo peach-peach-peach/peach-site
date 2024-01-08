@@ -6,35 +6,35 @@ export const categories = [
 	{
 		id: 'e4u6m4p-2o',
 		name: 'ビデオ',
-		value: 'videos'
+		key: 'videos'
 	},
 	{
 		id: '8dgz54e2m',
 		name: 'スケジュール',
-		value: 'schedule'
+		key: 'schedule'
 	},
 	{
 		id: 'xv_usxq1ie79',
 		name: 'ニュース',
-		value: 'news'
+		key: 'news'
 	},
 	{
 		id: 'u6mgm122qvz2',
 		name: 'ディスコグラフィー',
-		value: 'discography'
+		key: 'discography'
 	}
 ] as const satisfies readonly CategoryItem[]
 
 type CategoryItem = {
 	readonly id: string
 	readonly name: string
-	readonly value: string
+	readonly key: string
 }
 
-export type CategoryName = (typeof categories)[number]['name']
+export type CategoryKey = (typeof categories)[number]['key']
 
-export const getCategoryByName = (name: string): CategoryItem => {
-	const cat = categories.find(category => category.name === name)
+export const getCategoryByKey = (key: string): CategoryItem => {
+	const cat = categories.find(category => category.key === key)
 	if (cat == null) throw new Error('Category not found')
 
 	return cat

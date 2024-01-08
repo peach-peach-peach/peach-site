@@ -12,7 +12,7 @@
 
 <section>
 	<ul>
-		{#each data.items.contents as article}
+		{#each data.contents as article}
 			<li>
 				<a class="card" href="/videos/{article.id}">
 					<div>

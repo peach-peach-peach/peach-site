@@ -4,7 +4,7 @@ import { error } from '@sveltejs/kit'
 
 export const load: PageServerLoad = async () => {
 	try {
-		return await fetchArticleList({ categoryName: 'ビデオ' })
+		return await fetchArticleList({ categoryKey: 'videos' })
 	} catch (e) {
 		error(404, 'ページが見つかりませんでした')
 	}

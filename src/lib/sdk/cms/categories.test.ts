@@ -1,26 +1,26 @@
 import { describe, test, expect } from 'vitest'
-import { getCategoryByName } from './categories'
+import { getCategoryByKey } from './categories'
 
-describe('getCategoryByName', () => {
+describe('getCategoryByKey', () => {
 	test.each([
 		{
 			id: 'e4u6m4p-2o',
-			name: 'ビデオ'
+			key: 'videos'
 		},
 		{
 			id: '8dgz54e2m',
-			name: 'スケジュール'
+			key: 'schedule'
 		},
 		{
 			id: 'xv_usxq1ie79',
-			name: 'ニュース'
+			key: 'news'
 		},
 		{
 			id: 'u6mgm122qvz2',
-			name: 'ディスコグラフィー'
+			key: 'discography'
 		}
-	])('should return the category with the given name: $name', ({ name: input, id: expected }) => {
-		const result = getCategoryByName(input)
+	])('should return the category with the given key: $key', ({ key: input, id: expected }) => {
+		const result = getCategoryByKey(input)
 		expect(result.id).toEqual(expected)
 	})
 })

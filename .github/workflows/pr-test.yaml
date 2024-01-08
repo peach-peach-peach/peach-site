@@ -21,6 +21,9 @@ jobs:
           node-version: 18
           cache: pnpm
 
+      - name: Set test .env
+        run: cp .env.test .env
+
       - name: Install dependencies
         run: pnpm install
 

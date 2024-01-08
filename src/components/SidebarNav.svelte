@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { page } from '$app/stores'
 	import logoSvg from '$lib/images/logo.svg?raw'
 	import { site } from '@/constants/site'
 	import Spacer from './Spacer.svelte'
@@ -79,7 +80,13 @@
 	<ul class="contents">
 		{#each contentItems as item}
 			<li>
-				<a href={item.href} style="--key-color: {item.keyColor}" on:click={toggle}>{item.label}</a>
+				<a
+					href={item.href}
+					on:click={close}
+					aria-current={$page.url.pathname.startsWith(item.href) ? 'page' : undefined}
+					style="--key-color: {item.keyColor}"
+					>{item.label}
+				</a>
 			</li>
 		{/each}
 	</ul>
@@ -192,6 +199,11 @@
 			color: var(--color-text-highlight);
 			background: var(--key-color);
 		}
+	}
+
+	a[aria-current='page'] {
+		color: var(--color-text-highlight);
+		background: var(--key-color);
 	}
 
 	.logo {

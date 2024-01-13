@@ -1,17 +1,13 @@
 <script lang="ts">
 	import { formatDate } from '@/lib/utils/formatDate'
 	import type { Article } from '@/domain/contents/Article'
-	import type { FeatureObject } from '@/domain/contents/FeatureObject'
 
-	export let data: InformationSectionData
-
-	type InformationSectionData = {
+	type Data = {
 		news: Article[]
 		schedule: Article[]
-		videos: Article[]
-		discography: Article[]
-		feature: FeatureObject
 	}
+
+	export let data: Data
 </script>
 
 <section>
@@ -39,3 +35,13 @@
 		</ul>
 	</section>
 </section>
+
+<style>
+	section {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		flex: 0.6;
+	}
+</style>

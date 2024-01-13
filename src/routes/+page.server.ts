@@ -6,19 +6,19 @@ import { fetchFeature } from '@/lib/sdk/cms/fetchFeature'
 export const load: PageServerLoad = async () => {
 	try {
 		const newsRes = await fetchArticleList({
-			categoryKey: 'news',
+			categoryId: 'news',
 			limit: 4
 		})
 		const scheduelRes = await fetchArticleList({
-			categoryKey: 'schedule',
+			categoryId: 'schedule',
 			limit: 4
 		})
 		const videoRes = await fetchArticleList({
-			categoryKey: 'videos',
+			categoryId: 'videos',
 			limit: 3
 		})
 		const discoRes = await fetchArticleList({
-			categoryKey: 'discography',
+			categoryId: 'discography',
 			limit: 3
 		})
 

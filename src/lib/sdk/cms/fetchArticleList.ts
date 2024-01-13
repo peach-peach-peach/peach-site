@@ -1,13 +1,13 @@
 import type { Article } from '@/domain/contents/Article'
 import { createCMSClient } from '$lib/sdk/cms/microcms'
-import { getCategoryByKey, type CategoryKey } from './categories'
+import { type CategoryId } from './categories'
 
 export const fetchArticleList = async ({
-	categoryKey,
+	categoryId,
 	offset,
 	limit
 }: {
-	categoryKey: CategoryKey
+	categoryId: CategoryId
 	limit?: number
 	offset?: number
 }) => {
@@ -16,7 +16,7 @@ export const fetchArticleList = async ({
 	const articleRes = await client.getList<Article>({
 		endpoint: 'articles',
 		queries: {
-			filters: `category[equals]${getCategoryByKey(categoryKey).id}`,
+			filters: `category[equals]${categoryId}`,
 			limit,
 			offset
 		}

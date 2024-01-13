@@ -9,27 +9,71 @@
 	const newArrivals = data.feature.new_arrivals
 </script>
 
-<section>
-	<h2>New arrivals</h2>
-	<img
-		src={newArrivals.catch_image.url}
-		width={newArrivals.catch_image.width}
-		height={newArrivals.catch_image.height}
-		alt={newArrivals.title}
-		style="width: 100%; height: auto;"
-	/>
-	<h3>{newArrivals.title}</h3>
-	<div>
-		{@html newArrivals.description}
+<section class="new-arrivals">
+	<div class="catch">
+		<img
+			src={newArrivals.catch_image.url}
+			width={newArrivals.catch_image.width}
+			height={newArrivals.catch_image.height}
+			alt={newArrivals.title}
+			style="width: 100%; height: auto;"
+		/>
 	</div>
+
+	<section class="content">
+		<h2>New arrivals</h2>
+		<h3>{newArrivals.title}</h3>
+		<div>
+			{@html newArrivals.description}
+		</div>
+	</section>
+
+	<p class="link"><a href={newArrivals.link_url}>{newArrivals.link_label}</a></p>
 </section>
 
-<style>
-	section {
+<style lang="scss">
+	.new-arrivals {
+		display: grid;
+		grid-template-columns: 2fr 3fr 1fr;
+		padding: 3rem 4rem;
+
+		border: 1px solid #000;
+		background: url('/bg-purple.jpg') repeat;
+	}
+
+	.content {
+		padding: 0 2rem;
+
+		h2 {
+			margin: 0;
+			color: var(--color-key-pink);
+			font-size: 1rem;
+		}
+
+		h3 {
+			margin-top: 1rem;
+		}
+
+		div {
+			margin-top: 1rem;
+			word-break: break-all;
+		}
+	}
+
+	.link {
 		display: flex;
-		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		flex: 0.6;
+		padding: 1rem;
+
+		a {
+			display: inline-block;
+			width: 100%;
+
+			background-color: #fff;
+			border: 1px solid #000;
+			text-decoration: none;
+			text-align: center;
+		}
 	}
 </style>

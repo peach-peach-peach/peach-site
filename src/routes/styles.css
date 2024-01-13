@@ -7,7 +7,7 @@
 	--color-bg-0: #f5f5f5;
 	--color-key-pink: #ff42ca;
 	--color-key-yellow: #ffee52;
-	--color-key-green: #7eff5e;
+	--color-key-green: #99ffaf;
 	--color-key-blue: #4ad4ff;
 	--color-key-gray: #e1e1e1;
 	--color-text: rgba(0, 0, 0, 0.7);
@@ -20,26 +20,10 @@
 	color: var(--color-text);
 }
 
-*,
-*::before,
-*::after {
-	box-sizing: border-box;
-}
-
 body {
 	overscroll-behavior: none;
 
 	min-height: 100vh;
-	margin: 0;
-	background-attachment: fixed;
-	background-color: var(--color-bg-0);
-	background-size: 100vw 100vh;
-}
-
-h1,
-h2,
-p {
-	font-weight: 400;
 }
 
 p {
@@ -48,40 +32,15 @@ p {
 
 a {
 	color: var(--color-text);
-	text-decoration: none;
-}
-
-a:hover {
 	text-decoration: underline;
 }
 
-h1 {
-	font-size: 2rem;
-	text-align: center;
-}
-
-h2 {
-	font-size: 1rem;
-}
-
-pre {
-	font-size: 16px;
-	font-family: var(--font-mono);
-	background-color: rgba(255, 255, 255, 0.45);
-	border-radius: 3px;
-	box-shadow: 2px 2px 6px rgb(255 255 255 / 25%);
-	padding: 0.5em;
-	overflow-x: auto;
-	color: var(--color-text);
-}
-
-.text-column {
-	display: flex;
-	max-width: 48rem;
-	flex: 0.6;
-	flex-direction: column;
-	justify-content: center;
-	margin: 0 auto;
+a:hover {
+	color: #fff;
+	background-color: var(--color-key-pink);
+	transition:
+		color 0.1s ease-in-out,
+		background-color 0.1s ease-in-out;
 }
 
 input,
@@ -92,12 +51,6 @@ button {
 
 button:focus:not(:focus-visible) {
 	outline: none;
-}
-
-@media (min-width: 720px) {
-	h1 {
-		font-size: 2.4rem;
-	}
 }
 
 .visually-hidden {

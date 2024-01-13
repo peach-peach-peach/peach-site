@@ -1,4 +1,5 @@
 <script>
+	import './reset.css'
 	import './styles.css'
 
 	import { onNavigate } from '$app/navigation'

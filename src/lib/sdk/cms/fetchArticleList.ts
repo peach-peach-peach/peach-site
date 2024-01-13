@@ -1,18 +1,26 @@
 import type { Article } from '@/domain/contents/Article'
 import { createCMSClient } from '$lib/sdk/cms/microcms'
-import { getCategoryByName, type CategoryName } from './categories'
+import { type CategoryId } from './categories'
 
-export const fetchArticleList = async ({ categoryName }: { categoryName: CategoryName }) => {
+export const fetchArticleList = async ({
+	categoryId,
+	offset,
+	limit
+}: {
+	categoryId: CategoryId
+	limit?: number
+	offset?: number
+}) => {
 	const client = createCMSClient()
 
 	const articleRes = await client.getList<Article>({
 		endpoint: 'articles',
 		queries: {
-			filters: `category[equals]${getCategoryByName(categoryName).id}`
+			filters: `category[equals]${categoryId}`,
+			limit,
+			offset
 		}
 	})
 
-	return {
-		items: articleRes
-	}
+	return articleRes
 }

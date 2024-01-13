@@ -12,7 +12,7 @@
 
 <section>
 	<ul>
-		{#each data.items.contents as article}
+		{#each data.contents as article}
 			<li>
 				<a class="card" href="/discography/{article.id}">
 					<div>
@@ -60,5 +60,9 @@
 
 	p {
 		margin: 0;
+	}
+
+	section {
+		padding: 1rem;
 	}
 </style>

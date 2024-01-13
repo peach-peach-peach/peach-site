@@ -1,5 +1,5 @@
-import { getCategoryByName } from '$lib/sdk/cms/categories.js'
-import { createCMSClient, type Article } from '$lib/sdk/cms/microcms.js'
+import { getCategoryByName } from '$lib/sdk/cms/categories'
+import { createCMSClient, type Article } from '$lib/sdk/cms/microcms'
 import { error, redirect } from '@sveltejs/kit'
 
 /** @type {import('./$types').RequestHandler} */
@@ -22,7 +22,7 @@ export async function GET({ url }) {
 		error(400, 'article not found')
 	}
 
-	redirect(307, `/${getCategoryByName(article.category.name).value}/${contentId}?draftKey=${draftKey}`)
+	redirect(307, `/${getCategoryByName(article.category.name).id}/${contentId}?draftKey=${draftKey}`)
 }
 
 const isContentType = (contentType: string | null) => contentType === 'articles'

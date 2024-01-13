@@ -211,6 +211,7 @@
 	.logo {
 		display: block;
 		width: 160px;
+		background-color: unset;
 	}
 
 	/* PC */

@@ -34,16 +34,18 @@
 <style lang="scss">
 	.new-arrivals {
 		display: grid;
-		grid-template-columns: 2fr 3fr 1fr;
-		padding: 3rem 4rem;
+		padding: 3rem;
 
 		border: 1px solid #000;
 		background: url('/bg-purple.jpg') repeat;
 	}
 
+	.catch {
+	}
+
 	.content {
 		padding: 1rem;
-		margin: 0 2rem;
+		margin: 1rem 0;
 
 		background-color: #fff6;
 
@@ -64,10 +66,10 @@
 	}
 
 	.link {
+		margin: 0;
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		padding: 1rem;
 
 		a {
 			display: inline-block;
@@ -78,6 +80,54 @@
 			border: 1px solid #000;
 			text-decoration: none;
 			text-align: center;
+		}
+	}
+
+	/* PC */
+	@media screen and (min-width: 768px) {
+		.new-arrivals {
+			grid-template-columns: 2fr 3fr 1fr;
+			padding: 3rem 4rem;
+		}
+
+		.content {
+			padding: 1rem;
+			margin: 0 2rem;
+
+			background-color: #fff6;
+
+			h2 {
+				margin: 0;
+				color: var(--color-key-pink);
+				font-size: 1rem;
+			}
+
+			h3 {
+				margin-top: 1rem;
+			}
+
+			div {
+				margin-top: 1rem;
+				word-break: break-all;
+			}
+		}
+
+		.link {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			padding: 1rem;
+
+			a {
+				display: inline-block;
+				width: 100%;
+
+				color: #000;
+				background-color: #fff;
+				border: 1px solid #000;
+				text-decoration: none;
+				text-align: center;
+			}
 		}
 	}
 </style>

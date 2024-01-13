@@ -7,6 +7,8 @@
 
 	export let data: Data
 	const newArrivals = data.feature.new_arrivals
+
+	/* eslint-disable svelte/no-at-html-tags */
 </script>
 
 <section class="new-arrivals">
@@ -38,9 +40,6 @@
 
 		border: 1px solid #000;
 		background: url('/bg-purple.jpg') repeat;
-	}
-
-	.catch {
 	}
 
 	.content {
@@ -93,41 +92,10 @@
 		.content {
 			padding: 1rem;
 			margin: 0 2rem;
-
-			background-color: #fff6;
-
-			h2 {
-				margin: 0;
-				color: var(--color-key-pink);
-				font-size: 1rem;
-			}
-
-			h3 {
-				margin-top: 1rem;
-			}
-
-			div {
-				margin-top: 1rem;
-				word-break: break-all;
-			}
 		}
 
 		.link {
-			display: flex;
-			justify-content: center;
-			align-items: center;
 			padding: 1rem;
-
-			a {
-				display: inline-block;
-				width: 100%;
-
-				color: #000;
-				background-color: #fff;
-				border: 1px solid #000;
-				text-decoration: none;
-				text-align: center;
-			}
 		}
 	}
 </style>

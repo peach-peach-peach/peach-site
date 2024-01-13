@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { formatDate } from '@/lib/utils/formatDate'
 	import type { Article } from '@/domain/contents/Article'
 
 	type Data = {

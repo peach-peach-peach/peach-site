@@ -42,7 +42,10 @@
 	}
 
 	.content {
-		padding: 0 2rem;
+		padding: 1rem;
+		margin: 0 2rem;
+
+		background-color: #fff6;
 
 		h2 {
 			margin: 0;
@@ -70,6 +73,7 @@
 			display: inline-block;
 			width: 100%;
 
+			color: #000;
 			background-color: #fff;
 			border: 1px solid #000;
 			text-decoration: none;

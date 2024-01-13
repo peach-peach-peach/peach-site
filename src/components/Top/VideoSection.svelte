@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { formatDate } from '@/lib/utils/formatDate'
 	import type { Article } from '@/domain/contents/Article'
-	import type { FeatureObject } from '@/domain/contents/FeatureObject'
 
 	type Data = {
 		videos: Article[]

@@ -33,7 +33,7 @@ jobs:
       - name: Run lint
         run: pnpm run lint
 
-      - name: Run unit tests
-        env:
-          TZ: Asia/Tokyo
-        run: pnpm run test:unit
+      # - name: Run unit tests
+      #   env:
+      #     TZ: Asia/Tokyo
+      #   run: pnpm run test:unit

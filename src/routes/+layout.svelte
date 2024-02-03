@@ -2,6 +2,7 @@
 	import './reset.css'
 	import './styles.css'
 
+	import { MetaTags } from 'svelte-meta-tags'
 	import { onNavigate } from '$app/navigation'
 	import SidebarNav from '@/components/SidebarNav.svelte'
 
@@ -17,6 +18,9 @@
 		})
 	})
 </script>
+
+<!-- FIXNE: とりあえずnoindex -->
+<MetaTags robots="noindex" />
 
 <div class="app">
 	<aside>

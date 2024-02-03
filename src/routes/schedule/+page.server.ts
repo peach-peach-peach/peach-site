@@ -4,8 +4,10 @@ import { error } from '@sveltejs/kit'
 
 export const load: PageServerLoad = async () => {
 	try {
-		return await fetchArticleList({ categoryId: 'schedule' })
+		const res = await fetchArticleList({ categoryId: 'schedule' })
+		return res
 	} catch (e) {
+		console.log(e)
 		error(404, 'ページが見つかりませんでした')
 	}
 }

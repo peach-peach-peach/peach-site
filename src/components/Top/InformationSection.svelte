@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { Article } from '@/domain/contents/Article'
+	import Marquee from '../Marquee.svelte'
 
 	type Data = {
 		news: Article[]
@@ -11,7 +12,11 @@
 
 <section class="information">
 	<header>
-		<h2>Information</h2>
+		<h2 class="header-vertical">
+			<Marquee speed={3} className="information-marquee" autoFill
+				><span class="label en">Information</span><span class="label ja">インフォメーション</span></Marquee
+			>
+		</h2>
 	</header>
 
 	<section>
@@ -55,11 +60,29 @@
 		background-color: var(--color-key-green);
 	}
 
-	header > h2 {
+	:global(.header-vertical) {
 		rotate: 270deg;
 		margin: 0;
 		font-size: 1.1rem;
 		font-weight: normal;
+	}
+
+	:global(.header-vertical > .rfm-marquee-container.information-marquee) {
+		width: 10.6rem;
+	}
+
+	.label {
+		margin-right: 0.5rem;
+		text-transform: uppercase;
+		vertical-align: middle;
+	}
+
+	.en {
+		font-size: 1.2rem;
+	}
+
+	.ja {
+		font-size: 0.7rem;
 	}
 
 	.information {
@@ -85,5 +108,16 @@
 			line-height: 1.8;
 			font-size: 1.2rem;
 		}
+	}
+
+	/* SP Large */
+	@media screen and (min-width: 390px) {
+		:global(.header-vertical > .rfm-marquee-container.information-marquee) {
+			width: 9.9rem;
+		}
+	}
+
+	/* PC */
+	@media screen and (min-width: 768px) {
 	}
 </style>

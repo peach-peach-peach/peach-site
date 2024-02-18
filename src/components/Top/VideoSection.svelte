@@ -2,6 +2,7 @@
 	import { formatDate } from '@/lib/utils/formatDate'
 	import type { Article } from '@/domain/contents/Article'
 	import Spacer from '@/components/Spacer.svelte'
+	import Marquee from '../Marquee.svelte'
 
 	type Data = {
 		videos: Article[]
@@ -11,7 +12,10 @@
 </script>
 
 <section>
-	<h2>Video</h2>
+	<h2>
+		<Marquee autoFill><span class="label en">Video</span><span class="label ja">ビデオ</span></Marquee>
+	</h2>
+
 	<ul>
 		{#each data.videos as item}
 			<li>
@@ -34,7 +38,7 @@
 
 	h2 {
 		margin: 0;
-		padding: 1rem;
+		padding: 1rem 0;
 
 		background-color: var(--color-key-yellow);
 		border-bottom: 1px solid #000;
@@ -42,6 +46,20 @@
 
 		font-weight: normal;
 		font-size: 1rem;
+	}
+
+	.label {
+		margin-right: 1rem;
+		text-transform: uppercase;
+		vertical-align: middle;
+	}
+
+	.en {
+		font-size: 1.2rem;
+	}
+
+	.ja {
+		font-size: 0.7rem;
 	}
 
 	ul {

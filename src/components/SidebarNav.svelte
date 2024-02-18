@@ -176,7 +176,7 @@
 
 		transition: all 0.5s; /*アニメーション設定*/
 
-		background-color: #fff;
+		background-color: var(--color-key-pink-deep);
 	}
 
 	ul {
@@ -195,6 +195,8 @@
 			transition:
 				color 0.1s ease-in-out,
 				background-color 0.1s ease-in-out;
+			color: #fff;
+			text-decoration: none;
 		}
 
 		a:hover {
@@ -212,6 +214,7 @@
 		display: block;
 		width: 160px;
 		background-color: unset;
+		fill: #fff;
 	}
 
 	/* PC */

@@ -3,20 +3,7 @@
 	import './styles.css'
 
 	import { MetaTags } from 'svelte-meta-tags'
-	import { onNavigate } from '$app/navigation'
 	import SidebarNav from '@/components/SidebarNav.svelte'
-
-	// use Transition API (https://svelte.dev/blog/view-transitions)
-	onNavigate(navigation => {
-		if (!document.startViewTransition) return
-
-		return new Promise(resolve => {
-			document.startViewTransition(async () => {
-				resolve()
-				await navigation.complete
-			})
-		})
-	})
 </script>
 
 <!-- FIXNE: とりあえずnoindex -->
@@ -39,7 +26,7 @@
 	}
 
 	aside {
-		background-color: #fff;
+		background-color: var(--color-key-pink-deep);
 	}
 
 	main {
@@ -57,12 +44,12 @@
 		}
 
 		aside {
-			border-right: 1px solid #ccc;
+			border-right: 1px solid #331832;
 		}
 
 		main {
-			width: 100%;
-			max-width: 64rem;
+			/* Sidebar分引く */
+			width: calc(100vw - (160px + 24px * 2));
 			margin: 0 auto;
 		}
 	}

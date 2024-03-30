@@ -77,6 +77,7 @@
 
 		& + & {
 			border-top: 1px solid var(--color-bg-dark);
+			border-left: none;
 		}
 
 		img {
@@ -106,16 +107,11 @@
 		ul {
 			display: grid;
 			grid-template-columns: 1fr 1fr 1fr;
-			padding: 0;
-			margin: 0;
 		}
 
 		li {
-			display: block;
-			padding: 1rem;
-			position: relative;
-
 			& + & {
+				border-top: none;
 				border-left: 1px solid var(--color-bg-dark);
 			}
 		}

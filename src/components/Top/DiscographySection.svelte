@@ -77,6 +77,7 @@
 
 		& + & {
 			border-top: 1px solid var(--color-bg-dark);
+			border-left: none;
 		}
 
 		img {
@@ -110,6 +111,7 @@
 
 		li {
 			& + & {
+				border-top: none;
 				border-left: 1px solid var(--color-bg-dark);
 			}
 		}

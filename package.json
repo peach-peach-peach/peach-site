@@ -19,6 +19,7 @@
 		"test:unit": "vitest"
 	},
 	"dependencies": {
+		"@fontsource/montserrat": "^5.0.17",
 		"microcms-js-sdk": "^2.7.0",
 		"three": "^0.160.0"
 	},

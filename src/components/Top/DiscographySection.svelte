@@ -2,6 +2,8 @@
 	import { formatDate } from '@/lib/utils/formatDate'
 	import type { Article } from '@/domain/contents/Article'
 	import Spacer from '@/components/Spacer.svelte'
+	import SeeAll from '@/components/SeeAll.svelte'
+	import Marquee from '../Marquee.svelte'
 
 	type Data = {
 		discography: Article[]
@@ -11,7 +13,10 @@
 </script>
 
 <section>
-	<h2>Discography</h2>
+	<h2>
+		<Marquee autoFill><span class="label en">Discography</span><span class="label ja">ディスコグラフィー</span></Marquee
+		>
+	</h2>
 	<ul>
 		{#each data.discography as item}
 			<li>
@@ -23,25 +28,38 @@
 			</li>
 		{/each}
 	</ul>
-	<p class="see-all"><a href="/videos">See All Discography →</a></p>
+	<SeeAll href="/discography">See All Discography →</SeeAll>
 </section>
 
 <style lang="scss">
 	section {
-		border: 1px solid #000;
-		border-top: none;
+		border-top: 1px solid var(--color-bg-dark);
 	}
 
 	h2 {
 		margin: 0;
-		padding: 1rem;
+		padding: 1rem 0;
 
-		background-color: var(--color-key-purple);
+		background-color: var(--color-key-orange);
 		border-bottom: 1px solid #000;
 		text-align: center;
 
 		font-weight: normal;
 		font-size: 1rem;
+	}
+
+	.label {
+		margin-right: 1rem;
+		text-transform: uppercase;
+		vertical-align: middle;
+	}
+
+	.en {
+		font-size: 1.2rem;
+	}
+
+	.ja {
+		font-size: 0.7rem;
 	}
 
 	ul {
@@ -63,36 +81,22 @@
 		img {
 			width: 100%;
 			height: auto;
+			box-shadow: 0 4px 16px #0006;
 		}
 
 		.title {
 			display: block;
 			margin-top: 1rem;
+			font-family: 'Montserrat', sans-serif;
+			font-weight: 700;
 		}
 
 		time {
 			display: block;
-			font-size: 0.8rem;
 			position: absolute;
 			bottom: 1rem;
-		}
-	}
-
-	.see-all {
-		margin: 0;
-		padding: 0.5rem;
-
-		text-align: center;
-		background-color: var(--color-bg-black);
-
-		a {
-			color: #fff;
-			text-decoration: none;
-		}
-
-		a:hover {
-			background-color: var(--color-bg-black);
-			text-decoration: underline;
+			font-size: 0.8rem;
+			font-family: 'Montserrat', sans-serif;
 		}
 	}
 </style>

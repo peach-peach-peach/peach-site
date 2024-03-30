@@ -1,7 +1,10 @@
-<script>
+<script lang="ts">
 	import './reset.css'
 	import './styles.css'
-
+	import '@fontsource/montserrat/500.css'
+	import '@fontsource/montserrat/600.css'
+	import '@fontsource/montserrat/700.css'
+	import '@fontsource/montserrat/800.css'
 	import { MetaTags } from 'svelte-meta-tags'
 	import SidebarNav from '@/components/SidebarNav.svelte'
 </script>

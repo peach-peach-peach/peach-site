@@ -3,6 +3,7 @@
 	import type { Article } from '@/domain/contents/Article'
 	import Spacer from '@/components/Spacer.svelte'
 	import Marquee from '../Marquee.svelte'
+	import SeeAll from '@/components/SeeAll.svelte'
 
 	type Data = {
 		videos: Article[]
@@ -27,12 +28,12 @@
 			</li>
 		{/each}
 	</ul>
-	<p class="see-all"><a href="/videos">See All Videos →</a></p>
+	<SeeAll href="/videos">See All Videos →</SeeAll>
 </section>
 
 <style lang="scss">
 	section {
-		border: 1px solid #000;
+		border-top: 1px solid var(--color-bg-dark);
 		border-top: none;
 	}
 
@@ -41,7 +42,7 @@
 		padding: 1rem 0;
 
 		background-color: var(--color-key-yellow);
-		border-bottom: 1px solid #000;
+		border-bottom: 1px solid var(--color-bg-dark);
 		text-align: center;
 
 		font-weight: normal;
@@ -75,42 +76,28 @@
 		position: relative;
 
 		& + & {
-			border-left: 1px solid #000;
+			border-left: 1px solid var(--color-bg-dark);
 		}
 
 		img {
 			width: 100%;
 			height: auto;
+			box-shadow: 0 4px 16px #0006;
 		}
 
 		.title {
 			display: block;
 			margin-top: 1rem;
+			font-family: 'Montserrat', sans-serif;
+			font-weight: 600;
 		}
 
 		time {
 			display: block;
-			font-size: 0.8rem;
 			position: absolute;
 			bottom: 1rem;
-		}
-	}
-
-	.see-all {
-		margin: 0;
-		padding: 0.5rem;
-
-		text-align: center;
-		background-color: var(--color-bg-black);
-
-		a {
-			color: #fff;
-			text-decoration: none;
-		}
-
-		a:hover {
-			background-color: var(--color-bg-black);
-			text-decoration: underline;
+			font-size: 0.8rem;
+			font-family: 'Montserrat', sans-serif;
 		}
 	}
 </style>

@@ -30,6 +30,10 @@
 		</ul>
 	</section>
 
+	<div class="see-all see-all-news">
+		<a href="/news">See All News ↓</a>
+	</div>
+
 	<section>
 		<h3>Schedule</h3>
 		<ul>
@@ -40,14 +44,20 @@
 			{/each}
 		</ul>
 	</section>
+
+	<div class="see-all see-all-schedule">
+		<a href={`/schedule`}>See All Schedule ↓</a>
+	</div>
 </section>
 
 <style lang="scss">
 	.information {
 		display: grid;
-		grid-template-columns: 3rem 1fr 1fr;
+		grid-template-columns: 3rem 1fr 3rem 1fr 3rem;
 
-		border: 1px solid #000;
+		border-width: 1px 0;
+		border-style: solid;
+		border-color: var(--color-bg-dark);
 		min-height: 10rem;
 	}
 
@@ -56,8 +66,15 @@
 		align-items: center;
 		justify-content: center;
 
-		border-right: 1px solid #000;
+		border-right: 1px solid var(--color-bg-dark);
 		background-color: var(--color-key-green);
+	}
+
+	h3 {
+		color: #fff;
+		font-size: 2rem;
+		font-family: 'Montserrat', sans-serif;
+		font-weight: 700;
 	}
 
 	:global(.header-vertical) {
@@ -85,13 +102,40 @@
 		font-size: 0.7rem;
 	}
 
+	.see-all {
+		display: flex;
+		justify-content: center;
+		border-width: 0 1px;
+		border-style: solid;
+		border-color: var(--color-bg-dark);
+
+		a {
+			display: block;
+			margin: 0;
+			width: 100%;
+			transform: rotate(180deg);
+			background-color: transparent;
+			color: var(--color-text-highlight);
+			line-height: 3rem;
+			text-align: center;
+			writing-mode: vertical-rl;
+			font-family: 'Montserrat', sans-serif;
+			font-size: 1rem;
+			text-decoration: none;
+		}
+	}
+
+	.see-all-news {
+		background-color: var(--color-key-pink-deep);
+	}
+
+	.see-all-schedule {
+		background-color: var(--color-bg-dark);
+	}
+
 	.information {
 		section {
 			padding: 1rem;
-		}
-
-		section + section {
-			border-left: 1px solid #000;
 		}
 
 		h3 {
@@ -105,8 +149,8 @@
 		}
 
 		li {
-			line-height: 1.8;
-			font-size: 1.2rem;
+			line-height: 2.2;
+			font-size: 1rem;
 		}
 	}
 

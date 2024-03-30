@@ -38,7 +38,7 @@
 		display: grid;
 		padding: 3rem;
 
-		border: 1px solid #000;
+		border-top: 1px solid var(--color-bg-dark);
 		background: url('/bg-purple.jpg') repeat;
 	}
 
@@ -52,10 +52,12 @@
 			margin: 0;
 			color: var(--color-key-pink);
 			font-size: 1rem;
+			font-family: 'Montserrat', sans-serif;
 		}
 
 		h3 {
 			margin-top: 1rem;
+			font-family: 'Montserrat', sans-serif;
 		}
 
 		div {
@@ -76,7 +78,7 @@
 
 			color: #000;
 			background-color: #fff;
-			border: 1px solid #000;
+			border: 1px solid var(--color-bg-dark);
 			text-decoration: none;
 			text-align: center;
 		}

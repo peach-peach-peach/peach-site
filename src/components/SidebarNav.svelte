@@ -8,6 +8,11 @@
 
 	const contentItems: ListItem[] = [
 		{
+			label: 'Top',
+			href: '/',
+			keyColor: '#99FFAF'
+		},
+		{
 			label: 'News',
 			href: '/news',
 			keyColor: '#99FFAF'
@@ -65,6 +70,10 @@
 	export let open: boolean = false
 	export const toggle = () => (open = !open)
 	export const close = () => (open = false)
+	export const isCurrentPage = (href: string) => {
+		if (href === '/') return false
+		return $page.url.pathname.startsWith(href)
+	}
 
 	/* eslint-disable svelte/no-at-html-tags */
 </script>
@@ -85,7 +94,7 @@
 				<a
 					href={item.href}
 					on:click={close}
-					aria-current={$page.url.pathname.startsWith(item.href) ? 'page' : undefined}
+					aria-current={isCurrentPage(item.href) ? 'page' : undefined}
 					style="--key-color: {item.keyColor}"
 					>{item.label}
 				</a>
@@ -176,7 +185,7 @@
 
 		transition: all 0.5s; /*アニメーション設定*/
 
-		background-color: #fff;
+		background-color: var(--color-key-pink-deep);
 	}
 
 	ul {
@@ -195,6 +204,10 @@
 			transition:
 				color 0.1s ease-in-out,
 				background-color 0.1s ease-in-out;
+			color: #fff;
+			font-family: 'Montserrat', sans-serif;
+			font-weight: 500;
+			text-decoration: none;
 		}
 
 		a:hover {
@@ -212,6 +225,7 @@
 		display: block;
 		width: 160px;
 		background-color: unset;
+		fill: #fff;
 	}
 
 	/* PC */

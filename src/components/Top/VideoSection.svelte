@@ -2,6 +2,8 @@
 	import { formatDate } from '@/lib/utils/formatDate'
 	import type { Article } from '@/domain/contents/Article'
 	import Spacer from '@/components/Spacer.svelte'
+	import Marquee from '../Marquee.svelte'
+	import SeeAll from '@/components/SeeAll.svelte'
 
 	type Data = {
 		videos: Article[]
@@ -11,7 +13,10 @@
 </script>
 
 <section>
-	<h2>Video</h2>
+	<h2>
+		<Marquee autoFill><span class="label en">Video</span><span class="label ja">ビデオ</span></Marquee>
+	</h2>
+
 	<ul>
 		{#each data.videos as item}
 			<li>
@@ -23,30 +28,44 @@
 			</li>
 		{/each}
 	</ul>
-	<p class="see-all"><a href="/videos">See All Videos →</a></p>
+	<SeeAll href="/videos">See All Videos →</SeeAll>
 </section>
 
 <style lang="scss">
 	section {
-		border: 1px solid #000;
+		border-top: 1px solid var(--color-bg-dark);
 		border-top: none;
 	}
 
 	h2 {
 		margin: 0;
-		padding: 1rem;
+		padding: 1rem 0;
 
 		background-color: var(--color-key-yellow);
-		border-bottom: 1px solid #000;
+		border-bottom: 1px solid var(--color-bg-dark);
 		text-align: center;
 
 		font-weight: normal;
 		font-size: 1rem;
 	}
 
+	.label {
+		margin-right: 1rem;
+		text-transform: uppercase;
+		vertical-align: middle;
+	}
+
+	.en {
+		font-size: 1.2rem;
+	}
+
+	.ja {
+		font-size: 0.7rem;
+	}
+
 	ul {
-		display: grid;
-		grid-template-columns: 1fr 1fr 1fr;
+		display: block;
+		grid-template-columns: unset;
 		padding: 0;
 		margin: 0;
 	}
@@ -57,42 +76,44 @@
 		position: relative;
 
 		& + & {
-			border-left: 1px solid #000;
+			border-top: 1px solid var(--color-bg-dark);
+			border-left: none;
 		}
 
 		img {
 			width: 100%;
 			height: auto;
+			box-shadow: 0 4px 16px #0006;
 		}
 
 		.title {
 			display: block;
 			margin-top: 1rem;
+			font-family: 'Montserrat', sans-serif;
+			font-weight: 600;
 		}
 
 		time {
 			display: block;
-			font-size: 0.8rem;
 			position: absolute;
 			bottom: 1rem;
+			font-size: 0.8rem;
+			font-family: 'Montserrat', sans-serif;
 		}
 	}
 
-	.see-all {
-		margin: 0;
-		padding: 0.5rem;
-
-		text-align: center;
-		background-color: var(--color-bg-black);
-
-		a {
-			color: #fff;
-			text-decoration: none;
+	/* PC */
+	@media screen and (min-width: 768px) {
+		ul {
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr;
 		}
 
-		a:hover {
-			background-color: var(--color-bg-black);
-			text-decoration: underline;
+		li {
+			& + & {
+				border-top: none;
+				border-left: 1px solid var(--color-bg-dark);
+			}
 		}
 	}
 </style>

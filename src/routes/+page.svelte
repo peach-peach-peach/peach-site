@@ -6,6 +6,7 @@
 	import VideoSection from '@/components/Top/VideoSection.svelte'
 	import NewArrivalsSection from '@/components/Top/NewArrivalsSection.svelte'
 	import DiscographySection from '@/components/Top/DiscographySection.svelte'
+	import Footer from '@/components/Footer.svelte'
 
 	export let data: PageData
 
@@ -42,6 +43,8 @@
 	<NewArrivalsSection {data} />
 
 	<DiscographySection {data} />
+
+	<Footer />
 
 	<!-- Store -->
 </section>

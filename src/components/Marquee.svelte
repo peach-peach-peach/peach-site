@@ -148,7 +148,7 @@
 			['--direction' as string]: direction === 'left' ? 'normal' : 'reverse',
 			['--duration' as string]: `${$duration}s`,
 			['--delay' as string]: `${delay}s`,
-			['--iteration-count' as string]: !!loop ? `${loop}` : 'infinite',
+			['--iteration-count' as string]: Boolean(loop) ? `${loop}` : 'infinite',
 			['--min-width' as string]: autoFill ? `auto` : '100%'
 		})
 	)

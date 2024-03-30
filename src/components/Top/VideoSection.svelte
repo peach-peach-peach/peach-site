@@ -64,8 +64,8 @@
 	}
 
 	ul {
-		display: grid;
-		grid-template-columns: 1fr 1fr 1fr;
+		display: block;
+		grid-template-columns: unset;
 		padding: 0;
 		margin: 0;
 	}
@@ -76,7 +76,7 @@
 		position: relative;
 
 		& + & {
-			border-left: 1px solid var(--color-bg-dark);
+			border-top: 1px solid var(--color-bg-dark);
 		}
 
 		img {
@@ -98,6 +98,26 @@
 			bottom: 1rem;
 			font-size: 0.8rem;
 			font-family: 'Montserrat', sans-serif;
+		}
+	}
+
+	/* PC */
+	@media screen and (min-width: 768px) {
+		ul {
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr;
+			padding: 0;
+			margin: 0;
+		}
+
+		li {
+			display: block;
+			padding: 1rem;
+			position: relative;
+
+			& + & {
+				border-left: 1px solid var(--color-bg-dark);
+			}
 		}
 	}
 </style>

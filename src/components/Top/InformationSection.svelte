@@ -19,7 +19,7 @@
 		</h2>
 	</header>
 
-	<section>
+	<section class="news">
 		<h3>News</h3>
 		<ul>
 			{#each data.news as item}
@@ -34,7 +34,7 @@
 		<a href="/news">See All News ↓</a>
 	</div>
 
-	<section>
+	<section class="schedule">
 		<h3>Schedule</h3>
 		<ul>
 			{#each data.schedule as item}
@@ -53,8 +53,10 @@
 <style lang="scss">
 	.information {
 		display: grid;
-		grid-template-columns: 3rem 1fr 3rem 1fr 3rem;
-
+		grid-template-columns: 3rem 1fr 3rem;
+		grid-template-areas:
+			'header news see-all-news'
+			'header schedule see-all-schedule';
 		border-width: 1px 0;
 		border-style: solid;
 		border-color: var(--color-bg-dark);
@@ -62,6 +64,7 @@
 	}
 
 	header {
+		grid-area: header;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -85,7 +88,7 @@
 	}
 
 	:global(.header-vertical > .rfm-marquee-container.information-marquee) {
-		width: 10.6rem;
+		width: 20.6rem;
 	}
 
 	.label {
@@ -102,12 +105,17 @@
 		font-size: 0.7rem;
 	}
 
+	.schedule {
+		border-top: 1px solid var(--color-bg-dark);
+	}
+
 	.see-all {
 		display: flex;
 		justify-content: center;
 		border-width: 0 1px;
 		border-style: solid;
 		border-color: var(--color-bg-dark);
+		padding: 1rem 0;
 
 		a {
 			display: block;
@@ -126,10 +134,12 @@
 	}
 
 	.see-all-news {
+		grid-area: see-all-news;
 		background-color: var(--color-key-pink-deep);
 	}
 
 	.see-all-schedule {
+		grid-area: see-all-schedule;
 		background-color: var(--color-bg-dark);
 	}
 
@@ -163,5 +173,17 @@
 
 	/* PC */
 	@media screen and (min-width: 768px) {
+		.information {
+			grid-template-columns: 3rem 1fr 3rem 1fr 3rem;
+			grid-template-areas: 'header news see-all-news schedule see-all-schedule';
+		}
+
+		:global(.header-vertical > .rfm-marquee-container.information-marquee) {
+			width: 10.6rem;
+		}
+
+		.schedule {
+			border-top: none;
+		}
 	}
 </style>

@@ -14,7 +14,8 @@
 
 <section>
 	<h2>
-		<Marquee autoFill><span class="label en">Discography</span><span class="label ja">ディスコグラフィー</span></Marquee
+		<Marquee autoFill direction="left"
+			><span class="label en">Discography</span><span class="label ja">ディスコグラフィー</span></Marquee
 		>
 	</h2>
 	<ul>
@@ -63,8 +64,8 @@
 	}
 
 	ul {
-		display: grid;
-		grid-template-columns: 1fr 1fr 1fr;
+		display: block;
+		grid-template-columns: unset;
 		padding: 0;
 		margin: 0;
 	}
@@ -75,7 +76,7 @@
 		position: relative;
 
 		& + & {
-			border-left: 1px solid #000;
+			border-top: 1px solid var(--color-bg-dark);
 		}
 
 		img {
@@ -97,6 +98,20 @@
 			bottom: 1rem;
 			font-size: 0.8rem;
 			font-family: 'Montserrat', sans-serif;
+		}
+	}
+
+	/* PC */
+	@media screen and (min-width: 768px) {
+		ul {
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr;
+		}
+
+		li {
+			& + & {
+				border-left: 1px solid var(--color-bg-dark);
+			}
 		}
 	}
 </style>

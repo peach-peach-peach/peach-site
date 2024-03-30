@@ -31,7 +31,7 @@
 	/**
 	 * The direction the marquee is sliding
 	 */
-	export let direction: 'left' | 'right' | 'up' | 'down' = 'left'
+	export let direction: 'left' | 'right' | 'up' | 'down' = 'right'
 	/**
 	 * Speed calculated as pixels/second
 	 */

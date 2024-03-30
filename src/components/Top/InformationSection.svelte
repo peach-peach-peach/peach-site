@@ -13,7 +13,7 @@
 <section class="information">
 	<header>
 		<h2 class="header-vertical">
-			<Marquee speed={3} className="information-marquee" autoFill
+			<Marquee speed={3} className="information-marquee" autoFill direction="left"
 				><span class="label en">Information</span><span class="label ja">インフォメーション</span></Marquee
 			>
 		</h2>

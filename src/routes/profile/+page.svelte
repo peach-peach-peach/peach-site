@@ -1,10 +1,21 @@
+<script lang="ts">
+	import { browser } from '$app/environment'
+	import Footer from '@/components/Footer.svelte'
+	function goBack() {
+		if (browser) window.history.back()
+	}
+
+	/* eslint-disable svelte/no-at-html-tags */
+</script>
+
 <svelte:head>
 	<title>Profile</title>
-	<meta name="description" content="Profile" />
 </svelte:head>
 
-<div class="text-column">
+<article>
 	<h1>Profile</h1>
+
+	<img src="/ppp.jpg" alt="Profile" class="eyecatch" />
 
 	<p>
 		○2021年秋、東京で活動を開始。<br />
@@ -41,10 +52,52 @@
 		In 2004, start Solo project as ALOHA in Fukuoka. Afterwards, moved the base to Tokyo. In addition to producing my own
 		music, I also produce other peoples producing and mastering.
 	</p>
+</article>
+
+<div class="back">
+	<a href={`/`} on:click={goBack}>← Back</a>
 </div>
 
-<style>
-	p {
+<Footer />
+
+<style lang="scss">
+	article {
+		padding: 24px;
+	}
+
+	h1 {
+		font-size: 1.4rem;
 		margin: 0 0 1rem;
+	}
+
+	.back {
+		margin: 0;
+		padding: 0.5rem;
+
+		text-align: center;
+		font-family: 'Montserrat', sans-serif;
+		background-color: var(--color-bg-dark);
+
+		a {
+			color: var(--color-text-highlight);
+			text-decoration: none;
+		}
+
+		a:hover {
+			background-color: transparent;
+			text-decoration: underline;
+		}
+	}
+
+	/* PC */
+	@media screen and (min-width: 768px) {
+		article {
+			max-width: 768px;
+			margin: 2rem auto;
+		}
+
+		.eyecatch {
+			margin-bottom: 3rem;
+		}
 	}
 </style>

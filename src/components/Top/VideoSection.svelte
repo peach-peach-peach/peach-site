@@ -1,9 +1,8 @@
 <script lang="ts">
-	import { formatDate } from '@/lib/utils/formatDate'
 	import type { Article } from '@/domain/contents/Article'
-	import Spacer from '@/components/Spacer.svelte'
-	import Marquee from '../Marquee.svelte'
+	import Marquee from '@/components/Marquee.svelte'
 	import SeeAll from '@/components/SeeAll.svelte'
+	import CardList from '@/components/CardList.svelte'
 
 	type Data = {
 		videos: Article[]
@@ -17,17 +16,10 @@
 		<Marquee autoFill><span class="label en">Video</span><span class="label ja">ビデオ</span></Marquee>
 	</h2>
 
-	<ul>
-		{#each data.videos as item}
-			<li>
-				<a href={`/videos/${item.id}/`}><img src={item.eyecatch?.url} alt={item.title} /></a>
-				<a href={`/videos/${item.id}/`} class="title">{item.title}</a>
-				<!-- time分のスペースを確保 -->
-				<Spacer size="3rem" />
-				<time>{formatDate(item.publishedAt)}</time>
-			</li>
-		{/each}
-	</ul>
+	<section>
+		<CardList categoryId="videos" items={data.videos} --theme-color="rgba(255, 255, 255, 0.6)" />
+	</section>
+
 	<SeeAll href="/videos">See All Videos →</SeeAll>
 </section>
 
@@ -63,57 +55,7 @@
 		font-size: 0.7rem;
 	}
 
-	ul {
-		display: block;
-		grid-template-columns: unset;
-		padding: 0;
-		margin: 0;
-	}
-
-	li {
-		display: block;
-		padding: 1rem;
-		position: relative;
-
-		& + & {
-			border-top: 1px solid var(--color-bg-dark);
-			border-left: none;
-		}
-
-		img {
-			width: 100%;
-			height: auto;
-			box-shadow: 0 4px 16px #0006;
-		}
-
-		.title {
-			display: block;
-			margin-top: 1rem;
-			font-family: 'Montserrat', sans-serif;
-			font-weight: 600;
-		}
-
-		time {
-			display: block;
-			position: absolute;
-			bottom: 1rem;
-			font-size: 0.8rem;
-			font-family: 'Montserrat', sans-serif;
-		}
-	}
-
 	/* PC */
 	@media screen and (min-width: 768px) {
-		ul {
-			display: grid;
-			grid-template-columns: 1fr 1fr 1fr;
-		}
-
-		li {
-			& + & {
-				border-top: none;
-				border-left: 1px solid var(--color-bg-dark);
-			}
-		}
 	}
 </style>

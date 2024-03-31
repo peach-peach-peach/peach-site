@@ -19,7 +19,7 @@
 	</h2>
 
 	<section>
-		<CardList categoryId="discography" items={data.discography} themeColor="rgba(255, 255, 255, 0.6)" />
+		<CardList categoryId="discography" items={data.discography} --theme-color="rgba(255, 255, 255, 0.6)" />
 	</section>
 
 	<SeeAll href="/discography">See All Discography →</SeeAll>

@@ -17,7 +17,7 @@
 	</h2>
 
 	<section>
-		<CardList categoryId="videos" items={data.videos} themeColor="rgba(255, 255, 255, 0.6)" />
+		<CardList categoryId="videos" items={data.videos} --theme-color="rgba(255, 255, 255, 0.6)" />
 	</section>
 
 	<SeeAll href="/videos">See All Videos →</SeeAll>

@@ -104,7 +104,7 @@
 	@media screen and (min-width: 768px) {
 		article {
 			max-width: 768px;
-			margin: 2rem auto 0;
+			margin: 2rem auto;
 		}
 
 		.published {

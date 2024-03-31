@@ -70,9 +70,9 @@
 	export let open: boolean = false
 	export const toggle = () => (open = !open)
 	export const close = () => (open = false)
-	export const isCurrentPage = (href: string) => {
+	export const isCurrentPage = (currentPath: string, href: string) => {
 		if (href === '/') return false
-		return $page.url.pathname.startsWith(href)
+		return currentPath.startsWith(href)
 	}
 
 	/* eslint-disable svelte/no-at-html-tags */
@@ -94,7 +94,7 @@
 				<a
 					href={item.href}
 					on:click={close}
-					aria-current={isCurrentPage(item.href) ? 'page' : undefined}
+					aria-current={isCurrentPage($page.url.pathname, item.href) ? 'page' : undefined}
 					style="--key-color: {item.keyColor}"
 					>{item.label}
 				</a>

@@ -1,5 +1,9 @@
 <script lang="ts">
 	import type { PageData } from './$types'
+	import CardList from '@/components/CardList.svelte'
+	import SeeAll from '@/components/SeeAll.svelte'
+	import Footer from '@/components/Footer.svelte'
+	import MarqueeHeader from '@/components/MarqueeHeader.svelte'
 
 	export let data: PageData
 </script>
@@ -8,61 +12,17 @@
 	<title>Discography</title>
 </svelte:head>
 
-<h1>Discography</h1>
+<h1 class="visually-hidden">ディスコグラフィ</h1>
+
+<MarqueeHeader textEn="Discography" textJa="ディスコグラフィー" --theme-color="var(--color-key-orange)" />
 
 <section>
-	<ul>
-		{#each data.contents as article}
-			<li>
-				<a class="card" href="/discography/{article.id}">
-					<div>
-						<h2>{article.title}</h2>
-						<p>→ read more</p>
-					</div>
-				</a>
-			</li>
-		{/each}
-	</ul>
+	<CardList categoryId="discography" items={data.contents} --theme-color="var(--color-key-orange)" />
 </section>
 
+<SeeAll href="/discography/N">More</SeeAll>
+
+<Footer />
+
 <style>
-	h1 {
-		margin-top: 3rem;
-		text-transform: uppercase;
-	}
-
-	ul {
-		list-style: none;
-		padding: 0;
-		margin: 0;
-	}
-
-	li {
-		display: block;
-	}
-
-	.card {
-		display: flex;
-		flex-direction: column;
-		border: 1px solid #ccc;
-		border-radius: 10px;
-		padding: 1rem;
-		margin: 1rem 0;
-		background-color: white;
-	}
-
-	h2 {
-		width: 100%;
-		color: #333;
-		font-weight: bold;
-		margin: 0;
-	}
-
-	p {
-		margin: 0;
-	}
-
-	section {
-		padding: 1rem;
-	}
 </style>

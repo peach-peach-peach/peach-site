@@ -12,14 +12,13 @@
 
 	export let items: ArticleItem[]
 	export let categoryId: CategoryId
-	export let themeColor: string = 'var(--color-key-green)'
 </script>
 
 <section>
 	<div class="list">
 		{#each items as item}
 			<article class="list-card">
-				<a href={`/${categoryId}/${item.id}/`} style="--bg-hover: {themeColor}">
+				<a href={`/${categoryId}/${item.id}/`}>
 					<figure><img src={item.eyecatch?.url ?? '/card-no-image.png'} alt={item.title} /></figure>
 					<h3>{item.title}</h3>
 
@@ -44,7 +43,7 @@
 		display: block;
 		padding: 1rem;
 		background-color: rgba(255, 255, 255, 0.3);
-		backdrop-filter: blur(30%) brightness(1.08);
+		/* backdrop-filter: blur(30px) brightness(8%); */
 
 		figure {
 			width: 100%;
@@ -59,10 +58,11 @@
 		}
 
 		h3 {
-			display: block;
+			display: inline-block;
 			margin-top: 1rem;
 			font-family: 'Montserrat', sans-serif;
 			font-weight: 600;
+			text-decoration: underline;
 		}
 
 		time {
@@ -76,22 +76,20 @@
 	}
 
 	a:hover {
-		background-color: var(--bg-hover);
+		background-color: var(--theme-color);
 		transition: background-color 0.2s ease-in-out;
 
 		figure {
 			width: calc(100% + 1rem);
 			height: auto;
-			margin-left: -0.5rem;
-			margin-top: -0.5rem;
+			margin: -0.5rem;
 			box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
 
 			transition:
 				box-shadow 0.2s ease-in-out,
 				width 0.1s ease-in-out,
 				height 0.1s ease-in-out,
-				margin-left 0.1s ease-in-out,
-				margin-top 0.1s ease-in-out;
+				margin 0.1s ease-in-out;
 		}
 
 		h3 {
@@ -112,10 +110,6 @@
 
 		article {
 			border-right: 1px solid var(--color-bg-dark);
-		}
-
-		article:last-of-type {
-			border-right: none;
 		}
 	}
 </style>

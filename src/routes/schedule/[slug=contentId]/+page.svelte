@@ -1,6 +1,6 @@
 <script lang="ts">
-	import PreviewNotice from '../../../components/PreviewNotice.svelte'
 	import type { PageData } from './$types'
+	import ArticlePage from '@/components/ArticlePage.svelte'
 
 	export let data: PageData
 
@@ -11,36 +11,7 @@
 	<title>Schedule: {data.item.title}</title>
 </svelte:head>
 
-<section>
-	{#if data.isPreview}
-		<PreviewNotice />
-	{/if}
-	<h1>{data.item.title}</h1>
-	<div class="content">
-		{@html data.item.content}
-	</div>
-</section>
+<ArticlePage category="schedule" {data} />
 
-<style>
-	section {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-	}
-
-	h1 {
-		width: 100%;
-	}
-
-	.content {
-		width: 100%;
-		background-color: white;
-		padding: 1rem;
-	}
-
-	.content :global(img) {
-		max-width: 100%;
-		height: auto;
-	}
+<style lang="scss">
 </style>

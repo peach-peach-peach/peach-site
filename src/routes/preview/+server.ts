@@ -1,4 +1,4 @@
-import { getCategoryByName } from '$lib/sdk/cms/categories'
+import { getCategoryByName } from '@/lib/sdk/cms/getCategoryByName'
 import { createCMSClient, type Article } from '$lib/sdk/cms/microcms'
 import { error, redirect } from '@sveltejs/kit'
 

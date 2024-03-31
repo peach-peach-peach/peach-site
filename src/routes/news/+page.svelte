@@ -1,5 +1,9 @@
 <script lang="ts">
 	import type { PageData } from './$types'
+	import Marquee from '@/components/Marquee.svelte'
+	import Footer from '@/components/Footer.svelte'
+	import SeeAll from '@/components/SeeAll.svelte'
+	import CardList from '@/components/CardList.svelte'
 
 	export let data: PageData
 </script>
@@ -8,61 +12,45 @@
 	<title>News</title>
 </svelte:head>
 
-<h1>News</h1>
+<h1>
+	<Marquee autoFill><span class="label en">News</span><span class="label ja">ニュース</span></Marquee>
+</h1>
 
 <section>
-	<ul>
-		{#each data.contents as article}
-			<li>
-				<a class="card" href="/news/{article.id}">
-					<div>
-						<h2>{article.title}</h2>
-						<p>→ read more</p>
-					</div>
-				</a>
-			</li>
-		{/each}
-	</ul>
+	<CardList categoryId="news" items={data.contents} />
 </section>
+
+<SeeAll href="/news/N">More</SeeAll>
+
+<Footer />
 
 <style>
 	h1 {
-		margin-top: 3rem;
+		background-color: var(--color-key-green);
+		border-bottom: 1px solid var(--color-bg-dark);
+		margin: 0;
+		padding: 0.6rem 0;
+
 		text-transform: uppercase;
+		font-family: 'Montserrat', sans-serif;
+		font-weight: 500;
 	}
 
-	ul {
-		list-style: none;
-		padding: 0;
-		margin: 0;
+	.label {
+		margin-right: 0.5rem;
+		text-transform: uppercase;
+		vertical-align: middle;
 	}
 
-	li {
-		display: block;
+	.en {
+		font-size: 0.8rem;
 	}
 
-	.card {
-		display: flex;
-		flex-direction: column;
-		border: 1px solid #ccc;
-		border-radius: 10px;
-		padding: 1rem;
-		margin: 1rem 0;
-		background-color: white;
+	.ja {
+		font-size: 0.8rem;
 	}
 
-	h2 {
-		width: 100%;
-		color: #333;
-		font-weight: bold;
-		margin: 0;
-	}
-
-	p {
-		margin: 0;
-	}
-
-	section {
-		padding: 1rem;
+	/* PC */
+	@media screen and (min-width: 768px) {
 	}
 </style>

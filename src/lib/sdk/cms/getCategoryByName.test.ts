@@ -1,5 +1,5 @@
 import { describe, test, expect } from 'vitest'
-import { getCategoryByName } from './categories'
+import { getCategoryByName } from './getCategoryByName'
 
 describe('getCategoryByName', () => {
 	test.each([

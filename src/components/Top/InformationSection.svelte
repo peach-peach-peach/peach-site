@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { Article } from '@/domain/contents/Article'
-	import Marquee from '../Marquee.svelte'
+	import Marquee from '@/components/Marquee.svelte'
 
 	type Data = {
 		news: Article[]

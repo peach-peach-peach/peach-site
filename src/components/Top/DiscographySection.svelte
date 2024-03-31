@@ -1,9 +1,8 @@
 <script lang="ts">
-	import { formatDate } from '@/lib/utils/formatDate'
 	import type { Article } from '@/domain/contents/Article'
-	import Spacer from '@/components/Spacer.svelte'
 	import SeeAll from '@/components/SeeAll.svelte'
-	import Marquee from '../Marquee.svelte'
+	import Marquee from '@/components/Marquee.svelte'
+	import CardList from '@/components/CardList.svelte'
 
 	type Data = {
 		discography: Article[]
@@ -12,28 +11,22 @@
 	export let data: Data
 </script>
 
-<section>
+<section class="discography">
 	<h2>
 		<Marquee autoFill direction="left"
 			><span class="label en">Discography</span><span class="label ja">ディスコグラフィー</span></Marquee
 		>
 	</h2>
-	<ul>
-		{#each data.discography as item}
-			<li>
-				<a href={`/discography/${item.id}/`}><img src={item.eyecatch?.url} alt={item.title} /></a>
-				<a href={`/discography/${item.id}/`} class="title">{item.title}</a>
-				<!-- time分のスペースを確保 -->
-				<Spacer size="3rem" />
-				<time>{formatDate(item.publishedAt)}</time>
-			</li>
-		{/each}
-	</ul>
+
+	<section>
+		<CardList categoryId="discography" items={data.discography} themeColor="rgba(255, 255, 255, 0.6)" />
+	</section>
+
 	<SeeAll href="/discography">See All Discography →</SeeAll>
 </section>
 
 <style lang="scss">
-	section {
+	.discography {
 		border-top: 1px solid var(--color-bg-dark);
 	}
 
@@ -63,57 +56,7 @@
 		font-size: 0.7rem;
 	}
 
-	ul {
-		display: block;
-		grid-template-columns: unset;
-		padding: 0;
-		margin: 0;
-	}
-
-	li {
-		display: block;
-		padding: 1rem;
-		position: relative;
-
-		& + & {
-			border-top: 1px solid var(--color-bg-dark);
-			border-left: none;
-		}
-
-		img {
-			width: 100%;
-			height: auto;
-			box-shadow: 0 4px 16px #0006;
-		}
-
-		.title {
-			display: block;
-			margin-top: 1rem;
-			font-family: 'Montserrat', sans-serif;
-			font-weight: 700;
-		}
-
-		time {
-			display: block;
-			position: absolute;
-			bottom: 1rem;
-			font-size: 0.8rem;
-			font-family: 'Montserrat', sans-serif;
-		}
-	}
-
 	/* PC */
 	@media screen and (min-width: 768px) {
-		ul {
-			display: grid;
-			grid-template-columns: 1fr 1fr 1fr;
-		}
-
-		li {
-			& + & {
-				border-top: none;
-				border-left: 1px solid var(--color-bg-dark);
-			}
-		}
 	}
 </style>

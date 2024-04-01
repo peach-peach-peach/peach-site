@@ -63,6 +63,12 @@
 		min-height: 10rem;
 	}
 
+	.news,
+	.schedule {
+		background-color: rgba(#fff, 0.3);
+		backdrop-filter: blur(16px) brightness(1.08);
+	}
+
 	header {
 		grid-area: header;
 		display: flex;

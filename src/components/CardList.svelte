@@ -42,8 +42,8 @@
 		position: relative;
 		display: block;
 		padding: 1rem;
-		background-color: rgba(255, 255, 255, 0.3);
-		/* backdrop-filter: blur(30px) brightness(8%); */
+		background-color: rgba(#fff, 0.3);
+		backdrop-filter: blur(16px) brightness(1.08);
 
 		figure {
 			width: 100%;

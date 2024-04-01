@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { browser } from '$app/environment'
 	import Footer from '@/components/Footer.svelte'
+
 	function goBack() {
 		if (browser) window.history.back()
 	}
@@ -62,7 +63,9 @@
 
 <style lang="scss">
 	article {
-		padding: 24px;
+		padding: 3rem;
+		background-color: rgba(#fff, 0.3);
+		backdrop-filter: blur(16px) brightness(1.08);
 	}
 
 	h1 {
@@ -93,7 +96,7 @@
 	@media screen and (min-width: 768px) {
 		article {
 			max-width: 768px;
-			margin: 2rem auto;
+			margin: 0 auto;
 		}
 
 		.eyecatch {

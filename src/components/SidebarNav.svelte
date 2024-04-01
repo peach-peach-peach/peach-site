@@ -36,12 +36,12 @@
 			label: 'Discography',
 			href: '/discography',
 			keyColor: '#BAC1FF'
-		},
-		{
-			label: 'Store',
-			href: '#',
-			keyColor: '#ff9c8f'
 		}
+		// {
+		// 	label: 'Store',
+		// 	href: '#',
+		// 	keyColor: '#ff9c8f'
+		// }
 	]
 
 	const socialItems: ListItem[] = [

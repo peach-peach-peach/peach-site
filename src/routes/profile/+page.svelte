@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { browser } from '$app/environment'
 	import Footer from '@/components/Footer.svelte'
+
 	function goBack() {
 		if (browser) window.history.back()
 	}

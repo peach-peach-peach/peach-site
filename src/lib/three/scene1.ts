@@ -10,7 +10,7 @@ const createCamera = () => {
 
 const createScene = () => {
 	const scene = new t.Scene()
-	scene.background = new t.Color(0xffffff)
+	// scene.background = new t.Color(0xffffff)
 
 	const geometry = new t.PlaneGeometry(4, 2, 2)
 
@@ -58,7 +58,7 @@ const resize = () => {
 export const createScene1 = (el: HTMLCanvasElement) => {
 	createCamera()
 	const { object, scene } = createScene()
-	renderer = new t.WebGLRenderer({ antialias: true, canvas: el })
+	renderer = new t.WebGLRenderer({ antialias: true, canvas: el, alpha: true })
 	resize()
 	animate(scene, object.logo)
 }

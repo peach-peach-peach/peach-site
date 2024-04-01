@@ -7,6 +7,7 @@
 	import '@fontsource/montserrat/800.css'
 	import { MetaTags } from 'svelte-meta-tags'
 	import SidebarNav from '@/components/SidebarNav.svelte'
+	import GradientBackground from '@/components/GradientBackground.svelte'
 </script>
 
 <!-- FIXNE: とりあえずnoindex -->
@@ -18,6 +19,8 @@
 	</aside>
 
 	<main>
+		<GradientBackground />
+
 		<slot />
 	</main>
 </div>

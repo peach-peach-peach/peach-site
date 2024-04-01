@@ -1,6 +1,7 @@
 import { getCategoryByName } from '@/lib/sdk/cms/getCategoryByName'
-import { createCMSClient, type Article } from '$lib/sdk/cms/microcms'
+import { createCMSClient } from '$lib/sdk/cms/microcms'
 import { error, redirect } from '@sveltejs/kit'
+import type { Article } from '@/domain/contents/Article.js'
 
 /** @type {import('./$types').RequestHandler} */
 export async function GET({ url }) {

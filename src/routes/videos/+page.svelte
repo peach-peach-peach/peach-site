@@ -14,7 +14,7 @@
 
 <h1 class="visually-hidden">ビデオ</h1>
 
-<MarqueeHeader textEn="Video" textJa="ビデオ" --theme-color="var(--color-key-orange)" />
+<MarqueeHeader textEn="Video" textJa="ビデオ" --theme-color="var(--color-key-yellow)" />
 
 <section>
 	<CardList categoryId="videos" items={data.contents} --theme-color="var(--color-key-yellow)" />

@@ -8,9 +8,10 @@ const createCamera = () => {
 	camera.position.z = 5
 }
 
+let logoMesh: t.Mesh
+
 const createScene = () => {
 	const scene = new t.Scene()
-	// scene.background = new t.Color(0xffffff)
 
 	const geometry = new t.PlaneGeometry(4, 2, 2)
 
@@ -19,11 +20,12 @@ const createScene = () => {
 
 	const material = new t.MeshStandardMaterial({
 		color: 0xffffff,
-		map: textureLogo
+		map: textureLogo,
+		side: t.DoubleSide
 	})
 
-	const logo = new t.Mesh(geometry, material)
-	scene.add(logo)
+	logoMesh = new t.Mesh(geometry, material)
+	scene.add(logoMesh)
 
 	const directionalLight = new t.DirectionalLight(0x9090aa)
 	directionalLight.position.set(-10, 10, -10).normalize()
@@ -34,8 +36,7 @@ const createScene = () => {
 	scene.add(hemisphereLight)
 
 	return {
-		scene,
-		object: { logo }
+		scene
 	}
 }
 
@@ -43,7 +44,7 @@ let renderer: t.WebGLRenderer
 
 const animate = (scene: t.Scene, mesh1: t.Mesh) => {
 	requestAnimationFrame(() => animate(scene, mesh1))
-	mesh1.rotation.x += 0.01
+	// mesh1.rotation.x += 0.01
 	mesh1.rotation.y += 0.01
 	renderer.render(scene, camera)
 }
@@ -55,18 +56,41 @@ const resize = () => {
 	camera.updateProjectionMatrix()
 }
 
+const updateScrollPosition = (scrollY: number) => {
+	logoMesh.rotation.x = scrollY * 0.01
+}
+
+let lastKnownScrollPosition = 0
+let ticking = false
+const scroll = () => {
+	lastKnownScrollPosition = window.scrollY
+
+	if (!ticking) {
+		window.requestAnimationFrame(() => {
+			updateScrollPosition(lastKnownScrollPosition)
+			ticking = false
+		})
+
+		ticking = true
+	}
+}
+
 export const createScene1 = (el: HTMLCanvasElement) => {
 	createCamera()
-	const { object, scene } = createScene()
+	const { scene } = createScene()
 	renderer = new t.WebGLRenderer({ antialias: true, canvas: el, alpha: true })
 	resize()
-	animate(scene, object.logo)
+	animate(scene, logoMesh)
 }
 
 export const subscribeResize = () => {
 	window.addEventListener('resize', resize)
+
+	return () => window.removeEventListener('resize', resize)
 }
 
-export const unsubscribeResize = () => {
-	window.removeEventListener('resize', resize)
+export const subscribeScroll = () => {
+	window.addEventListener('scroll', scroll)
+
+	return () => window.removeEventListener('scroll', scroll)
 }

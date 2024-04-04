@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte'
-	import { createScene1, subscribeResize, unsubscribeResize } from '$lib/three/scene1'
+	import { createScene1, subscribeResize, subscribeScroll } from '$lib/three/scene1'
 	import type { PageData } from './$types'
 	import InformationSection from '@/components/Top/InformationSection.svelte'
 	import VideoSection from '@/components/Top/VideoSection.svelte'
@@ -13,11 +13,13 @@
 	let el: HTMLCanvasElement
 
 	onMount(() => {
-		subscribeResize()
+		const unsubscribeResize = subscribeResize()
+		const unsubscribeScroll = subscribeScroll()
 		createScene1(el)
 
 		return () => {
 			unsubscribeResize()
+			unsubscribeScroll()
 		}
 	})
 
@@ -52,6 +54,6 @@
 <style>
 	.catch {
 		width: 100%;
-		height: 600px;
+		height: 100vh;
 	}
 </style>

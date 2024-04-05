@@ -14,7 +14,7 @@
 
 <h1 class="visually-hidden">ディスコグラフィ</h1>
 
-<MarqueeHeader textEn="Discography" textJa="ディスコグラフィー" --theme-color="var(--color-key-orange)" />
+<MarqueeHeader contentType="discography" />
 
 <section>
 	<CardList categoryId="discography" items={data.contents} --theme-color="var(--color-key-orange)" />

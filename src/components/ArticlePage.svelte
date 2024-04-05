@@ -24,11 +24,7 @@
 	/* eslint-disable svelte/no-at-html-tags */
 </script>
 
-<MarqueeHeader
-	textEn={categoryItem?.id ?? ''}
-	textJa={categoryItem?.name ?? ''}
-	--theme-color={categoryItem?.themeColor}
-/>
+<MarqueeHeader contentType={category} />
 
 <article>
 	{#if data.isPreview}

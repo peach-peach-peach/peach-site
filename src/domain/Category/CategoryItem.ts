@@ -30,9 +30,3 @@ export type CategoryItem = {
 	readonly name: string
 	readonly themeColor: string
 }
-
-export const getCategoryItem = (id: string): CategoryItem => {
-	const categoryItem = categoryItems.find(item => item.id === id)
-	if (!categoryItem) throw new Error(`categoryItem not found: ${id}`)
-	return categoryItem
-}

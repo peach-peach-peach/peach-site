@@ -133,7 +133,7 @@
 	const containerStyle = objectToStyleString({
 		['--pause-on-hover' as string]: !play || pauseOnHover ? 'paused' : 'running',
 		['--pause-on-click' as string]: !play || (pauseOnHover && !pauseOnClick) || pauseOnClick ? 'paused' : 'running',
-		['--width' as string]: direction === 'up' || direction === 'down' ? `100vh` : '100%',
+		['--width' as string]: direction === 'up' || direction === 'down' ? `auto` : '100%',
 		['--transform' as string]: direction === 'up' ? 'rotate(-90deg)' : direction === 'down' ? 'rotate(90deg)' : 'none'
 	})
 

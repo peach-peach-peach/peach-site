@@ -14,7 +14,7 @@
 
 <h1 class="visually-hidden">スケジュール</h1>
 
-<MarqueeHeader textEn="Schedule" textJa="スケジュール" --theme-color="var(--color-key-blue)" />
+<MarqueeHeader contentType="schedule" />
 
 <section>
 	<CardList categoryId="schedule" items={data.contents} --theme-color="var(--color-key-blue)" />

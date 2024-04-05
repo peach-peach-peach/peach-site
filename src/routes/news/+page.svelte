@@ -14,7 +14,7 @@
 
 <h1 class="visually-hidden">ニュース</h1>
 
-<MarqueeHeader textEn="News" textJa="ニュース" --theme-color="var(--color-key-green)" />
+<MarqueeHeader contentType="news" />
 
 <section>
 	<CardList categoryId="news" items={data.contents} --theme-color="var(--color-key-green)" />

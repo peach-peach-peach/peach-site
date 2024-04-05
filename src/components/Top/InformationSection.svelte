@@ -1,6 +1,8 @@
 <script lang="ts">
 	import type { Article } from '@/domain/contents/Article'
 	import Marquee from '@/components/Marquee.svelte'
+	import MarqueeHeader from '../MarqueeHeader.svelte'
+	import MarqueeHeaderInfo from '../MarqueeHeaderInfo.svelte'
 
 	type Data = {
 		news: Article[]
@@ -12,12 +14,8 @@
 
 <section class="information">
 	<header>
-		<h2 class="header-vertical">
-			<Marquee speed={2} className="information-marquee" autoFill direction="left" style="width: 25rem;">
-				<span class="label en">Information</span><span class="label ja">インフォメーション</span>
-				<span class="label en">Information</span><span class="label ja">インフォメーション</span>
-			</Marquee>
-		</h2>
+		<h2 class="visually-hidden">Information</h2>
+		<MarqueeHeaderInfo />
 	</header>
 
 	<section class="news">
@@ -66,12 +64,7 @@
 
 	header {
 		grid-area: header;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		overflow: hidden;
 		border-right: 1px solid var(--color-bg-dark);
-		background-color: var(--color-key-green);
 	}
 
 	h3 {
@@ -79,27 +72,6 @@
 		font-size: 2rem;
 		font-family: 'Montserrat', sans-serif;
 		font-weight: 700;
-	}
-
-	:global(.header-vertical) {
-		rotate: 270deg;
-		margin: 0;
-		font-size: 1.1rem;
-		font-weight: normal;
-	}
-
-	.label {
-		margin-right: 0.5rem;
-		text-transform: uppercase;
-		vertical-align: middle;
-	}
-
-	.en {
-		font-size: 1.2rem;
-	}
-
-	.ja {
-		font-size: 0.7rem;
 	}
 
 	.schedule {

@@ -14,6 +14,8 @@
 
 	export let wrapperStyle: string = ''
 	export let marqueeProps: ComponentProps<InstanceType<typeof Marquee>> = {}
+
+	/* eslint-disable svelte/no-at-html-tags */
 </script>
 
 <div class="wrapper" style="--theme-color: {contentData.themeColor}; {wrapperStyle}">

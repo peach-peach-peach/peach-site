@@ -48,6 +48,8 @@
 	export let marqueeProps: ComponentProps<InstanceType<typeof Marquee>> = {}
 
 	const contentData = contentMap[contentType]
+
+	/* eslint-disable svelte/no-at-html-tags */
 </script>
 
 <div class="wrapper" style="--theme-color: {contentData.themeColor}; {wrapperStyle}">

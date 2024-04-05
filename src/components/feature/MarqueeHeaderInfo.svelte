@@ -10,6 +10,8 @@
 		// newsと同じカラー
 		themeColor: getCategoryItemById('news').themeColor
 	} satisfies { imageJa: string; imageEn: string; themeColor: string }
+
+	/* eslint-disable svelte/no-at-html-tags */
 </script>
 
 <div class="wrapper" style="--theme-color: {contentData.themeColor};">

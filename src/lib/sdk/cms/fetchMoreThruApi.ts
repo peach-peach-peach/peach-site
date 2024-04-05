@@ -1,7 +1,8 @@
+import type { CategoryId } from '@/domain/Category/CategoryId'
 import type { APIFetchMoreResponse } from '@/routes/api/fetch-more/+server'
 
 type FetchMoreThruApiParams = {
-	categoryId: string
+	categoryId: CategoryId
 	limit: number
 	offset: number
 }

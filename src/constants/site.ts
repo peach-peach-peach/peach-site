@@ -12,6 +12,6 @@ export const site = {
 
 export const paginate = {
 	list: {
-		limit: 10
+		limit: 9
 	}
 }

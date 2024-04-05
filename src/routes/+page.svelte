@@ -7,6 +7,7 @@
 	import NewArrivalsSection from '@/components/feature/Top/NewArrivalsSection.svelte'
 	import DiscographySection from '@/components/feature/Top/DiscographySection.svelte'
 	import Footer from '@/components/feature/Footer.svelte'
+	import { site } from '@/constants/site'
 
 	export let data: PageData
 
@@ -22,13 +23,11 @@
 			unsubscribeScroll()
 		}
 	})
-
-	/* eslint-disable svelte/no-at-html-tags */
 </script>
 
 <svelte:head>
-	<title>Peach Peach Peach</title>
-	<meta name="description" content="Peach Peach Peach website" />
+	<title>{site.title}</title>
+	<meta name="description" content={site.description} />
 </svelte:head>
 
 <section>

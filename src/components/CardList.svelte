@@ -12,6 +12,8 @@
 
 	export let items: ArticleItem[]
 	export let categoryId: CategoryId
+	// 正方形の画像で表示
+	export let squaredImage: boolean = false
 </script>
 
 <section>
@@ -19,7 +21,9 @@
 		{#each items as item}
 			<article class="list-card">
 				<a href={`/${categoryId}/${item.id}/`}>
-					<figure><img src={item.eyecatch?.url ?? '/card-no-image.png'} alt={item.title} /></figure>
+					<figure class:squared={squaredImage}>
+						<img src={item.eyecatch?.url ?? '/card-no-image.png'} alt={item.title} />
+					</figure>
 					<h3>{item.title}</h3>
 
 					<Spacer size="3rem" />
@@ -44,6 +48,7 @@
 		padding: 1rem;
 		background-color: rgba(#fff, 0.3);
 		backdrop-filter: blur(16px) brightness(1.08);
+		height: 100%;
 
 		figure {
 			width: 100%;
@@ -52,9 +57,20 @@
 			box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
 		}
 
+		.squared img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+			aspect-ratio: 1 / 1;
+			background-color: #fff;
+		}
+
 		img {
 			width: 100%;
 			height: auto;
+			aspect-ratio: 16 / 9;
+			object-fit: contain;
+			background-color: #fff;
 		}
 
 		h3 {
@@ -82,7 +98,7 @@
 		figure {
 			width: calc(100% + 1rem);
 			height: auto;
-			margin: -0.5rem;
+			margin: -0.5rem -0.5rem 0;
 			box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
 
 			transition:
@@ -90,6 +106,10 @@
 				width 0.1s ease-in-out,
 				height 0.1s ease-in-out,
 				margin 0.1s ease-in-out;
+		}
+
+		.squared {
+			margin: -0.5rem;
 		}
 
 		h3 {

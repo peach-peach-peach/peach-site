@@ -17,7 +17,7 @@
 <MarqueeHeader contentType="discography" />
 
 <section>
-	<CardList categoryId="discography" items={data.contents} --theme-color="var(--color-key-orange)" />
+	<CardList categoryId="discography" items={data.contents} squaredImage --theme-color="var(--color-key-orange)" />
 </section>
 
 <SeeAll href="/discography/N">More</SeeAll>

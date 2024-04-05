@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Marquee from '@/components/Marquee.svelte'
+	import Marquee from '@/components/primitive/Marquee.svelte'
 	import discographyEn from '$lib/images/typography/discography_en.svg?raw'
 	import discographyJa from '$lib/images/typography/discography_ja.svg?raw'
 	import informationEn from '$lib/images/typography/information_en.svg?raw'

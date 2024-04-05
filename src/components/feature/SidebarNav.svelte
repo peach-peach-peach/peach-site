@@ -2,7 +2,7 @@
 	import { page } from '$app/stores'
 	import logoSvg from '$lib/images/logo.svg?raw'
 	import { site } from '@/constants/site'
-	import Spacer from '@/components/Spacer.svelte'
+	import Spacer from '@/components/primitive/Spacer.svelte'
 
 	type ListItem = { href: string; label: string; keyColor: string }
 

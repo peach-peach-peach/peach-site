@@ -1,14 +1,13 @@
 <script lang="ts">
+	import { site } from '@/constants/site'
 	import type { PageData } from './$types'
-	import ArticlePage from '@/components/ArticlePage.svelte'
+	import ArticlePage from '@/components/feature/ArticlePage.svelte'
 
 	export let data: PageData
-
-	/* eslint-disable svelte/no-at-html-tags */
 </script>
 
 <svelte:head>
-	<title>News: {data.item.title}</title>
+	<title>News: {data.item.title} | {site.title}</title>
 </svelte:head>
 
 <ArticlePage category="news" {data} />

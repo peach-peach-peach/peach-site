@@ -2,11 +2,11 @@
 	import { onMount } from 'svelte'
 	import { createScene1, subscribeResize, subscribeScroll } from '$lib/three/scene1'
 	import type { PageData } from './$types'
-	import InformationSection from '@/components/Top/InformationSection.svelte'
-	import VideoSection from '@/components/Top/VideoSection.svelte'
-	import NewArrivalsSection from '@/components/Top/NewArrivalsSection.svelte'
-	import DiscographySection from '@/components/Top/DiscographySection.svelte'
-	import Footer from '@/components/Footer.svelte'
+	import InformationSection from '@/components/feature/Top/InformationSection.svelte'
+	import VideoSection from '@/components/feature/Top/VideoSection.svelte'
+	import NewArrivalsSection from '@/components/feature/Top/NewArrivalsSection.svelte'
+	import DiscographySection from '@/components/feature/Top/DiscographySection.svelte'
+	import Footer from '@/components/feature/Footer.svelte'
 
 	export let data: PageData
 

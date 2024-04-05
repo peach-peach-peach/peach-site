@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { browser } from '$app/environment'
 	import { formatDate } from '@/lib/utils/formatDate'
-	import Footer from '@/components/Footer.svelte'
-	import MarqueeHeader from '@/components/MarqueeHeader.svelte'
-	import PreviewNotice from '@/components/PreviewNotice.svelte'
+	import Footer from '@/components/feature/Footer.svelte'
+	import MarqueeHeader from '@/components/feature/MarqueeHeader.svelte'
+	import PreviewNotice from '@/components/feature/PreviewNotice.svelte'
 	import type { Article } from '@/domain/contents/Article'
 	import type { CategoryId } from '@/domain/Category/CategoryId'
 	import { getCategoryItemById } from '@/domain/Category/getCategoryItem'

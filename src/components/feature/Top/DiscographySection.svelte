@@ -1,8 +1,8 @@
 <script lang="ts">
 	import type { Article } from '@/domain/contents/Article'
-	import SeeAll from '@/components/SeeAll.svelte'
-	import CardList from '@/components/CardList.svelte'
-	import MarqueeHeader from '../MarqueeHeader.svelte'
+	import SeeAll from '@/components/feature/SeeAll.svelte'
+	import CardList from '@/components/feature/CardList.svelte'
+	import MarqueeHeader from '@/components/feature/MarqueeHeader.svelte'
 
 	type Data = {
 		discography: Article[]

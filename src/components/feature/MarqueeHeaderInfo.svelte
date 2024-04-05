@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Marquee from '@/components/Marquee.svelte'
+	import Marquee from '@/components/primitive/Marquee.svelte'
 	import informationEn from '$lib/images/typography/information_en.svg?raw'
 	import informationJa from '$lib/images/typography/information_ja.svg?raw'
 	import { getCategoryItemById } from '@/domain/Category/getCategoryItem'

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { CategoryId } from '@/domain/Category/CategoryId'
 	import { formatDate } from '@/lib/utils/formatDate'
-	import Spacer from '@/components/Spacer.svelte'
+	import Spacer from '@/components/primitive/Spacer.svelte'
 
 	type ArticleItem = {
 		id: string

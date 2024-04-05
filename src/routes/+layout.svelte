@@ -6,8 +6,8 @@
 	import '@fontsource/montserrat/700.css'
 	import '@fontsource/montserrat/800.css'
 	import { MetaTags } from 'svelte-meta-tags'
-	import SidebarNav from '@/components/SidebarNav.svelte'
-	import GradientBackground from '@/components/GradientBackground.svelte'
+	import SidebarNav from '@/components/feature/SidebarNav.svelte'
+	import GradientBackground from '@/components/primitive/GradientBackground.svelte'
 </script>
 
 <!-- FIXNE: とりあえずnoindex -->

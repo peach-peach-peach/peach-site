@@ -1,15 +1,16 @@
 <script lang="ts">
 	import type { PageData } from './$types'
-	import Footer from '@/components/Footer.svelte'
-	import SeeAll from '@/components/SeeAll.svelte'
-	import CardList from '@/components/CardList.svelte'
-	import MarqueeHeader from '@/components/MarqueeHeader.svelte'
+	import Footer from '@/components/feature/Footer.svelte'
+	import SeeAll from '@/components/feature/SeeAll.svelte'
+	import CardList from '@/components/feature/CardList.svelte'
+	import MarqueeHeader from '@/components/feature/MarqueeHeader.svelte'
+	import { site } from '@/constants/site'
 
 	export let data: PageData
 </script>
 
 <svelte:head>
-	<title>News</title>
+	<title>News | {site.title}</title>
 </svelte:head>
 
 <h1 class="visually-hidden">ニュース</h1>

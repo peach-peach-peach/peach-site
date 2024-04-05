@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { browser } from '$app/environment'
-	import Footer from '@/components/Footer.svelte'
+	import Footer from '@/components/feature/Footer.svelte'
+	import { site } from '@/constants/site'
 
 	function goBack() {
 		if (browser) window.history.back()
@@ -10,7 +11,7 @@
 </script>
 
 <svelte:head>
-	<title>Profile</title>
+	<title>Profile | {site.title}</title>
 </svelte:head>
 
 <article>

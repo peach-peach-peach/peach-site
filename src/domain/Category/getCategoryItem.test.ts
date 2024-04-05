@@ -1,7 +1,7 @@
+import { getCategoryItemByName } from '@/domain/Category/getCategoryItem'
 import { describe, test, expect } from 'vitest'
-import { getCategoryByName } from './getCategoryByName'
 
-describe('getCategoryByName', () => {
+describe('getCategoryItemByName', () => {
 	test.each([
 		{
 			name: 'ビデオ',
@@ -20,7 +20,11 @@ describe('getCategoryByName', () => {
 			id: 'discography'
 		}
 	])('should return the category with the given key: $key', ({ name: input, id: expected }) => {
-		const result = getCategoryByName(input)
+		const result = getCategoryItemByName(input)
 		expect(result.id).toEqual(expected)
+	})
+
+	test('should throw an error if the category does not exist', () => {
+		expect(() => getCategoryItemByName('invalid')).toThrow('categoryItem not found: invalid')
 	})
 })

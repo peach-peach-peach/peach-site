@@ -1,26 +1,48 @@
 <script lang="ts">
 	import type { PageData } from './$types'
-	import Footer from '@/components/Footer.svelte'
-	import SeeAll from '@/components/SeeAll.svelte'
-	import CardList from '@/components/CardList.svelte'
-	import MarqueeHeader from '@/components/MarqueeHeader.svelte'
+	import Footer from '@/components/feature/Footer.svelte'
+	import CardList from '@/components/feature/CardList.svelte'
+	import MarqueeHeader from '@/components/feature/MarqueeHeader.svelte'
+	import { paginate, site } from '@/constants/site'
+	import { fetchMoreThruApi } from '@/lib/sdk/cms/fetchMoreThruApi'
+	import SeeMore from '@/components/feature/SeeMore.svelte'
 
 	export let data: PageData
+	$: contents = data.contents
+	$: hasMore = contents.length < data.totalCount
+	$: fetchMoreLoading = false
+
+	const handleClick = async () => {
+		if (hasMore) {
+			fetchMoreLoading = true
+
+			const nextPageRes = await fetchMoreThruApi({
+				categoryId: 'news',
+				limit: paginate.list.limit,
+				offset: contents.length
+			})
+			contents = [...contents, ...nextPageRes.contents]
+
+			fetchMoreLoading = false
+		}
+	}
 </script>
 
 <svelte:head>
-	<title>News</title>
+	<title>News | {site.title}</title>
 </svelte:head>
 
 <h1 class="visually-hidden">ニュース</h1>
 
-<MarqueeHeader textEn="News" textJa="ニュース" --theme-color="var(--color-key-green)" />
+<MarqueeHeader contentType="news" />
 
 <section>
 	<CardList categoryId="news" items={data.contents} --theme-color="var(--color-key-green)" />
 </section>
 
-<SeeAll href="/news/N">More</SeeAll>
+{#if hasMore}
+	<SeeMore {fetchMoreLoading} {handleClick} />
+{/if}
 
 <Footer />
 

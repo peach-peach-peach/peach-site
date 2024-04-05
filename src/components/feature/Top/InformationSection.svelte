@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { Article } from '@/domain/contents/Article'
-	import Marquee from '@/components/Marquee.svelte'
+	import MarqueeHeaderInfo from '../MarqueeHeaderInfo.svelte'
 
 	type Data = {
 		news: Article[]
@@ -12,11 +12,8 @@
 
 <section class="information">
 	<header>
-		<h2 class="header-vertical">
-			<Marquee speed={3} className="information-marquee" autoFill direction="left"
-				><span class="label en">Information</span><span class="label ja">インフォメーション</span></Marquee
-			>
-		</h2>
+		<h2 class="visually-hidden">Information</h2>
+		<MarqueeHeaderInfo />
 	</header>
 
 	<section class="news">
@@ -63,20 +60,9 @@
 		min-height: 10rem;
 	}
 
-	.news,
-	.schedule {
-		background-color: rgba(#fff, 0.3);
-		backdrop-filter: blur(16px) brightness(1.08);
-	}
-
 	header {
 		grid-area: header;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		overflow: hidden;
 		border-right: 1px solid var(--color-bg-dark);
-		background-color: var(--color-key-green);
 	}
 
 	h3 {
@@ -84,31 +70,6 @@
 		font-size: 2rem;
 		font-family: 'Montserrat', sans-serif;
 		font-weight: 700;
-	}
-
-	:global(.header-vertical) {
-		rotate: 270deg;
-		margin: 0;
-		font-size: 1.1rem;
-		font-weight: normal;
-	}
-
-	:global(.header-vertical > .rfm-marquee-container.information-marquee) {
-		width: 20.6rem;
-	}
-
-	.label {
-		margin-right: 0.5rem;
-		text-transform: uppercase;
-		vertical-align: middle;
-	}
-
-	.en {
-		font-size: 1.2rem;
-	}
-
-	.ja {
-		font-size: 0.7rem;
 	}
 
 	.schedule {
@@ -149,6 +110,13 @@
 		background-color: var(--color-bg-dark);
 	}
 
+	.news,
+	.schedule {
+		overflow-x: hidden;
+		background-color: rgba(#fff, 0.3);
+		backdrop-filter: blur(16px) brightness(1.08);
+	}
+
 	.information {
 		section {
 			padding: 1rem;
@@ -160,20 +128,23 @@
 
 		ul {
 			list-style: none;
+			display: block;
 			padding: 0;
 			margin: 0;
 		}
 
 		li {
-			line-height: 2.2;
-			font-size: 1rem;
+			display: block;
 		}
-	}
 
-	/* SP Large */
-	@media screen and (min-width: 390px) {
-		:global(.header-vertical > .rfm-marquee-container.information-marquee) {
-			width: 9.9rem;
+		li > a {
+			display: inline-block;
+			width: 100%;
+			overflow-x: hidden;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			line-height: 2;
+			font-size: 1rem;
 		}
 	}
 
@@ -182,10 +153,6 @@
 		.information {
 			grid-template-columns: 3rem 1fr 3rem 1fr 3rem;
 			grid-template-areas: 'header news see-all-news schedule see-all-schedule';
-		}
-
-		:global(.header-vertical > .rfm-marquee-container.information-marquee) {
-			width: 10.6rem;
 		}
 
 		.schedule {

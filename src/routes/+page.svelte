@@ -2,11 +2,12 @@
 	import { onMount } from 'svelte'
 	import { createScene1, subscribeResize, subscribeScroll } from '$lib/three/scene1'
 	import type { PageData } from './$types'
-	import InformationSection from '@/components/Top/InformationSection.svelte'
-	import VideoSection from '@/components/Top/VideoSection.svelte'
-	import NewArrivalsSection from '@/components/Top/NewArrivalsSection.svelte'
-	import DiscographySection from '@/components/Top/DiscographySection.svelte'
-	import Footer from '@/components/Footer.svelte'
+	import InformationSection from '@/components/feature/Top/InformationSection.svelte'
+	import VideoSection from '@/components/feature/Top/VideoSection.svelte'
+	import NewArrivalsSection from '@/components/feature/Top/NewArrivalsSection.svelte'
+	import DiscographySection from '@/components/feature/Top/DiscographySection.svelte'
+	import Footer from '@/components/feature/Footer.svelte'
+	import { site } from '@/constants/site'
 
 	export let data: PageData
 
@@ -22,13 +23,11 @@
 			unsubscribeScroll()
 		}
 	})
-
-	/* eslint-disable svelte/no-at-html-tags */
 </script>
 
 <svelte:head>
-	<title>Peach Peach Peach</title>
-	<meta name="description" content="Peach Peach Peach website" />
+	<title>{site.title}</title>
+	<meta name="description" content={site.description} />
 </svelte:head>
 
 <section>

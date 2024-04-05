@@ -11,7 +11,7 @@ export const categoryItems = [
 	{
 		id: 'schedule',
 		name: 'スケジュール',
-		themeColor: 'var(--color-key-blue)'
+		themeColor: 'var(--color-key-green)'
 	},
 	{
 		id: 'news',

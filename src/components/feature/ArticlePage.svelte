@@ -1,12 +1,12 @@
 <script lang="ts">
 	import { browser } from '$app/environment'
 	import { formatDate } from '@/lib/utils/formatDate'
-	import Footer from '@/components/Footer.svelte'
-	import MarqueeHeader from '@/components/MarqueeHeader.svelte'
-	import PreviewNotice from '@/components/PreviewNotice.svelte'
+	import Footer from '@/components/feature/Footer.svelte'
+	import MarqueeHeader from '@/components/feature/MarqueeHeader.svelte'
+	import PreviewNotice from '@/components/feature/PreviewNotice.svelte'
 	import type { Article } from '@/domain/contents/Article'
-	import type { CategoryId } from '@/domain/CategoryId'
-	import { categoryItems } from '@/domain/CategoryItem'
+	import type { CategoryId } from '@/domain/Category/CategoryId'
+	import { getCategoryItemById } from '@/domain/Category/getCategoryItem'
 
 	function goBack() {
 		if (browser) window.history.back()
@@ -19,16 +19,12 @@
 	}
 	export let hideCatch: boolean = false
 
-	const categoryItem = categoryItems.find(item => item.id === category)
+	const categoryItem = getCategoryItemById(category)
 
 	/* eslint-disable svelte/no-at-html-tags */
 </script>
 
-<MarqueeHeader
-	textEn={categoryItem?.id ?? ''}
-	textJa={categoryItem?.name ?? ''}
-	--theme-color={categoryItem?.themeColor}
-/>
+<MarqueeHeader contentType={category} />
 
 <article>
 	{#if data.isPreview}

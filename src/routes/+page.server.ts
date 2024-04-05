@@ -34,7 +34,7 @@ export const load: PageServerLoad = async () => {
 			feature: featureRes.result
 		}
 	} catch (e) {
-		error(500, 'サーバーエラー')
+		error(500, 'サーバーエラーが発生しました。')
 	}
 }
 

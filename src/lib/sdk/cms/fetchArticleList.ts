@@ -1,6 +1,6 @@
 import type { Article } from '@/domain/contents/Article'
 import { createCMSClient } from '$lib/sdk/cms/microcms'
-import type { CategoryId } from '@/domain/CategoryId'
+import type { CategoryId } from '@/domain/Category/CategoryId'
 
 export const fetchArticleList = async ({
 	categoryId,

@@ -11,7 +11,7 @@ export const categoryItems = [
 	{
 		id: 'schedule',
 		name: 'スケジュール',
-		themeColor: 'var(--color-key-blue)'
+		themeColor: 'var(--color-key-green)'
 	},
 	{
 		id: 'news',
@@ -29,4 +29,10 @@ export type CategoryItem = {
 	readonly id: string
 	readonly name: string
 	readonly themeColor: string
+}
+
+export const getCategoryItem = (id: string): CategoryItem => {
+	const categoryItem = categoryItems.find(item => item.id === id)
+	if (!categoryItem) throw new Error(`categoryItem not found: ${id}`)
+	return categoryItem
 }

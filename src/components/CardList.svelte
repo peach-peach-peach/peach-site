@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { CategoryId } from '@/domain/CategoryId'
+	import type { CategoryId } from '@/domain/Category/CategoryId'
 	import { formatDate } from '@/lib/utils/formatDate'
 	import Spacer from '@/components/Spacer.svelte'
 

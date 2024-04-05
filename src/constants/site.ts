@@ -9,3 +9,9 @@ export const site = {
 		spotify: 'https://open.spotify.com/intl-ja'
 	}
 }
+
+export const paginate = {
+	list: {
+		limit: 10
+	}
+}

@@ -4,19 +4,30 @@
 	import Footer from '@/components/Footer.svelte'
 	import MarqueeHeader from '@/components/MarqueeHeader.svelte'
 	import type { APIFetchMoreResponse } from '../api/fetch-more/+server'
+	import Spinner from '@/components/Spinner.svelte'
+	import { paginate } from '@/constants/site'
 
 	export let data: PageData
 	$: contents = data.contents
 	$: hasMore = contents.length < data.totalCount
+	$: fetchMoreLoading = false
 
 	const handleClick = async () => {
 		if (hasMore) {
-			const params = new URLSearchParams({ categoryId: 'schedule', limit: `${1}`, offset: `${data.contents.length}` })
+			fetchMoreLoading = true
+
+			const params = new URLSearchParams({
+				categoryId: 'schedule',
+				limit: `${paginate.list.limit}`,
+				offset: `${contents.length}`
+			})
 			const nextPageRes: APIFetchMoreResponse = await fetch(`/api/fetch-more?${params.toString()}`, {
 				method: 'GET',
 				headers: { 'Content-Type': 'application/json' }
 			}).then(res => res.json())
 			contents = [...contents, ...nextPageRes.contents]
+
+			fetchMoreLoading = false
 		}
 	}
 </script>
@@ -34,7 +45,15 @@
 </section>
 
 {#if hasMore}
-	<div class="see-all"><a on:click={handleClick} href="#top">More</a></div>
+	<div class="see-all">
+		<a on:click={handleClick} href="#top">
+			{#if fetchMoreLoading}
+				<Spinner backgroundColor="var(--color-bg-dark)" size="2rem" />
+			{:else}
+				See More
+			{/if}
+		</a>
+	</div>
 {/if}
 
 <Footer />

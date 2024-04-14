@@ -1,7 +1,7 @@
 import type { PageServerLoad } from './$types'
 import { error } from '@sveltejs/kit'
 import { fetchArticleList } from '@/lib/sdk/cms/fetchArticleList'
-import { fetchFeature } from '@/lib/sdk/cms/fetchFeature'
+import { fetchTopConfigs } from '@/lib/sdk/cms/fetchTopConfigs'
 
 export const load: PageServerLoad = async () => {
 	try {
@@ -22,7 +22,7 @@ export const load: PageServerLoad = async () => {
 			limit: 3
 		})
 
-		const featureRes = await fetchFeature({
+		const topConfigsRes = await fetchTopConfigs({
 			draftKey: null
 		})
 
@@ -31,7 +31,7 @@ export const load: PageServerLoad = async () => {
 			schedule: scheduelRes.contents,
 			videos: videoRes.contents,
 			discography: discoRes.contents,
-			feature: featureRes.result
+			topConfigs: topConfigsRes.result
 		}
 	} catch (e) {
 		error(500, 'サーバーエラーが発生しました。')

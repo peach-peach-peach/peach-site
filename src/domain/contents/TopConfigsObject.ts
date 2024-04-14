@@ -1,11 +1,11 @@
 import type { ImageObject, PrimaryKeyProps, TimestampProps } from './common'
 
-export type FeatureObject = {
-	new_arrivals: FeatureNewArrivals
+export type TopConfigsObject = {
+	new_arrivals: TopConfigsNewArrivals
 } & PrimaryKeyProps &
 	TimestampProps
 
-export type FeatureNewArrivals = {
+export type TopConfigsNewArrivals = {
 	fieldId: string
 	title: string
 	description: string

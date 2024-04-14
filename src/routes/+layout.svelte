@@ -1,6 +1,7 @@
 <script lang="ts">
 	import './reset.css'
 	import './styles.css'
+	import '@fontsource/zen-kaku-gothic-new'
 	import '@fontsource/montserrat/500.css'
 	import '@fontsource/montserrat/600.css'
 	import '@fontsource/montserrat/700.css'

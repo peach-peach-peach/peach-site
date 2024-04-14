@@ -1,12 +1,12 @@
 <script lang="ts">
-	import type { FeatureObject } from '@/domain/contents/FeatureObject'
+	import type { TopConfigsObject } from '@/domain/contents/TopConfigsObject'
 
 	type Data = {
-		feature: FeatureObject
+		topConfigs: TopConfigsObject
 	}
 
 	export let data: Data
-	const newArrivals = data.feature.new_arrivals
+	const newArrivals = data.topConfigs.new_arrivals
 
 	/* eslint-disable svelte/no-at-html-tags */
 </script>

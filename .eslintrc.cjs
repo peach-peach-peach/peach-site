@@ -14,6 +14,17 @@ module.exports = {
 		es2017: true,
 		node: true
 	},
+	rules: {
+		'@typescript-eslint/no-unused-vars': [
+			'warn',
+			{
+				argsIgnorePattern: '^_',
+				varsIgnorePattern: '^_',
+				caughtErrorsIgnorePattern: '^_',
+				destructuredArrayIgnorePattern: '^_'
+			}
+		]
+	},
 	overrides: [
 		{
 			files: ['*.svelte'],
@@ -22,16 +33,7 @@ module.exports = {
 				parser: '@typescript-eslint/parser'
 			},
 			rules: {
-				'no-extra-boolean-cast': 'off',
-				'@typescript-eslint/no-unused-vars': [
-					'warn',
-					{
-						argsIgnorePattern: '^_',
-						varsIgnorePattern: '^_',
-						caughtErrorsIgnorePattern: '^_',
-						destructuredArrayIgnorePattern: '^_'
-					}
-				]
+				'no-extra-boolean-cast': 'off'
 			}
 		}
 	]

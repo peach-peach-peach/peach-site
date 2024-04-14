@@ -1,56 +1,63 @@
 {
-	"name": "peach-sk",
-	"version": "0.0.1",
-	"engines": {
-		"node": ">=18",
-		"yarn": "use pnpm!",
-		"npm": "use pnpm!"
-	},
-	"scripts": {
-		"dev": "vite dev",
-		"build": "vite build",
-		"preview": "vite preview",
-		"test": "npm run test:integration && npm run test:unit",
-		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-		"lint": "prettier --check . && eslint .",
-		"format": "prettier --write .",
-		"test:integration": "playwright test",
-		"test:unit": "vitest"
-	},
-	"dependencies": {
-		"@fontsource/montserrat": "^5.0.17",
-		"microcms-js-sdk": "^2.7.0",
-		"three": "^0.160.0"
-	},
-	"devDependencies": {
-		"@fontsource/fira-mono": "^5.0.8",
-		"@neoconfetti/svelte": "^2.2.1",
-		"@playwright/test": "^1.40.1",
-		"@sveltejs/adapter-cloudflare": "^3.0.1",
-		"@sveltejs/kit": "^2.0.6",
-		"@sveltejs/vite-plugin-svelte": "^3.0.1",
-		"@testing-library/svelte": "^4.0.5",
-		"@types/cookie": "^0.6.0",
-		"@types/dom-view-transitions": "^1.0.4",
-		"@types/three": "^0.160.0",
-		"@typescript-eslint/eslint-plugin": "^6.17.0",
-		"@typescript-eslint/parser": "^6.17.0",
-		"eslint": "^8.56.0",
-		"eslint-config-prettier": "^9.1.0",
-		"eslint-plugin-svelte": "^2.35.1",
-		"jsdom": "^23.2.0",
-		"msw": "^2.0.14",
-		"prettier": "^3.1.1",
-		"prettier-plugin-svelte": "^3.1.2",
-		"sass": "^1.69.7",
-		"svelte": "^4.2.8",
-		"svelte-check": "^3.6.2",
-		"svelte-meta-tags": "^3.1.0",
-		"tslib": "^2.4.1",
-		"typescript": "^5.3.3",
-		"vite": "^5.0.11",
-		"vitest": "^1.1.3"
-	},
-	"type": "module"
+  "name": "peach-sk",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=18",
+    "yarn": "use pnpm!",
+    "npm": "use pnpm!"
+  },
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "npm run test:integration && npm run test:unit",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+    "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+    "lint": "prettier --check . && eslint .",
+    "format": "prettier --write .",
+    "test:integration": "playwright test",
+    "test:unit": "vitest"
+  },
+  "dependencies": {
+    "@fontsource/montserrat": "^5.0.17",
+    "microcms-js-sdk": "^2.7.0",
+    "three": "^0.160.0"
+  },
+  "devDependencies": {
+    "@fontsource/fira-mono": "^5.0.8",
+    "@neoconfetti/svelte": "^2.2.1",
+    "@playwright/test": "^1.40.1",
+    "@sveltejs/adapter-cloudflare": "^3.0.1",
+    "@sveltejs/kit": "^2.0.6",
+    "@sveltejs/vite-plugin-svelte": "^3.0.1",
+    "@testing-library/svelte": "^4.0.5",
+    "@types/cookie": "^0.6.0",
+    "@types/dom-view-transitions": "^1.0.4",
+    "@types/eslint": "^8.56.9",
+    "@types/node": "^20.12.7",
+    "@types/three": "^0.160.0",
+    "@typescript-eslint/eslint-plugin": "^6.17.0",
+    "@typescript-eslint/parser": "^6.17.0",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-svelte": "^2.35.1",
+    "jsdom": "^23.2.0",
+    "msw": "^2.1.5",
+    "prettier": "^3.1.1",
+    "prettier-plugin-svelte": "^3.1.2",
+    "sass": "^1.69.7",
+    "svelte": "^4.2.8",
+    "svelte-check": "^3.6.2",
+    "svelte-meta-tags": "^3.1.0",
+    "tslib": "^2.4.1",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.11",
+    "vitest": "^1.1.3"
+  },
+  "type": "module",
+  "msw": {
+    "workerDirectory": [
+      "static"
+    ]
+  }
 }

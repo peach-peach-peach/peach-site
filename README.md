@@ -2,6 +2,11 @@
 
 # Peach Peach Peach: The Site
 
+## Stage
+
+- Production: https://peach-site.pages.dev, https://peach-peach-peach.com
+- Development: https://develop.peach-site.pages.dev/
+
 ## Development
 
 ```bash

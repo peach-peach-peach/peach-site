@@ -1,12 +1,18 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { http, HttpResponse } from 'msw'
+import { MICROCMS_SERVICE_ID } from '$env/static/private'
+import type { MicroCMSListResponse } from 'microcms-js-sdk'
 
-const MICROCMS_ROOT = `https://${process.env.MICROCMS_SERVICE_ID}.microcms.io/api/v1`
-export const apiEndpoint = (path: string) => new URL(path, MICROCMS_ROOT).toString()
+const MICROCMS_ROOT = `https://${MICROCMS_SERVICE_ID}.microcms.io/api/v1`
+export const apiEndpoint = (path: string) => new URL(MICROCMS_ROOT + path).toString()
 
 export const handlers = [
-	http.get(apiEndpoint(`/schedule`), () => {
+	// mock: Schedule
+	http.get(apiEndpoint(`/articles`), ({ request }) => {
+		// const searchParams = new URL(request.url).searchParams
+		// const filters = searchParams.get('filters')
+
 		return HttpResponse.json(
 			buildListResp([
 				{
@@ -33,12 +39,18 @@ export const handlers = [
 				}
 			])
 		)
+		// // 空レスポンス
+		// return HttpResponse.json(buildListResp([], { totalCount: 0 }))
 	})
 ]
 
-const buildListResp = (contents: Record<string, any>[]) => ({
+const buildListResp = (
+	contents: Record<string, any>[],
+	override: Partial<MicroCMSListResponse<any>> = {}
+): MicroCMSListResponse<any> => ({
 	contents,
 	totalCount: 1,
 	offset: 0,
-	limit: 10
+	limit: 10,
+	...override
 })

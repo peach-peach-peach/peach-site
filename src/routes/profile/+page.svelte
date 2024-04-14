@@ -72,7 +72,7 @@
 
 	h1 {
 		font-weight: bold;
-		font-size: 1.4rem;
+		font-size: 1.5rem;
 		margin: 0 0 2rem;
 	}
 

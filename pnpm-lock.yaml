@@ -43,6 +43,9 @@ devDependencies:
   '@types/dom-view-transitions':
     specifier: ^1.0.4
     version: 1.0.4
+  '@types/eslint':
+    specifier: ^8.56.9
+    version: 8.56.9
   '@types/node':
     specifier: ^20.12.7
     version: 20.12.7
@@ -763,6 +766,13 @@ packages:
 
   /@types/dom-view-transitions@1.0.4:
     resolution: {integrity: sha512-oDuagM6G+xPLrLU4KeCKlr1oalMF5mJqV5pDPMDVIEaa8AkUW00i6u+5P02XCjdEEUQJC9dpnxqSLsZeAciSLQ==}
+    dev: true
+
+  /@types/eslint@8.56.9:
+    resolution: {integrity: sha512-W4W3KcqzjJ0sHg2vAq9vfml6OhsJ53TcUjUqfzzZf/EChUtwspszj/S0pzMxnfRcO55/iGq47dscXw71Fxc4Zg==}
+    dependencies:
+      '@types/estree': 1.0.5
+      '@types/json-schema': 7.0.15
     dev: true
 
   /@types/estree@1.0.5:

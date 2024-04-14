@@ -13,3 +13,4 @@ package-lock.json
 yarn.lock
 
 /micro-cms-configs/**/*
+/static

@@ -19,11 +19,15 @@
 	<section class="news">
 		<h3>News</h3>
 		<ul>
-			{#each data.news as item}
-				<li>
-					<a href={`/news/${item.id}/`}>{item.title}</a>
-				</li>
-			{/each}
+			{#if data.news.length === 0}
+				<li>記事がありません</li>
+			{:else}
+				{#each data.news as item}
+					<li>
+						<a href={`/news/${item.id}/`}>{item.title}</a>
+					</li>
+				{/each}
+			{/if}
 		</ul>
 	</section>
 
@@ -34,11 +38,15 @@
 	<section class="schedule">
 		<h3>Schedule</h3>
 		<ul>
-			{#each data.schedule as item}
-				<li>
-					<a href={`/schedule/${item.id}/`}>{item.title}</a>
-				</li>
-			{/each}
+			{#if data.news.length === 0}
+				<li>記事がありません</li>
+			{:else}
+				{#each data.schedule as item}
+					<li>
+						<a href={`/schedule/${item.id}/`}>{item.title}</a>
+					</li>
+				{/each}
+			{/if}
 		</ul>
 	</section>
 

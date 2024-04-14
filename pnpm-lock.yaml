@@ -8,6 +8,9 @@ dependencies:
   '@fontsource/montserrat':
     specifier: ^5.0.17
     version: 5.0.17
+  '@fontsource/zen-kaku-gothic-new':
+    specifier: ^5.0.18
+    version: 5.0.18
   microcms-js-sdk:
     specifier: ^2.7.0
     version: 2.7.0
@@ -422,6 +425,10 @@ packages:
 
   /@fontsource/montserrat@5.0.17:
     resolution: {integrity: sha512-3V3F8GqeN8wawLmAkAfTCYsBYRKu+JLm6ivWWX/v0dCYYPcwtQX0h5Z8j68N1YumuT75MqrghqU42w9DnFHojQ==}
+    dev: false
+
+  /@fontsource/zen-kaku-gothic-new@5.0.18:
+    resolution: {integrity: sha512-8D21LtQBwgCiQgnxVoST14p/+nje7rZ51Fi3Z3IpShiOLUJy4WF1nSzBXLeLle0tilFcFfzEC0zSS1xqvkULgA==}
     dev: false
 
   /@humanwhocodes/config-array@0.11.14:

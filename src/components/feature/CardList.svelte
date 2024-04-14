@@ -16,23 +16,29 @@
 	export let squaredImage: boolean = false
 </script>
 
-<section>
-	<div class="list">
-		{#each items as item}
-			<article class="list-card">
-				<a href={`/${categoryId}/${item.id}/`}>
-					<figure class:squared={squaredImage}>
-						<img src={item.eyecatch?.url ?? '/card-no-image.png'} alt={item.title} />
-					</figure>
-					<h3>{item.title}</h3>
+{#if items.length === 0}
+	<section class="no-contents">
+		<p>記事がありません</p>
+	</section>
+{:else}
+	<section>
+		<div class="list">
+			{#each items as item}
+				<article class="list-card">
+					<a href={`/${categoryId}/${item.id}/`}>
+						<figure class:squared={squaredImage}>
+							<img src={item.eyecatch?.url ?? '/card-no-image.png'} alt={item.title} />
+						</figure>
+						<h3>{item.title}</h3>
 
-					<Spacer size="3rem" />
-					<time>{formatDate(item.publishedAt)}</time>
-				</a>
-			</article>
-		{/each}
-	</div>
-</section>
+						<Spacer size="3rem" />
+						<time>{formatDate(item.publishedAt)}</time>
+					</a>
+				</article>
+			{/each}
+		</div>
+	</section>
+{/if}
 
 <style lang="scss">
 	.list {
@@ -118,6 +124,14 @@
 				color 0.1s ease-in-out,
 				background-color 0.1s ease-in-out;
 		}
+	}
+
+	.no-contents {
+		padding: 3rem;
+		margin: 3rem;
+		background-color: rgba(#fff, 0.3);
+		backdrop-filter: blur(16px) brightness(1.08);
+		text-align: center;
 	}
 
 	/* PC */

@@ -12,6 +12,12 @@
 			"options": {
 				"parser": "svelte"
 			}
+		},
+		{
+			"files": "package.json",
+			"options": {
+				"useTabs": false
+			}
 		}
 	]
 }

@@ -46,7 +46,7 @@
 	</p>
 
 	<p lang="en">
-		Hiroshi Kawasaki:<br />
+		Hiroshi Kawaseki:<br />
 		In 1999, formed Alternative Band “NANANINE” in Fukuoka. In 2001, major debut in Warner Music. Performed in international/domestic
 		music festivals.
 	</p>

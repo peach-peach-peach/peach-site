@@ -21,16 +21,17 @@
 	</aside>
 
 	<main>
-		<GradientBackground />
-
 		<slot />
 	</main>
+
+	<GradientBackground />
 </div>
 
 <style>
 	/* SP */
 	.app {
 		min-height: 100vh;
+		overflow-x: hidden;
 	}
 
 	aside {

@@ -68,6 +68,14 @@
 	/* eslint-disable svelte/no-at-html-tags */
 </script>
 
+<!-- Header for SP -->
+<header>
+	<a href="/" class="logo">
+		<span class="visually-hidden">Peach Peach Peach</span>
+		{@html logoSvg}
+	</a>
+</header>
+
 <button class="menu-btn" class:is-active={open} on:click={toggle}><span></span></button>
 
 <nav>
@@ -104,19 +112,40 @@
 
 <style lang="scss">
 	/* SP */
+	header {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		z-index: 80;
+		padding: 10px 0;
+		background-color: var(--color-key-pink-deep);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border-bottom: 1px solid var(--color-bg-dark);
+
+		:global(#peach-logo) {
+			height: 48px;
+			display: block;
+			background-color: unset;
+			fill: #fff;
+		}
+	}
+
 	.menu-btn {
 		position: fixed;
-		top: 10px;
-		right: 10px;
+		top: 0;
+		right: 0;
+		width: 100%;
 		display: flex;
-		height: 50px;
+		height: 69px;
 		width: 50px;
 		justify-content: center;
 		align-items: center;
 		z-index: 90;
-		background-color: #fff;
 		border: none;
-		border-radius: 8px;
+		background-color: transparent;
 
 		span,
 		span:before,
@@ -126,7 +155,7 @@
 			height: 3px;
 			width: 25px;
 			border-radius: 3px;
-			background-color: #555;
+			background-color: var(--color-bg-0);
 			position: absolute;
 		}
 
@@ -153,10 +182,10 @@
 			top: 0;
 			transform: rotate(-45deg);
 		}
+	}
 
-		& ~ nav {
-			left: 0;
-		}
+	.is-active ~ nav {
+		left: 0;
 	}
 
 	nav {
@@ -173,6 +202,16 @@
 		transition: all 0.5s; /*アニメーション設定*/
 
 		background-color: var(--color-key-pink-deep);
+
+		/* PCむけロゴ */
+		.logo {
+			display: none;
+		}
+	}
+
+	.logo {
+		background-color: unset;
+		fill: #fff;
 	}
 
 	ul {
@@ -207,15 +246,12 @@
 		background: var(--color-key-green);
 	}
 
-	.logo {
-		display: block;
-		width: 160px;
-		background-color: unset;
-		fill: #fff;
-	}
-
 	/* PC */
 	@media screen and (min-width: 768px) {
+		header {
+			display: none;
+		}
+
 		.menu-btn {
 			display: none;
 		}
@@ -223,18 +259,17 @@
 		nav {
 			position: sticky;
 			top: 0;
-
 			height: 96vh;
+
+			.logo {
+				display: block;
+				width: 160px;
+			}
 		}
 
 		.social {
 			position: absolute;
 			bottom: 24px;
-		}
-
-		.logo {
-			display: block;
-			width: 160px;
 		}
 	}
 </style>

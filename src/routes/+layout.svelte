@@ -13,7 +13,16 @@
 </script>
 
 <!-- FIXNE: とりあえずnoindex -->
-<MetaTags robots="noindex" />
+<MetaTags
+	robots="noindex"
+	additionalMetaTags={[
+		// StatusBarの色を指定
+		{ name: 'theme-color', content: '#ff42ca' },
+		// ホームに追加対応
+		{ name: 'mobile-web-app-capable', content: 'yes' },
+		{ name: 'apple-mobile-web-app-capable', content: 'yes' }
+	]}
+/>
 
 <div class="app">
 	<aside>

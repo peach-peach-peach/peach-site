@@ -6,6 +6,8 @@
 	import informationJa from '$lib/images/typography/information_ja.svg?raw'
 	import newsEn from '$lib/images/typography/news_en.svg?raw'
 	import newsJa from '$lib/images/typography/news_ja.svg?raw'
+	import scheduleEn from '$lib/images/typography/schedule_en.svg?raw'
+	import scheduleJa from '$lib/images/typography/schedule_ja.svg?raw'
 	import profileEn from '$lib/images/typography/profile_en.svg?raw'
 	import profileJa from '$lib/images/typography/profile_ja.svg?raw'
 	import videoEn from '$lib/images/typography/video_en.svg?raw'
@@ -28,9 +30,8 @@
 			themeColor: getCategoryItemById('news').themeColor
 		},
 		schedule: {
-			// FIXME
-			imageEn: newsEn,
-			imageJa: newsJa,
+			imageEn: scheduleEn,
+			imageJa: scheduleJa,
 			themeColor: getCategoryItemById('schedule').themeColor
 		},
 		profile: {

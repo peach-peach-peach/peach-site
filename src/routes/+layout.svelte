@@ -41,6 +41,7 @@
 	.app {
 		min-height: 100vh;
 		overflow-x: hidden;
+		margin-top: 69px;
 	}
 
 	aside {
@@ -59,6 +60,7 @@
 			display: grid;
 			grid-template-areas: 'sidebar main';
 			grid-template-columns: calc(24px + 160px + 24px) 1fr;
+			margin-top: 0;
 		}
 
 		aside {

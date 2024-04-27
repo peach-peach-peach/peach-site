@@ -4,8 +4,17 @@
 
 ## Stage
 
-- Production: https://peach-site.pages.dev, https://peach-peach-peach.com
-- Development: https://develop.peach-site.pages.dev/
+- Production
+  - URL: https://peach-site.pages.dev -> https://peach-peach-peach.com
+  - CMS: https://peach-peach-peach.microcms.io/
+- Preview
+  - URL: https://preview.peach-site.pages.dev/
+  - CMS: https://peach-peach-peach-dev.microcms.io/
+  - 表示を更新したい場合は `preview` ブランチにマージする
+- PR Preview
+  - URL: https://<BRANCH_NAME>.peach-site.pages.dev/
+  - CMS: https://peach-peach-peach-dev.microcms.io/
+  - PR を立てると自動的にデプロイされる
 
 ## Development
 

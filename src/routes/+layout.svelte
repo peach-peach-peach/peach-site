@@ -13,7 +13,16 @@
 </script>
 
 <!-- FIXNE: とりあえずnoindex -->
-<MetaTags robots="noindex" />
+<MetaTags
+	robots="noindex"
+	additionalMetaTags={[
+		// StatusBarの色を指定
+		{ name: 'theme-color', content: '#ff42ca' },
+		// ホームに追加対応
+		{ name: 'mobile-web-app-capable', content: 'yes' },
+		{ name: 'apple-mobile-web-app-capable', content: 'yes' }
+	]}
+/>
 
 <div class="app">
 	<aside>
@@ -21,16 +30,18 @@
 	</aside>
 
 	<main>
-		<GradientBackground />
-
 		<slot />
 	</main>
+
+	<GradientBackground />
 </div>
 
 <style>
 	/* SP */
 	.app {
 		min-height: 100vh;
+		overflow-x: hidden;
+		margin-top: 69px;
 	}
 
 	aside {
@@ -49,6 +60,7 @@
 			display: grid;
 			grid-template-areas: 'sidebar main';
 			grid-template-columns: calc(24px + 160px + 24px) 1fr;
+			margin-top: 0;
 		}
 
 		aside {

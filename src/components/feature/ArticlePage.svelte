@@ -26,23 +26,25 @@
 
 <MarqueeHeader contentType={category} />
 
-<article>
-	{#if data.isPreview}
-		<PreviewNotice />
-	{/if}
+<div class="bg-wrapper">
+	<article>
+		{#if data.isPreview}
+			<PreviewNotice />
+		{/if}
 
-	<h1>{data.item.title}</h1>
+		<h1>{data.item.title}</h1>
 
-	<p class="published"><time>{formatDate(data.item.publishedAt)}</time></p>
+		<p class="published"><time>{formatDate(data.item.publishedAt)}</time></p>
 
-	{#if data.item.eyecatch != null && !hideCatch}
-		<img src={data.item.eyecatch.url} alt="アイキャッチ画像" class="eyecatch" />
-	{/if}
+		{#if data.item.eyecatch != null && !hideCatch}
+			<img src={data.item.eyecatch.url} alt="アイキャッチ画像" class="eyecatch" />
+		{/if}
 
-	<div class="content">
-		{@html data.item.content}
-	</div>
-</article>
+		<div class="content">
+			{@html data.item.content}
+		</div>
+	</article>
+</div>
 
 <div class="back">
 	<a href={`/${categoryItem?.id ?? ''}`} on:click={goBack}>← Back</a>
@@ -51,12 +53,17 @@
 <Footer />
 
 <style lang="scss">
+	.bg-wrapper {
+		/* background-color: rgba(#fff, 0.3); */
+		backdrop-filter: blur(16px) brightness(1.08);
+	}
+
 	article {
-		padding: 24px;
+		padding: 3rem 2rem;
 	}
 
 	h1 {
-		font-size: 1.4rem;
+		font-size: 1.5rem;
 		margin: 0 0 1rem;
 	}
 
@@ -72,9 +79,30 @@
 		box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
 	}
 
-	.content :global(img) {
-		max-width: 100%;
-		height: auto;
+	.content {
+		:global(img) {
+			max-width: 100%;
+			height: auto;
+		}
+
+		:global(h1) {
+			margin: 1.5rem 0;
+			font-size: 1.5rem;
+		}
+
+		:global(h2) {
+			margin: 1.5rem 0;
+			font-size: 1.3rem;
+		}
+
+		:global(p) {
+			margin: 1.5rem 0;
+			line-height: 1.5;
+		}
+
+		:global(a) {
+			color: var(--color-key-pink);
+		}
 	}
 
 	.back {
@@ -100,7 +128,7 @@
 	@media screen and (min-width: 768px) {
 		article {
 			max-width: 768px;
-			margin: 2rem auto;
+			margin: 0 auto;
 		}
 
 		.published {

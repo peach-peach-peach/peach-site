@@ -6,12 +6,16 @@
 	import informationJa from '$lib/images/typography/information_ja.svg?raw'
 	import newsEn from '$lib/images/typography/news_en.svg?raw'
 	import newsJa from '$lib/images/typography/news_ja.svg?raw'
+	import scheduleEn from '$lib/images/typography/schedule_en.svg?raw'
+	import scheduleJa from '$lib/images/typography/schedule_ja.svg?raw'
+	import profileEn from '$lib/images/typography/profile_en.svg?raw'
+	import profileJa from '$lib/images/typography/profile_ja.svg?raw'
 	import videoEn from '$lib/images/typography/video_en.svg?raw'
 	import videoJa from '$lib/images/typography/video_ja.svg?raw'
 	import { getCategoryItemById } from '@/domain/Category/getCategoryItem'
 	import type { ComponentProps } from 'svelte'
 
-	type ContentType = 'discography' | 'news' | 'schedule' | 'videos' | 'information'
+	type ContentType = 'discography' | 'news' | 'schedule' | 'profile' | 'videos' | 'information'
 
 	const contentMap = {
 		information: {
@@ -26,10 +30,14 @@
 			themeColor: getCategoryItemById('news').themeColor
 		},
 		schedule: {
-			// FIXME
-			imageEn: newsEn,
-			imageJa: newsJa,
+			imageEn: scheduleEn,
+			imageJa: scheduleJa,
 			themeColor: getCategoryItemById('schedule').themeColor
+		},
+		profile: {
+			imageEn: profileEn,
+			imageJa: profileJa,
+			themeColor: 'var(--color-key-pink2)'
 		},
 		discography: {
 			imageEn: discographyEn,

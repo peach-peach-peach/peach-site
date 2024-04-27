@@ -144,6 +144,7 @@
 
 		article {
 			border-right: 1px solid var(--color-bg-dark);
+			border-bottom: 1px solid var(--color-bg-dark);
 		}
 	}
 </style>

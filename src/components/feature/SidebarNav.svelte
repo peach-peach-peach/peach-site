@@ -4,38 +4,32 @@
 	import { site } from '@/constants/site'
 	import Spacer from '@/components/primitive/Spacer.svelte'
 
-	type ListItem = { href: string; label: string; keyColor: string }
+	type ListItem = { href: string; label: string }
 
 	const contentItems: ListItem[] = [
 		{
 			label: 'Top',
-			href: '/',
-			keyColor: '#99FFAF'
+			href: '/'
 		},
 		{
 			label: 'News',
-			href: '/news',
-			keyColor: '#99FFAF'
+			href: '/news'
 		},
 		{
 			label: 'Schedule',
-			href: '/schedule',
-			keyColor: '#7eddfc'
-		},
-		{
-			label: 'Profile',
-			href: '/profile',
-			keyColor: '#ffb3b3'
+			href: '/schedule'
 		},
 		{
 			label: 'Videos',
-			href: '/videos',
-			keyColor: '#ffeb33'
+			href: '/videos'
 		},
 		{
 			label: 'Discography',
-			href: '/discography',
-			keyColor: '#BAC1FF'
+			href: '/discography'
+		},
+		{
+			label: 'Profile',
+			href: '/profile'
 		}
 		// {
 		// 	label: 'Store',
@@ -47,23 +41,19 @@
 	const socialItems: ListItem[] = [
 		{
 			label: 'Instagram',
-			href: site.social.instagram,
-			keyColor: 'linear-gradient(to left, #405DE6 10%, #C13584 90%)'
+			href: site.social.instagram
 		},
 		{
 			label: 'YouTube',
-			href: site.social.youtube,
-			keyColor: '#FF0000'
+			href: site.social.youtube
 		},
 		{
 			label: 'Spotify',
-			href: site.social.spotify,
-			keyColor: '#1DB954'
+			href: site.social.spotify
 		},
 		{
 			label: 'Apple Music',
-			href: site.social.appleMusic,
-			keyColor: '#fc3c44'
+			href: site.social.appleMusic
 		}
 	]
 
@@ -95,7 +85,6 @@
 					href={item.href}
 					on:click={close}
 					aria-current={isCurrentPage($page.url.pathname, item.href) ? 'page' : undefined}
-					style="--key-color: {item.keyColor}"
 					>{item.label}
 				</a>
 			</li>
@@ -107,9 +96,7 @@
 	<ul class="social">
 		{#each socialItems as item}
 			<li>
-				<a href={item.href} style="--key-color: {item.keyColor}" target="_blank" rel="noopener noreferrer"
-					>{item.label}</a
-				>
+				<a href={item.href} target="_blank" rel="noopener noreferrer">{item.label}</a>
 			</li>
 		{/each}
 	</ul>
@@ -199,8 +186,7 @@
 
 		a {
 			display: block;
-			padding: 0 0.4rem;
-			margin: 0 -0.4rem;
+			margin: 0;
 			transition:
 				color 0.1s ease-in-out,
 				background-color 0.1s ease-in-out;
@@ -212,13 +198,13 @@
 
 		a:hover {
 			color: var(--color-text-highlight);
-			background: var(--key-color);
+			background: var(--color-key-green);
 		}
 	}
 
 	a[aria-current='page'] {
 		color: var(--color-text-highlight);
-		background: var(--key-color);
+		background: var(--color-key-green);
 	}
 
 	.logo {

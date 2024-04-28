@@ -17,7 +17,7 @@
 	robots="noindex"
 	additionalMetaTags={[
 		// StatusBarの色を指定
-		{ name: 'theme-color', content: '#ff42ca' },
+		{ name: 'theme-color', content: '#ff3998' /* = color-key-pink-deep */ },
 		// ホームに追加対応
 		{ name: 'mobile-web-app-capable', content: 'yes' },
 		{ name: 'apple-mobile-web-app-capable', content: 'yes' }

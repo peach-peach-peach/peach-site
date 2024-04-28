@@ -37,7 +37,7 @@
 		profile: {
 			imageEn: profileEn,
 			imageJa: profileJa,
-			themeColor: 'var(--color-key-pink2)'
+			themeColor: 'var(--color-key-pink-light)'
 		},
 		discography: {
 			imageEn: discographyEn,

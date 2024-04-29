@@ -24,29 +24,27 @@
 		<p>記事がありません</p>
 	</section>
 {:else}
-	<section>
-		<div class="list">
-			{#each items as item}
-				<article class="list-card">
-					<a href={`/${categoryId}/${item.id}/`}>
-						<figure class:squared={squaredImage}>
-							<img src={item.eyecatch?.url ?? '/card-no-image.png'} alt={item.title} />
-						</figure>
-						<h3>{item.title}</h3>
+	<section class="list">
+		{#each items as item}
+			<article class="list-card">
+				<a href={`/${categoryId}/${item.id}/`}>
+					<figure class:squared={squaredImage}>
+						<img src={item.eyecatch?.url ?? '/card-no-image.png'} alt={item.title} />
+					</figure>
+					<h3>{item.title}</h3>
 
-						<Spacer size="3rem" />
-						<time>{formatDate(item.publishedAt)}</time>
-					</a>
-				</article>
+					<Spacer size="3rem" />
+					<time>{formatDate(item.publishedAt)}</time>
+				</a>
+			</article>
+		{/each}
+
+		<!-- Gridのスキマを埋める要素 -->
+		{#if countToFillTheRestOnPC > 0 && countToFillTheRestOnPC < rowCount}
+			{#each Array(countToFillTheRestOnPC) as _}
+				<div class="list-card" aria-hidden="true"></div>
 			{/each}
-
-			<!-- Gridのスキマを埋める要素 -->
-			{#if countToFillTheRestOnPC > 0 && countToFillTheRestOnPC < rowCount}
-				{#each Array(countToFillTheRestOnPC) as _}
-					<div class="list-card" aria-hidden="true"></div>
-				{/each}
-			{/if}
-		</div>
+		{/if}
 	</section>
 {/if}
 
@@ -56,8 +54,6 @@
 		grid-template-columns: unset;
 		padding: 0;
 		margin: 0;
-		background-color: rgba(#fff, 0.3);
-		backdrop-filter: blur(16px) brightness(1.08);
 	}
 
 	.list-card {
@@ -167,6 +163,10 @@
 		/* PC向けのGridのスキマを埋める要素 */
 		.list-card[aria-hidden='true'] {
 			display: block;
+		}
+
+		.list-card:last-child {
+			border-right: none;
 		}
 	}
 </style>

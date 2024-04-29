@@ -200,7 +200,6 @@
 		z-index: 80;
 
 		transition: all 0.5s; /*アニメーション設定*/
-
 		background-color: var(--color-key-pink-deep);
 
 		/* PCむけロゴ */
@@ -257,9 +256,15 @@
 		}
 
 		nav {
-			position: sticky;
+			display: flex;
+			flex-direction: column;
+			position: fixed;
 			top: 0;
+			left: 0;
+			z-index: 80;
+			padding: 23px;
 			height: 96vh;
+			width: auto;
 
 			.logo {
 				display: block;

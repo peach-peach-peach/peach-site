@@ -9,7 +9,7 @@ export async function GET({ url }) {
 	const draftKey = url.searchParams.get('draftKey')
 	const contentType = url.searchParams.get('contentType')
 
-	if (contentId == null || draftKey == null || contentType == null || !isContentType(contentType)) {
+	if (contentId == null || draftKey == null || contentType == null || !isValidContentType(contentType)) {
 		error(400, 'required params are missing')
 	}
 
@@ -26,4 +26,4 @@ export async function GET({ url }) {
 	redirect(307, `/${getCategoryItemByName(article.category.name).id}/${contentId}?draftKey=${draftKey}`)
 }
 
-const isContentType = (contentType: string | null) => contentType === 'articles'
+const isValidContentType = (contentType: string | null) => contentType === 'articles'

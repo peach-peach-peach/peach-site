@@ -7,6 +7,7 @@
 	import NewArrivalsSection from '@/components/feature/Top/NewArrivalsSection.svelte'
 	import DiscographySection from '@/components/feature/Top/DiscographySection.svelte'
 	import Footer from '@/components/feature/Footer.svelte'
+	import Main from '@/components/feature/Main.svelte'
 
 	export let data: PageData
 </script>
@@ -16,20 +17,22 @@
 	<meta name="description" content={site.description} />
 </svelte:head>
 
-<section>
-	<h1 class="visually-hidden">Peach Peach Peach</h1>
+<Main>
+	<section>
+		<h1 class="visually-hidden">Peach Peach Peach</h1>
 
-	<HeaderAnimation />
+		<HeaderAnimation />
 
-	<InformationSection {data} />
+		<InformationSection {data} />
 
-	<VideoSection {data} />
+		<VideoSection {data} />
 
-	<NewArrivalsSection {data} />
+		<NewArrivalsSection {data} />
 
-	<DiscographySection {data} />
+		<DiscographySection {data} />
 
-	<Footer />
+		<Footer />
 
-	<!-- Store -->
-</section>
+		<!-- Store -->
+	</section>
+</Main>

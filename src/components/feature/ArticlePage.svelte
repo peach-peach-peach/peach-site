@@ -7,7 +7,6 @@
 	import type { Article } from '@/domain/contents/Article'
 	import type { CategoryId } from '@/domain/Category/CategoryId'
 	import { getCategoryItemById } from '@/domain/Category/getCategoryItem'
-	import BlurBox from '../primitive/BlurBox.svelte'
 
 	function goBack() {
 		if (browser) window.history.back()
@@ -27,25 +26,23 @@
 
 <MarqueeHeader contentType={category} />
 
-<BlurBox>
-	<article>
-		{#if data.isPreview}
-			<PreviewNotice />
-		{/if}
+<article>
+	{#if data.isPreview}
+		<PreviewNotice />
+	{/if}
 
-		<h1>{data.item.title}</h1>
+	<h1>{data.item.title}</h1>
 
-		<p class="published"><time>{formatDate(data.item.publishedAt)}</time></p>
+	<p class="published"><time>{formatDate(data.item.publishedAt)}</time></p>
 
-		{#if data.item.eyecatch != null && !hideCatch}
-			<img src={data.item.eyecatch.url} alt="アイキャッチ画像" class="eyecatch" />
-		{/if}
+	{#if data.item.eyecatch != null && !hideCatch}
+		<img src={data.item.eyecatch.url} alt="アイキャッチ画像" class="eyecatch" />
+	{/if}
 
-		<div class="content">
-			{@html data.item.content}
-		</div>
-	</article>
-</BlurBox>
+	<div class="content">
+		{@html data.item.content}
+	</div>
+</article>
 
 <div class="back">
 	<a href={`/${categoryItem?.id ?? ''}`} on:click={goBack}>← Back</a>

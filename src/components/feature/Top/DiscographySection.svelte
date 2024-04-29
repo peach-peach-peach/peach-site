@@ -27,6 +27,10 @@
 		border-top: 1px solid var(--color-bg-dark);
 	}
 
+	section {
+		backdrop-filter: blur(16px) brightness(1.08);
+	}
+
 	/* PC */
 	@media screen and (min-width: 768px) {
 	}

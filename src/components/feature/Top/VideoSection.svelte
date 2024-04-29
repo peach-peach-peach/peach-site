@@ -26,6 +26,7 @@
 	section {
 		border-top: 1px solid var(--color-bg-dark);
 		border-top: none;
+		backdrop-filter: blur(16px) brightness(1.08);
 	}
 
 	/* PC */

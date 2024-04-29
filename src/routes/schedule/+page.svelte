@@ -37,7 +37,7 @@
 <MarqueeHeader contentType="schedule" />
 
 <section>
-	<CardList categoryId="schedule" items={contents} --theme-color="var(--color-key-emerald)" />
+	<CardList categoryId="schedule" items={[...contents, ...contents]} --theme-color="var(--color-key-emerald)" />
 </section>
 
 {#if hasMore}

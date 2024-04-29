@@ -14,6 +14,9 @@
 	export let categoryId: CategoryId
 	// 正方形の画像で表示
 	export let squaredImage: boolean = false
+
+	const rowCount = 3
+	const countToFillTheRestOnPC = rowCount - (items.length % rowCount)
 </script>
 
 {#if items.length === 0}
@@ -36,6 +39,13 @@
 					</a>
 				</article>
 			{/each}
+
+			<!-- Gridのスキマを埋める要素 -->
+			{#if countToFillTheRestOnPC > 0 && countToFillTheRestOnPC < rowCount}
+				{#each Array(countToFillTheRestOnPC) as _}
+					<div class="list-card" aria-hidden="true"></div>
+				{/each}
+			{/if}
 		</div>
 	</section>
 {/if}
@@ -46,14 +56,22 @@
 		grid-template-columns: unset;
 		padding: 0;
 		margin: 0;
+		background-color: rgba(#fff, 0.3);
+		backdrop-filter: blur(16px) brightness(1.08);
+	}
+
+	.list-card {
+		border-bottom: 1px solid var(--color-bg-dark);
+	}
+
+	.list-card[aria-hidden='true'] {
+		display: none;
 	}
 
 	a {
 		position: relative;
 		display: block;
 		padding: 1rem;
-		background-color: rgba(#fff, 0.3);
-		backdrop-filter: blur(16px) brightness(1.08);
 		height: 100%;
 
 		figure {
@@ -139,12 +157,16 @@
 		.list {
 			display: grid;
 			grid-template-columns: 1fr 1fr 1fr;
+		}
+
+		.list-card {
+			border-right: 1px solid var(--color-bg-dark);
 			border-bottom: 1px solid var(--color-bg-dark);
 		}
 
-		article {
-			border-right: 1px solid var(--color-bg-dark);
-			border-bottom: 1px solid var(--color-bg-dark);
+		/* PC向けのGridのスキマを埋める要素 */
+		.list-card[aria-hidden='true'] {
+			display: block;
 		}
 	}
 </style>

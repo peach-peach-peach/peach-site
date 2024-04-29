@@ -43,8 +43,9 @@
 	}
 
 	:global(.wrapper > .rfm-marquee-container.marquee-header-info-marquee) {
-		width: 30rem;
-		position: absolute;
+		/* FIXME: Marquee以下のclassに優先度で勝てないので */
+		width: 30rem !important;
+		position: absolute !important;
 		z-index: 10;
 		left: -13.5rem;
 		top: 14rem;

@@ -4,7 +4,7 @@ import { createCMSClient } from '$lib/sdk/cms/microcms'
 export const fetchArticle = async ({ slug, draftKey }: { draftKey: string | null; slug: string }) => {
 	const client = createCMSClient()
 
-	if (draftKey == null) {
+	if (draftKey == null || draftKey === '') {
 		const articleRes = await client.get<Article>({
 			endpoint: 'articles',
 			contentId: slug

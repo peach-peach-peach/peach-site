@@ -26,11 +26,11 @@
 
 <MarqueeHeader contentType={category} />
 
-<article>
-	{#if data.isPreview}
-		<PreviewNotice />
-	{/if}
+{#if data.isPreview}
+	<PreviewNotice />
+{/if}
 
+<article>
 	<h1>{data.item.title}</h1>
 
 	<p class="published"><time>{formatDate(data.item.publishedAt)}</time></p>

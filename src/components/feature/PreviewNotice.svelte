@@ -1,16 +1,15 @@
-<p>現在プレビューモードで閲覧中です</p>
+<p>現在下書きプレビューモードで表示です</p>
 
 <style lang="scss">
 	p {
-		text-align: center;
-		font-size: 1rem;
-		width: 100%;
-		margin: 0;
+		padding: 1rem;
+		margin: 1rem;
+		border-radius: 12px;
 		border: 1px solid #df6060;
 		background-color: #df6060;
 		color: #fff;
+		font-size: 1rem;
 		font-weight: bold;
-		padding: 1rem;
-		border-radius: 12px;
+		text-align: center;
 	}
 </style>

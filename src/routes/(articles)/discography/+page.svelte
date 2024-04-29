@@ -1,11 +1,11 @@
 <script lang="ts">
 	import type { PageData } from './$types'
-	import Footer from '@/components/feature/Footer.svelte'
 	import CardList from '@/components/feature/CardList.svelte'
+	import Footer from '@/components/feature/Footer.svelte'
 	import MarqueeHeader from '@/components/feature/MarqueeHeader.svelte'
 	import { paginate, site } from '@/constants/site'
-	import { fetchMoreThruApi } from '@/lib/sdk/cms/fetchMoreThruApi'
 	import SeeMore from '@/components/feature/SeeMore.svelte'
+	import { fetchMoreThruApi } from '@/lib/sdk/cms/fetchMoreThruApi'
 
 	export let data: PageData
 	$: contents = data.contents
@@ -17,7 +17,7 @@
 			fetchMoreLoading = true
 
 			const nextPageRes = await fetchMoreThruApi({
-				categoryId: 'news',
+				categoryId: 'discography',
 				limit: paginate.list.limit,
 				offset: contents.length
 			})
@@ -29,15 +29,15 @@
 </script>
 
 <svelte:head>
-	<title>News | {site.title}</title>
+	<title>Discography | {site.title}</title>
 </svelte:head>
 
-<h1 class="visually-hidden">ニュース</h1>
+<h1 class="visually-hidden">ディスコグラフィ</h1>
 
-<MarqueeHeader contentType="news" />
+<MarqueeHeader contentType="discography" />
 
 <section>
-	<CardList categoryId="news" items={data.contents} --theme-color="var(--color-key-green)" />
+	<CardList categoryId="discography" items={data.contents} squaredImage --theme-color="var(--color-key-orange)" />
 </section>
 
 {#if hasMore}
@@ -45,6 +45,3 @@
 {/if}
 
 <Footer />
-
-<style>
-</style>

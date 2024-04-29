@@ -29,9 +29,7 @@
 		<SidebarNav />
 	</aside>
 
-	<main>
-		<slot />
-	</main>
+	<slot />
 
 	<GradientBackground />
 </div>
@@ -48,11 +46,6 @@
 		background-color: var(--color-key-pink-deep);
 	}
 
-	main {
-		width: 100%;
-		margin: 0 auto;
-	}
-
 	/* PC */
 	@media screen and (min-width: 768px) {
 		.app {
@@ -65,12 +58,6 @@
 
 		aside {
 			border-right: 1px solid #331832;
-		}
-
-		main {
-			/* Sidebar分引く */
-			width: calc(100vw - (160px + 24px * 2));
-			margin: 0 auto;
 		}
 	}
 </style>

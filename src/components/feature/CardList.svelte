@@ -14,6 +14,9 @@
 	export let categoryId: CategoryId
 	// 正方形の画像で表示
 	export let squaredImage: boolean = false
+
+	const rowCount = 3
+	const countToFillTheRestOnPC = rowCount - (items.length % rowCount)
 </script>
 
 {#if items.length === 0}
@@ -21,22 +24,27 @@
 		<p>記事がありません</p>
 	</section>
 {:else}
-	<section>
-		<div class="list">
-			{#each items as item}
-				<article class="list-card">
-					<a href={`/${categoryId}/${item.id}/`}>
-						<figure class:squared={squaredImage}>
-							<img src={item.eyecatch?.url ?? '/card-no-image.png'} alt={item.title} />
-						</figure>
-						<h3>{item.title}</h3>
+	<section class="list">
+		{#each items as item}
+			<article class="list-card">
+				<a href={`/${categoryId}/${item.id}/`}>
+					<figure class:squared={squaredImage}>
+						<img src={item.eyecatch?.url ?? '/card-no-image.png'} alt={item.title} />
+					</figure>
+					<h3>{item.title}</h3>
 
-						<Spacer size="3rem" />
-						<time>{formatDate(item.publishedAt)}</time>
-					</a>
-				</article>
+					<Spacer size="3rem" />
+					<time>{formatDate(item.publishedAt)}</time>
+				</a>
+			</article>
+		{/each}
+
+		<!-- Gridのスキマを埋める要素 -->
+		{#if countToFillTheRestOnPC > 0 && countToFillTheRestOnPC < rowCount}
+			{#each Array(countToFillTheRestOnPC) as _}
+				<div class="list-card" aria-hidden="true"></div>
 			{/each}
-		</div>
+		{/if}
 	</section>
 {/if}
 
@@ -48,12 +56,18 @@
 		margin: 0;
 	}
 
+	.list-card {
+		border-bottom: 1px solid var(--color-bg-dark);
+	}
+
+	.list-card[aria-hidden='true'] {
+		display: none;
+	}
+
 	a {
 		position: relative;
 		display: block;
 		padding: 1rem;
-		background-color: rgba(#fff, 0.3);
-		backdrop-filter: blur(16px) brightness(1.08);
 		height: 100%;
 
 		figure {
@@ -139,12 +153,20 @@
 		.list {
 			display: grid;
 			grid-template-columns: 1fr 1fr 1fr;
+		}
+
+		.list-card {
+			border-right: 1px solid var(--color-bg-dark);
 			border-bottom: 1px solid var(--color-bg-dark);
 		}
 
-		article {
-			border-right: 1px solid var(--color-bg-dark);
-			border-bottom: 1px solid var(--color-bg-dark);
+		/* PC向けのGridのスキマを埋める要素 */
+		.list-card[aria-hidden='true'] {
+			display: block;
+		}
+
+		.list-card:last-child {
+			border-right: none;
 		}
 	}
 </style>

@@ -9,8 +9,8 @@ export async function GET({ url }) {
 	const draftKey = url.searchParams.get('draftKey')
 	const contentType = url.searchParams.get('contentType')
 
-	if (contentId == null || draftKey == null || contentType == null || !isValidContentType(contentType)) {
-		error(400, 'required params are missing')
+	if (contentId == null || draftKey == null  || contentType == null || !isValidContentType(contentType)) {
+		error(400, '必要なパラメータが不足しています')
 	}
 
 	const article = await createCMSClient().get<Article | null>({
@@ -20,7 +20,7 @@ export async function GET({ url }) {
 	})
 
 	if (article == null) {
-		error(400, 'article not found')
+		error(400, '対象の記事が見つかりませんでした')
 	}
 
 	redirect(307, `/${getCategoryItemByName(article.category.name).id}/${contentId}?draftKey=${draftKey}`)

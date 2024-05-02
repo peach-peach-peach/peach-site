@@ -3,6 +3,7 @@
 	import logoSvg from '$lib/images/logo.svg?raw'
 	import { site } from '@/constants/site'
 	import Spacer from '@/components/primitive/Spacer.svelte'
+	import SpacerFlex from '../primitive/SpacerFlex.svelte'
 
 	type ListItem = { href: string; label: string }
 
@@ -99,7 +100,8 @@
 		{/each}
 	</ul>
 
-	<Spacer size="0" sizeSP="24px" />
+	<Spacer size="0" sizeSP="0px" />
+	<SpacerFlex flex={1} />
 
 	<ul class="social">
 		{#each socialItems as item}
@@ -245,6 +247,11 @@
 		background: var(--color-key-green);
 	}
 
+	.social {
+		position: relative;
+		margin-bottom: 100px;
+	}
+
 	/* PC */
 	@media screen and (min-width: 768px) {
 		header {
@@ -275,6 +282,7 @@
 		.social {
 			position: absolute;
 			bottom: 24px;
+			margin-bottom: 0;
 		}
 	}
 </style>

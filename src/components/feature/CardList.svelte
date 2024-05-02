@@ -67,7 +67,7 @@
 	a {
 		position: relative;
 		display: block;
-		padding: 1rem;
+		padding: 32px;
 		height: 100%;
 
 		figure {
@@ -99,13 +99,15 @@
 			font-family: 'Montserrat', sans-serif;
 			font-weight: 600;
 			text-decoration: underline;
+			// 2業までで省略
+			// 高さはわりと固定
 		}
 
 		time {
 			color: var(--color-text);
 			display: block;
 			position: absolute;
-			bottom: 1rem;
+			bottom: 32px;
 			font-size: 0.8rem;
 			font-family: 'Montserrat', sans-serif;
 		}

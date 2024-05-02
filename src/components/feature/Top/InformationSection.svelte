@@ -20,7 +20,7 @@
 		<h3>News</h3>
 		<ul>
 			{#if data.news.length === 0}
-				<li>記事がありません</li>
+				<li class="no-contents">記事がありません</li>
 			{:else}
 				{#each data.news as item}
 					<li>
@@ -39,7 +39,7 @@
 		<h3>Schedule</h3>
 		<ul>
 			{#if data.news.length === 0}
-				<li>記事がありません</li>
+				<li class="no-contents">記事がありません</li>
 			{:else}
 				{#each data.schedule as item}
 					<li>
@@ -78,6 +78,7 @@
 		font-size: 2rem;
 		font-family: 'Montserrat', sans-serif;
 		font-weight: 700;
+		text-shadow: 0px 0 10px #cfc4ce;
 	}
 
 	.schedule {
@@ -108,14 +109,20 @@
 		}
 	}
 
+	.see-all {
+		background-color: var(--color-bg-dark);
+
+		&:hover {
+			background-color: var(--color-bg-dark-hover);
+		}
+	}
+
 	.see-all-news {
 		grid-area: see-all-news;
-		background-color: var(--color-key-pink-deep);
 	}
 
 	.see-all-schedule {
 		grid-area: see-all-schedule;
-		background-color: var(--color-bg-dark);
 	}
 
 	.news,
@@ -145,6 +152,10 @@
 			display: block;
 		}
 
+		li.no-contents {
+			height: 8rem;
+		}
+
 		li > a {
 			display: inline-block;
 			width: 100%;
@@ -159,7 +170,7 @@
 	/* PC */
 	@media screen and (min-width: 768px) {
 		.information {
-			grid-template-columns: 3rem 1fr 3rem 1fr 3rem;
+			grid-template-columns: 3rem 1fr 3rem 1fr 3.5rem;
 			grid-template-areas: 'header news see-all-news schedule see-all-schedule';
 		}
 

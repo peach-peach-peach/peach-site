@@ -52,7 +52,7 @@
 			min-height: 100vh;
 			display: grid;
 			grid-template-areas: 'sidebar main';
-			grid-template-columns: calc(24px + 160px + 24px) 1fr;
+			grid-template-columns: calc(24px + 103px + 24px) 1fr;
 			margin-top: 0;
 		}
 

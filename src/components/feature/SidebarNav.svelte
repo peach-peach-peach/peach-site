@@ -268,7 +268,7 @@
 
 			.logo {
 				display: block;
-				width: 160px;
+				width: 104px;
 			}
 		}
 

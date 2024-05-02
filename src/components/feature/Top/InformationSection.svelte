@@ -20,7 +20,7 @@
 		<h3>News</h3>
 		<ul>
 			{#if data.news.length === 0}
-				<li class="no-contents">記事がありません</li>
+				<li>記事がありません</li>
 			{:else}
 				{#each data.news as item}
 					<li>
@@ -39,7 +39,7 @@
 		<h3>Schedule</h3>
 		<ul>
 			{#if data.news.length === 0}
-				<li class="no-contents">記事がありません</li>
+				<li>記事がありません</li>
 			{:else}
 				{#each data.schedule as item}
 					<li>
@@ -146,14 +146,11 @@
 			display: block;
 			padding: 0;
 			margin: 0;
+			min-height: 9rem;
 		}
 
 		li {
 			display: block;
-		}
-
-		li.no-contents {
-			height: 8rem;
 		}
 
 		li > a {

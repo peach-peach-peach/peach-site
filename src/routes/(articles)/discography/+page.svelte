@@ -3,45 +3,37 @@
 	import CardList from '@/components/feature/CardList.svelte'
 	import Footer from '@/components/feature/Footer.svelte'
 	import MarqueeHeader from '@/components/feature/MarqueeHeader.svelte'
-	import { paginate, site } from '@/constants/site'
-	import SeeMore from '@/components/feature/SeeMore.svelte'
-	import { fetchMoreThruApi } from '@/lib/sdk/cms/fetchMoreThruApi'
+	import { site } from '@/constants/site'
+	import GoBack from '@/components/feature/GoBack.svelte'
+	import Main from '@/components/feature/Main.svelte'
+	import FetchMore from '@/components/feature/FetchMore.svelte'
 
 	export let data: PageData
 	$: contents = data.contents
-	$: hasMore = contents.length < data.totalCount
-	$: fetchMoreLoading = false
-
-	const handleClick = async () => {
-		if (hasMore) {
-			fetchMoreLoading = true
-
-			const nextPageRes = await fetchMoreThruApi({
-				categoryId: 'discography',
-				limit: paginate.list.limit,
-				offset: contents.length
-			})
-			contents = [...contents, ...nextPageRes.contents]
-
-			fetchMoreLoading = false
-		}
-	}
 </script>
 
 <svelte:head>
 	<title>Discography | {site.title}</title>
 </svelte:head>
 
-<h1 class="visually-hidden">ディスコグラフィ</h1>
+<MarqueeHeader contentType="discography" fixed />
 
-<MarqueeHeader contentType="discography" />
+<Main blur>
+	<h1 class="visually-hidden">ディスコグラフィ</h1>
 
-<section>
-	<CardList categoryId="discography" items={data.contents} squaredImage --theme-color="var(--color-key-orange)" />
-</section>
+	<section>
+		<CardList categoryId="discography" items={contents} squaredImage --theme-color="var(--color-key-orange)" />
+	</section>
 
-{#if hasMore}
-	<SeeMore {fetchMoreLoading} {handleClick} />
-{/if}
+	<FetchMore
+		categoryId="news"
+		{contents}
+		totalCount={data.totalCount}
+		onChange={updated => {
+			contents = updated
+		}}
+	/>
+	<GoBack href={'/'} />
 
-<Footer />
+	<Footer />
+</Main>

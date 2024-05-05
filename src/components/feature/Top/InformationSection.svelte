@@ -76,8 +76,8 @@
 	h3 {
 		color: #fff;
 		font-size: 2rem;
-		font-family: 'Montserrat', sans-serif;
 		font-weight: 700;
+		text-shadow: 0px 0 10px #cfc4ce;
 	}
 
 	.schedule {
@@ -102,20 +102,25 @@
 			line-height: 3rem;
 			text-align: center;
 			writing-mode: vertical-rl;
-			font-family: 'Montserrat', sans-serif;
 			font-size: 1rem;
 			text-decoration: none;
 		}
 	}
 
+	.see-all {
+		background-color: var(--color-bg-dark);
+
+		&:hover {
+			background-color: var(--color-bg-dark-hover);
+		}
+	}
+
 	.see-all-news {
 		grid-area: see-all-news;
-		background-color: var(--color-key-pink-deep);
 	}
 
 	.see-all-schedule {
 		grid-area: see-all-schedule;
-		background-color: var(--color-bg-dark);
 	}
 
 	.news,
@@ -139,6 +144,7 @@
 			display: block;
 			padding: 0;
 			margin: 0;
+			min-height: 9rem;
 		}
 
 		li {

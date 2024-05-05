@@ -9,7 +9,6 @@
 
 	address {
 		text-align: center;
-		font-family: 'Montserrat', sans-serif;
 		font-size: 0.7rem;
 		font-style: normal;
 	}

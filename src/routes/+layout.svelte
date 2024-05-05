@@ -25,9 +25,7 @@
 />
 
 <div class="app">
-	<aside>
-		<SidebarNav />
-	</aside>
+	<SidebarNav />
 
 	<slot />
 
@@ -38,26 +36,12 @@
 	/* SP */
 	.app {
 		min-height: 100vh;
-		overflow-x: hidden;
-		margin-top: 69px;
-	}
-
-	aside {
-		background-color: var(--color-key-pink-deep);
 	}
 
 	/* PC */
 	@media screen and (min-width: 768px) {
 		.app {
-			min-height: 100vh;
-			display: grid;
-			grid-template-areas: 'sidebar main';
-			grid-template-columns: calc(24px + 160px + 24px) 1fr;
 			margin-top: 0;
-		}
-
-		aside {
-			border-right: 1px solid #331832;
 		}
 	}
 </style>

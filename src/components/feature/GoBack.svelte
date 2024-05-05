@@ -1,15 +1,20 @@
 <script lang="ts">
+	import { browser } from '$app/environment'
+
+	function goBack() {
+		if (browser) window.history.back()
+	}
+
 	export let href: string
 </script>
 
-<p class="see-all"><a {href}><slot /></a></p>
+<nav class="back">
+	<a {href} on:click={goBack}>← Back</a>
+</nav>
 
 <style lang="scss">
-	.see-all {
+	.back {
 		margin: 0;
-		padding: 0.5rem;
-
-		text-align: center;
 		background-color: var(--color-bg-dark);
 
 		&:hover {
@@ -17,6 +22,9 @@
 		}
 
 		a {
+			display: block;
+			padding: 0.5rem;
+			text-align: center;
 			color: var(--color-text-highlight);
 			text-decoration: none;
 		}

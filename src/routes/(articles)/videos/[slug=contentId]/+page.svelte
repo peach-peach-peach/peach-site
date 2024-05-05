@@ -11,6 +11,3 @@
 </svelte:head>
 
 <ArticlePage category="videos" {data} hideCatch />
-
-<style lang="scss">
-</style>

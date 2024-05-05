@@ -11,6 +11,3 @@
 </svelte:head>
 
 <ArticlePage category="discography" {data} />
-
-<style lang="scss">
-</style>

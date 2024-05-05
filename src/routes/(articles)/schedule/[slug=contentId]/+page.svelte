@@ -11,6 +11,3 @@
 </svelte:head>
 
 <ArticlePage category="schedule" {data} />
-
-<style lang="scss">
-</style>

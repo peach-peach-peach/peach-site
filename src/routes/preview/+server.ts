@@ -9,7 +9,7 @@ export async function GET({ url }) {
 	const draftKey = url.searchParams.get('draftKey')
 	const contentType = url.searchParams.get('contentType')
 
-	if (contentId == null || draftKey == null  || contentType == null || !isValidContentType(contentType)) {
+	if (contentId == null || draftKey == null || contentType == null || !isValidContentType(contentType)) {
 		error(400, '必要なパラメータが不足しています')
 	}
 

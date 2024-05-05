@@ -12,48 +12,67 @@
 </script>
 
 <section class="new-arrivals">
-	<div class="wrapper">
-		<div class="catch">
-			<a href={newArrivals.link_url} target="_blank" rel="noreferrer">
-				<img
-					src={newArrivals.catch_image.url}
-					width={newArrivals.catch_image.width}
-					height={newArrivals.catch_image.height}
-					alt={newArrivals.title}
-					style="width: 100%; height: auto;"
-				/>
-			</a>
-		</div>
-
-		<section class="content">
-			<h2>New arrivals</h2>
-			<h3>{newArrivals.title}</h3>
-			<div class="description">
-				{@html newArrivals.description}
+	<div class="frame">
+		<div class="inner">
+			<div class="catch">
+				<a href={newArrivals.link_url} target="_blank" rel="noreferrer">
+					<img
+						src={newArrivals.catch_image.url}
+						width={newArrivals.catch_image.width}
+						height={newArrivals.catch_image.height}
+						alt={newArrivals.title}
+					/>
+				</a>
 			</div>
-		</section>
 
-		<p class="link">
-			<a href={newArrivals.link_url} target="_blank" rel="noreferrer">{newArrivals.link_label}</a>
-		</p>
+			<section class="content">
+				<h2>New arrivals</h2>
+				<h3>{newArrivals.title}</h3>
+				<div class="description">
+					{@html newArrivals.description}
+				</div>
+			</section>
+
+			<p class="link">
+				<a href={newArrivals.link_url} target="_blank" rel="noreferrer">{newArrivals.link_label}</a>
+			</p>
+		</div>
 	</div>
 </section>
 
 <style lang="scss">
 	.new-arrivals {
-		padding: 2rem;
 		border-top: 1px solid var(--color-bg-dark);
+		display: grid;
+		grid-template-rows: 32px auto 32px;
 	}
 
-	.wrapper {
+	.frame {
 		display: grid;
-		padding: 1.5rem;
-		border: 1px solid var(--color-bg-dark);
-		background-color: #fff6;
+		grid-template-columns: 32px 1fr 32px;
+	}
+
+	/* フレーム部分 */
+	.new-arrivals::before,
+	.new-arrivals::after,
+	.frame::before,
+	.frame::after {
+		content: '';
+		display: block;
+		background-color: #ff70c680;
 		backdrop-filter: blur(16px) brightness(1.08);
 	}
 
+	.inner {
+		display: grid;
+		grid-template-columns: 1fr;
+		padding: 24px;
+		border: 1px solid var(--color-bg-dark);
+	}
+
 	.catch img {
+		width: 100%;
+		height: auto;
 		box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
 	}
 
@@ -65,13 +84,11 @@
 			margin: 0;
 			color: var(--color-key-pink);
 			font-size: 1rem;
-			font-family: 'Montserrat', sans-serif;
 		}
 
 		h3 {
 			margin-top: 1rem;
 			font-size: 1.2rem;
-			font-family: 'Montserrat', sans-serif;
 			text-wrap: wrap;
 		}
 
@@ -105,17 +122,31 @@
 	/* PC */
 	@media screen and (min-width: 768px) {
 		.new-arrivals {
-			padding: 2rem;
+			grid-template-rows: 48px auto 48px;
 		}
 
-		.wrapper {
-			grid-template-columns: 2fr 3fr 1fr;
-			padding: 1rem 3rem;
+		.frame {
+			grid-template-columns: 48px 1fr 48px;
+		}
+
+		.catch {
+			display: flex;
+			align-items: center;
+		}
+
+		.inner {
+			display: grid;
+			grid-template-columns: 1fr 2fr auto;
+			padding: 24px 48px;
+		}
+
+		.catch img {
+			box-shadow: none;
 		}
 
 		.content {
-			padding: 1rem;
-			margin: 0 2rem;
+			padding: 0;
+			margin: 0 3rem;
 
 			h2 {
 				font-size: 1.2rem;
@@ -135,7 +166,8 @@
 			display: flex;
 			justify-content: center;
 			align-items: center;
-			padding: 1rem;
+			margin: 0;
+			font-size: 0.9rem;
 		}
 	}
 </style>

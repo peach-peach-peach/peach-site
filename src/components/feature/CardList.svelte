@@ -67,7 +67,7 @@
 	a {
 		position: relative;
 		display: block;
-		padding: 1rem;
+		padding: 32px;
 		height: 100%;
 
 		figure {
@@ -94,26 +94,31 @@
 		}
 
 		h3 {
-			display: inline-block;
 			margin-top: 1rem;
-			font-family: 'Montserrat', sans-serif;
 			font-weight: 600;
 			text-decoration: underline;
+			/* 2行までで省略 */
+			display: -webkit-box;
+			-webkit-box-orient: vertical;
+			-webkit-line-clamp: 2;
+			line-clamp: 2;
+			overflow: hidden;
+			/* 未サポートブラウザのため一応 */
+			max-height: 3rem;
 		}
 
 		time {
 			color: var(--color-text);
 			display: block;
 			position: absolute;
-			bottom: 1rem;
+			bottom: 32px;
 			font-size: 0.8rem;
-			font-family: 'Montserrat', sans-serif;
 		}
 	}
 
 	a:hover {
-		background-color: var(--theme-color);
-		transition: background-color 0.2s ease-in-out;
+		background-color: unset;
+		color: unset;
 
 		figure {
 			width: calc(100% + 1rem);
@@ -129,14 +134,13 @@
 		}
 
 		.squared {
-			margin: -0.5rem;
+			width: calc(100% + 8px);
+			margin: -4px;
+			margin: -4px -4px 0;
 		}
 
 		h3 {
-			background-color: var(--color-key-pink);
-			transition:
-				color 0.1s ease-in-out,
-				background-color 0.1s ease-in-out;
+			transition: color 0.1s ease-in-out;
 		}
 	}
 
@@ -163,10 +167,20 @@
 		/* PC向けのGridのスキマを埋める要素 */
 		.list-card[aria-hidden='true'] {
 			display: block;
+			border-right: none;
 		}
 
-		.list-card:last-child {
-			border-right: none;
+		a:hover {
+			color: var(--color-text-highlight);
+			background-color: var(--theme-color);
+			transition:
+				color 0.1s ease-in-out,
+				background-color 0.2s ease-in-out;
+
+			h3 {
+				background-color: var(--color-key-pink);
+				transition: background-color 0.1s ease-in-out;
+			}
 		}
 	}
 </style>

@@ -21,7 +21,6 @@
 		padding: 0.5rem;
 
 		text-align: center;
-		font-family: 'Montserrat', sans-serif;
 		background-color: var(--color-bg-dark);
 
 		a {

@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { browser } from '$app/environment'
 	import { formatDate } from '@/lib/utils/formatDate'
 	import Footer from '@/components/feature/Footer.svelte'
 	import MarqueeHeader from '@/components/feature/MarqueeHeader.svelte'
@@ -7,10 +6,7 @@
 	import type { Article } from '@/domain/contents/Article'
 	import type { CategoryId } from '@/domain/Category/CategoryId'
 	import { getCategoryItemById } from '@/domain/Category/getCategoryItem'
-
-	function goBack() {
-		if (browser) window.history.back()
-	}
+	import GoBack from './GoBack.svelte'
 
 	export let category: CategoryId
 	export let data: {
@@ -44,9 +40,7 @@
 	</div>
 </article>
 
-<div class="back">
-	<a href={`/${categoryItem?.id ?? ''}`} on:click={goBack}>← Back</a>
-</div>
+<GoBack href={`/${categoryItem?.id ?? ''}`} />
 
 <Footer />
 
@@ -62,7 +56,6 @@
 
 	time {
 		font-size: 0.8rem;
-		font-family: 'Montserrat', sans-serif;
 	}
 
 	.eyecatch {
@@ -95,25 +88,6 @@
 
 		:global(a) {
 			color: var(--color-key-pink);
-		}
-	}
-
-	.back {
-		margin: 0;
-		padding: 0.5rem;
-
-		text-align: center;
-		font-family: 'Montserrat', sans-serif;
-		background-color: var(--color-bg-dark);
-
-		a {
-			color: var(--color-text-highlight);
-			text-decoration: none;
-		}
-
-		a:hover {
-			background-color: transparent;
-			text-decoration: underline;
 		}
 	}
 

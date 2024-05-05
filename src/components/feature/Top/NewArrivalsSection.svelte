@@ -65,13 +65,11 @@
 			margin: 0;
 			color: var(--color-key-pink);
 			font-size: 1rem;
-			font-family: 'Montserrat', sans-serif;
 		}
 
 		h3 {
 			margin-top: 1rem;
 			font-size: 1.2rem;
-			font-family: 'Montserrat', sans-serif;
 			text-wrap: wrap;
 		}
 

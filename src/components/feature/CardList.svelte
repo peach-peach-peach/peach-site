@@ -96,7 +96,6 @@
 		h3 {
 			display: inline-block;
 			margin-top: 1rem;
-			font-family: 'Montserrat', sans-serif;
 			font-weight: 600;
 			text-decoration: underline;
 			// 2業までで省略
@@ -109,7 +108,6 @@
 			position: absolute;
 			bottom: 32px;
 			font-size: 0.8rem;
-			font-family: 'Montserrat', sans-serif;
 		}
 	}
 

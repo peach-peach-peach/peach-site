@@ -76,7 +76,6 @@
 	h3 {
 		color: #fff;
 		font-size: 2rem;
-		font-family: 'Montserrat', sans-serif;
 		font-weight: 700;
 		text-shadow: 0px 0 10px #cfc4ce;
 	}
@@ -103,7 +102,6 @@
 			line-height: 3rem;
 			text-align: center;
 			writing-mode: vertical-rl;
-			font-family: 'Montserrat', sans-serif;
 			font-size: 1rem;
 			text-decoration: none;
 		}

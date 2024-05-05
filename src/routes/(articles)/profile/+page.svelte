@@ -1,13 +1,8 @@
 <script lang="ts">
-	import { browser } from '$app/environment'
 	import Footer from '@/components/feature/Footer.svelte'
+	import GoBack from '@/components/feature/GoBack.svelte'
 	import MarqueeHeader from '@/components/feature/MarqueeHeader.svelte'
 	import { site } from '@/constants/site'
-
-	function goBack() {
-		if (browser) window.history.back()
-	}
-
 	/* eslint-disable svelte/no-at-html-tags */
 </script>
 
@@ -60,9 +55,7 @@
 	</p>
 </article>
 
-<div class="back">
-	<a href={`/`} on:click={goBack}>← Back</a>
-</div>
+<GoBack href={'/'} />
 
 <Footer />
 
@@ -88,25 +81,6 @@
 		font-weight: bold;
 		font-size: 1.2rem;
 		margin: 3rem 0 1rem;
-	}
-
-	.back {
-		margin: 0;
-		padding: 0.5rem;
-
-		text-align: center;
-		font-family: 'Montserrat', sans-serif;
-		background-color: var(--color-bg-dark);
-
-		a {
-			color: var(--color-text-highlight);
-			text-decoration: none;
-		}
-
-		a:hover {
-			background-color: transparent;
-			text-decoration: underline;
-		}
 	}
 
 	/* PC */

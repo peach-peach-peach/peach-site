@@ -4,8 +4,8 @@
 	import Footer from '@/components/feature/Footer.svelte'
 	import MarqueeHeader from '@/components/feature/MarqueeHeader.svelte'
 	import { paginate, site } from '@/constants/site'
-	import SeeMore from '@/components/feature/SeeMore.svelte'
 	import { fetchMoreThruApi } from '@/lib/sdk/cms/fetchMoreThruApi'
+	import GoBack from '@/components/feature/GoBack.svelte'
 
 	export let data: PageData
 	$: contents = data.contents
@@ -38,9 +38,7 @@
 
 <CardList categoryId="schedule" items={contents} --theme-color="var(--color-key-emerald)" />
 
-{#if hasMore}
-	<SeeMore {fetchMoreLoading} {handleClick} />
-{/if}
+<GoBack href={'/'} />
 
 <Footer />
 

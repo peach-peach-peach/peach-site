@@ -100,7 +100,6 @@
 		{/each}
 	</ul>
 
-	<Spacer size="0" sizeSP="0px" />
 	<SpacerFlex flex={1} />
 
 	<ul class="social">
@@ -230,20 +229,18 @@
 			transition:
 				color 0.1s ease-in-out,
 				background-color 0.1s ease-in-out;
-			color: #fff;
-			font-family: 'Montserrat', sans-serif;
+			color: var(--color-text-highlight);
 			font-weight: 500;
 			text-decoration: none;
 		}
 
 		a:hover {
-			color: var(--color-text-highlight);
 			background: var(--color-key-green);
 		}
 	}
 
 	a[aria-current='page'] {
-		color: var(--color-text-highlight);
+		background: var(--color-key-green);
 		background: var(--color-key-green);
 	}
 

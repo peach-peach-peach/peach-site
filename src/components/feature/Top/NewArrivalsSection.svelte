@@ -111,6 +111,11 @@
 			padding: 1rem 3rem;
 		}
 
+		.catch {
+			display: flex;
+			align-items: center;
+		}
+
 		.content {
 			padding: 1rem;
 			margin: 0 2rem;

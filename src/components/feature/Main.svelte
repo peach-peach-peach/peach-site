@@ -21,7 +21,7 @@
 	@media screen and (min-width: 768px) {
 		main {
 			/* Sidebar分引く */
-			width: calc(100vw - (94px + 24px * 2));
+			width: calc(100vw - (102px + 24px * 2));
 			margin: 0 auto;
 		}
 	}

@@ -165,7 +165,7 @@
 	/* PC */
 	@media screen and (min-width: 768px) {
 		.information {
-			grid-template-columns: 3rem 1fr 3rem 1fr 3.5rem;
+			grid-template-columns: 3rem 1fr 3rem 1fr 3rem;
 			grid-template-areas: 'header news see-all-news schedule see-all-schedule';
 		}
 

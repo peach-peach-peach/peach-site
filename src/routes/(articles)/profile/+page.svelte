@@ -10,7 +10,7 @@
 	<title>Profile | {site.title}</title>
 </svelte:head>
 
-<MarqueeHeader contentType="profile" />
+<MarqueeHeader contentType="profile" sticky />
 
 <article>
 	<h1>Profile</h1>

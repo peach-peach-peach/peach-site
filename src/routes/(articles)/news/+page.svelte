@@ -34,7 +34,7 @@
 
 <h1 class="visually-hidden">ニュース</h1>
 
-<MarqueeHeader contentType="news" />
+<MarqueeHeader contentType="news" sticky />
 
 <section>
 	<CardList categoryId="news" items={data.contents} --theme-color="var(--color-key-green)" />

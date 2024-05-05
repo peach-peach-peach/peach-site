@@ -20,7 +20,7 @@
 	/* eslint-disable svelte/no-at-html-tags */
 </script>
 
-<MarqueeHeader contentType={category} />
+<MarqueeHeader contentType={category} sticky />
 
 {#if data.isPreview}
 	<PreviewNotice />

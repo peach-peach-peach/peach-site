@@ -34,7 +34,7 @@
 
 <h1 class="visually-hidden">ディスコグラフィ</h1>
 
-<MarqueeHeader contentType="discography" />
+<MarqueeHeader contentType="discography" sticky />
 
 <section>
 	<CardList categoryId="discography" items={data.contents} squaredImage --theme-color="var(--color-key-orange)" />

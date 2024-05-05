@@ -34,7 +34,7 @@
 
 <h1 class="visually-hidden">ビデオ</h1>
 
-<MarqueeHeader contentType="videos" />
+<MarqueeHeader contentType="videos" sticky />
 
 <section>
 	<CardList categoryId="videos" items={data.contents} --theme-color="var(--color-key-yellow)" />

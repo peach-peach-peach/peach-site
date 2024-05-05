@@ -53,6 +53,7 @@
 
 	export let contentType: ContentType
 	export let wrapperStyle: string = ''
+	export let sticky = false
 	export let marqueeProps: ComponentProps<InstanceType<typeof Marquee>> = {}
 
 	const contentData = contentMap[contentType]
@@ -60,7 +61,10 @@
 	/* eslint-disable svelte/no-at-html-tags */
 </script>
 
-<div class="wrapper" style="--theme-color: {contentData.themeColor}; {wrapperStyle}">
+<div
+	class="wrapper"
+	style="--theme-color: {contentData.themeColor}; {wrapperStyle}; {sticky ? 'position: sticky; z-index: 20;' : ''}"
+>
 	<Marquee autoFill {...marqueeProps}>
 		<!-- 長さが足りないことがあるので2ループ -->
 		<span class="label">{@html contentData.imageEn}</span>
@@ -74,6 +78,7 @@
 	.wrapper {
 		margin: 0;
 		padding: 0.6rem 0;
+		top: 0;
 		background-color: var(--theme-color);
 		border-bottom: 1px solid var(--color-bg-dark);
 	}

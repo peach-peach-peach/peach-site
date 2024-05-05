@@ -34,7 +34,7 @@
 
 <h1 class="visually-hidden">スケジュール</h1>
 
-<MarqueeHeader contentType="schedule" />
+<MarqueeHeader contentType="schedule" sticky />
 
 <CardList categoryId="schedule" items={contents} --theme-color="var(--color-key-emerald)" />
 

@@ -38,8 +38,7 @@
 	/* SP */
 	.app {
 		min-height: 100vh;
-		overflow-x: hidden;
-		margin-top: 69px;
+		contain: paint;
 	}
 
 	aside {

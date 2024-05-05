@@ -81,3 +81,11 @@ export const CardX10: Story = {
 		items: getItems(10)
 	}
 }
+
+export const CardSquared: Story = {
+	args: {
+		categoryId: 'schedule',
+		items: getItems(10),
+		squaredImage: true
+	}
+}

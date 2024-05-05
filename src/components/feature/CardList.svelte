@@ -134,7 +134,9 @@
 		}
 
 		.squared {
-			margin: -0.5rem;
+			width: calc(100% + 8px);
+			margin: -4px;
+			margin: -4px -4px 0;
 		}
 
 		h3 {

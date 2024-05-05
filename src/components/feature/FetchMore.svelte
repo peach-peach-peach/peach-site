@@ -6,10 +6,10 @@
 	import { throttle } from '@/lib/utils/throttle'
 	import { onMount } from 'svelte'
 
-	export let contents: any[]
+	export let contents: object[]
 	export let categoryId: CategoryId
 	export let totalCount: number
-	export let onChange: (contents: any[]) => void
+	export let onChange: (contents: object[]) => void
 
 	$: hasMore = contents.length < totalCount
 	$: loading = false

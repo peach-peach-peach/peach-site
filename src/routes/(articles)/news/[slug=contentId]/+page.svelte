@@ -11,6 +11,3 @@
 </svelte:head>
 
 <ArticlePage category="news" {data} />
-
-<style lang="scss">
-</style>

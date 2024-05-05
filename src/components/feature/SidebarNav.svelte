@@ -191,7 +191,7 @@
 
 	nav {
 		width: 100%;
-		height: 100%;
+		height: 100vh;
 		padding: 24px;
 		display: flex;
 		flex-direction: column;

@@ -43,6 +43,3 @@
 <GoBack href={'/'} />
 
 <Footer />
-
-<style>
-</style>

@@ -163,9 +163,6 @@
 		/* PC向けのGridのスキマを埋める要素 */
 		.list-card[aria-hidden='true'] {
 			display: block;
-		}
-
-		.list-card:last-child {
 			border-right: none;
 		}
 	}

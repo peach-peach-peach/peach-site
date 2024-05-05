@@ -44,3 +44,10 @@ export const CardX4: Story = {
 		items: getItems(4)
 	}
 }
+
+export const CardX10: Story = {
+	args: {
+		categoryId: 'schedule',
+		items: getItems(10)
+	}
+}

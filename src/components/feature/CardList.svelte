@@ -171,8 +171,11 @@
 		}
 
 		a:hover {
+			color: var(--color-text-highlight);
 			background-color: var(--theme-color);
-			transition: background-color 0.2s ease-in-out;
+			transition:
+				color 0.1s ease-in-out,
+				background-color 0.2s ease-in-out;
 
 			h3 {
 				background-color: var(--color-key-pink);

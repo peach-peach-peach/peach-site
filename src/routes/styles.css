@@ -46,7 +46,7 @@ a {
 }
 
 a:hover {
-	color: #fff;
+	color: var(--color-text-highlight);
 	background-color: var(--color-key-pink);
 	transition:
 		color 0.1s ease-in-out,

@@ -22,7 +22,7 @@
 	<h1 class="visually-hidden">ビデオ</h1>
 
 	<section>
-		<CardList categoryId="videos" items={data.contents} --theme-color="var(--color-key-yellow)" />
+		<CardList categoryId="videos" items={contents} --theme-color="var(--color-key-yellow)" />
 	</section>
 
 	<FetchMore

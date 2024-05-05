@@ -16,7 +16,7 @@
 	<title>Discography | {site.title}</title>
 </svelte:head>
 
-<MarqueeHeader contentType="discography" sticky />
+<MarqueeHeader contentType="discography" fixed />
 
 <Main blur>
 	<h1 class="visually-hidden">ディスコグラフィ</h1>

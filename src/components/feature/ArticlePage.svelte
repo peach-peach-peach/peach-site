@@ -21,7 +21,7 @@
 	/* eslint-disable svelte/no-at-html-tags */
 </script>
 
-<MarqueeHeader contentType={category} sticky />
+<MarqueeHeader contentType={category} fixed />
 
 <Main blur>
 	{#if data.isPreview}

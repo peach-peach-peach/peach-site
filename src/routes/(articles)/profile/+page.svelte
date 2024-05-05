@@ -12,7 +12,7 @@
 	<title>Profile | {site.title}</title>
 </svelte:head>
 
-<MarqueeHeader contentType="profile" sticky />
+<MarqueeHeader contentType="profile" fixed />
 
 <Main blur>
 	<article>

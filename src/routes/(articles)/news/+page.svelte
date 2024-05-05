@@ -16,7 +16,7 @@
 	<title>News | {site.title}</title>
 </svelte:head>
 
-<MarqueeHeader contentType="news" sticky />
+<MarqueeHeader contentType="news" fixed />
 
 <Main blur>
 	<h1 class="visually-hidden">ニュース</h1>

@@ -16,7 +16,7 @@
 	<title>Video | {site.title}</title>
 </svelte:head>
 
-<MarqueeHeader contentType="videos" sticky />
+<MarqueeHeader contentType="videos" fixed />
 
 <Main blur>
 	<h1 class="visually-hidden">ビデオ</h1>

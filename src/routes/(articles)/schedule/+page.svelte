@@ -16,7 +16,7 @@
 	<title>Schedule | {site.title}</title>
 </svelte:head>
 
-<MarqueeHeader contentType="schedule" sticky />
+<MarqueeHeader contentType="schedule" fixed />
 
 <Main blur>
 	<h1 class="visually-hidden">スケジュール</h1>

@@ -9,23 +9,23 @@
 
 	export let data: PageData
 	$: contents = data.contents
-	$: hasMore = contents.length < data.totalCount
-	$: fetchMoreLoading = false
+	// $: hasMore = contents.length < data.totalCount
+	// $: fetchMoreLoading = false
 
-	const handleClick = async () => {
-		if (hasMore) {
-			fetchMoreLoading = true
+	// const handleClick = async () => {
+	// 	if (hasMore) {
+	// 		fetchMoreLoading = true
 
-			const nextPageRes = await fetchMoreThruApi({
-				categoryId: 'schedule',
-				limit: paginate.list.limit,
-				offset: contents.length
-			})
-			contents = [...contents, ...nextPageRes.contents]
+	// 		const nextPageRes = await fetchMoreThruApi({
+	// 			categoryId: 'schedule',
+	// 			limit: paginate.list.limit,
+	// 			offset: contents.length
+	// 		})
+	// 		contents = [...contents, ...nextPageRes.contents]
 
-			fetchMoreLoading = false
-		}
-	}
+	// 		fetchMoreLoading = false
+	// 	}
+	// }
 </script>
 
 <svelte:head>

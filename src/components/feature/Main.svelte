@@ -8,8 +8,8 @@
 
 <style>
 	main {
-		width: 100%;
-		margin: 0 auto;
+		padding: 0px;
+		overflow-x: hidden;
 	}
 
 	.blur {
@@ -20,9 +20,10 @@
 	/* PC */
 	@media screen and (min-width: 768px) {
 		main {
-			/* Sidebar分引く */
-			width: calc(100vw - (102px + 24px * 2));
-			margin: 0 auto;
+			/* Same as the width of the sidebar */
+			margin-left: 150px;
+			padding: 0px;
+			overflow-x: hidden;
 		}
 	}
 </style>

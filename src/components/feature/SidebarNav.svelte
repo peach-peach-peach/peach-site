@@ -79,40 +79,46 @@
 
 <button class="menu-btn" class:is-active={open} on:click={toggle}><span></span></button>
 
-<nav>
-	<a href="/" class="logo" on:click={close}>
-		<span class="visually-hidden">Top</span>
-		{@html logoSvg}
-	</a>
+<aside>
+	<nav>
+		<a href="/" class="logo" on:click={close}>
+			<span class="visually-hidden">Top</span>
+			{@html logoSvg}
+		</a>
 
-	<Spacer size="60px" sizeSP="36px" />
+		<Spacer size="60px" sizeSP="36px" />
 
-	<ul class="contents">
-		{#each contentItems as item}
-			<li>
-				<a
-					href={item.href}
-					on:click={close}
-					aria-current={isCurrentPage($page.url.pathname, item.href) ? 'page' : undefined}
-					>{item.label}
-				</a>
-			</li>
-		{/each}
-	</ul>
+		<ul class="contents">
+			{#each contentItems as item}
+				<li>
+					<a
+						href={item.href}
+						on:click={close}
+						aria-current={isCurrentPage($page.url.pathname, item.href) ? 'page' : undefined}
+						>{item.label}
+					</a>
+				</li>
+			{/each}
+		</ul>
 
-	<SpacerFlex flex={1} />
+		<SpacerFlex flex={1} />
 
-	<ul class="social">
-		{#each socialItems as item}
-			<li>
-				<a href={item.href} target="_blank" rel="noopener noreferrer">{item.label}</a>
-			</li>
-		{/each}
-	</ul>
-</nav>
+		<ul class="social">
+			{#each socialItems as item}
+				<li>
+					<a href={item.href} target="_blank" rel="noopener noreferrer">{item.label}</a>
+				</li>
+			{/each}
+		</ul>
+	</nav>
+</aside>
 
 <style lang="scss">
 	/* SP */
+	aside {
+		background-color: var(--color-key-pink-deep);
+	}
+
 	header {
 		position: fixed;
 		top: 0;
@@ -185,28 +191,32 @@
 		}
 	}
 
-	.is-active ~ nav {
+	.is-active ~ aside {
 		left: 0;
 	}
 
-	nav {
+	aside {
 		width: 100%;
 		height: 100vh;
 		padding: 24px;
-		display: flex;
-		flex-direction: column;
 		position: fixed;
 		top: 0;
 		left: 100%;
 		z-index: 80;
 
-		transition: all 0.5s; /*アニメーション設定*/
+		transition: all 0.5s;
 		background-color: var(--color-key-pink-deep);
 
 		/* PCむけロゴ */
 		.logo {
 			display: none;
 		}
+	}
+
+	nav {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
 	}
 
 	.logo {
@@ -251,6 +261,18 @@
 
 	/* PC */
 	@media screen and (min-width: 768px) {
+		aside {
+			height: 100%;
+			width: 150px;
+			position: fixed;
+			z-index: 1;
+			top: 0;
+			left: 0;
+			overflow-x: hidden;
+			padding-top: 20px;
+			border-right: 1px solid #331832;
+		}
+
 		header {
 			display: none;
 		}
@@ -259,20 +281,14 @@
 			display: none;
 		}
 
-		nav {
-			display: flex;
-			flex-direction: column;
-			position: fixed;
-			top: 0;
+		aside {
 			left: 0;
 			z-index: 80;
-			padding: 23px;
-			height: 96vh;
-			width: auto;
+			padding: 24px;
 
 			.logo {
 				display: block;
-				width: 104px;
+				width: 100%;
 			}
 		}
 

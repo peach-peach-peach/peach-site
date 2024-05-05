@@ -20,7 +20,6 @@
 					width={newArrivals.catch_image.width}
 					height={newArrivals.catch_image.height}
 					alt={newArrivals.title}
-					style="width: 100%; height: auto;"
 				/>
 			</a>
 		</div>
@@ -54,6 +53,8 @@
 	}
 
 	.catch img {
+		width: 100%;
+		height: auto;
 		box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
 	}
 
@@ -114,6 +115,10 @@
 		.catch {
 			display: flex;
 			align-items: center;
+		}
+
+		.catch img {
+			box-shadow: none;
 		}
 
 		.content {

@@ -7,6 +7,7 @@
 	import type { CategoryId } from '@/domain/Category/CategoryId'
 	import { getCategoryItemById } from '@/domain/Category/getCategoryItem'
 	import GoBack from './GoBack.svelte'
+	import Main from '@/components/feature/Main.svelte'
 
 	export let category: CategoryId
 	export let data: {
@@ -22,27 +23,29 @@
 
 <MarqueeHeader contentType={category} sticky />
 
-{#if data.isPreview}
-	<PreviewNotice />
-{/if}
-
-<article>
-	<h1>{data.item.title}</h1>
-
-	<p class="published"><time>{formatDate(data.item.publishedAt)}</time></p>
-
-	{#if data.item.eyecatch != null && !hideCatch}
-		<img src={data.item.eyecatch.url} alt="アイキャッチ画像" class="eyecatch" />
+<Main blur>
+	{#if data.isPreview}
+		<PreviewNotice />
 	{/if}
 
-	<div class="content">
-		{@html data.item.content}
-	</div>
-</article>
+	<article>
+		<h1>{data.item.title}</h1>
 
-<GoBack href={`/${categoryItem?.id ?? ''}`} />
+		<p class="published"><time>{formatDate(data.item.publishedAt)}</time></p>
 
-<Footer />
+		{#if data.item.eyecatch != null && !hideCatch}
+			<img src={data.item.eyecatch.url} alt="アイキャッチ画像" class="eyecatch" />
+		{/if}
+
+		<div class="content">
+			{@html data.item.content}
+		</div>
+	</article>
+
+	<GoBack href={`/${categoryItem?.id ?? ''}`} />
+
+	<Footer />
+</Main>
 
 <style lang="scss">
 	article {

@@ -61,10 +61,7 @@
 	/* eslint-disable svelte/no-at-html-tags */
 </script>
 
-<div
-	class="wrapper"
-	style="--theme-color: {contentData.themeColor}; {wrapperStyle}; {sticky ? 'position: sticky; z-index: 20;' : ''}"
->
+<div class="wrapper" style="--theme-color: {contentData.themeColor}; {wrapperStyle};" class:sticky>
 	<Marquee autoFill {...marqueeProps}>
 		<!-- 長さが足りないことがあるので2ループ -->
 		<span class="label">{@html contentData.imageEn}</span>
@@ -85,5 +82,20 @@
 
 	.label {
 		margin-right: 0.9rem;
+	}
+
+	.sticky {
+		position: fixed;
+		top: 69px;
+		z-index: 20;
+	}
+
+	/* PC */
+	@media screen and (min-width: 768px) {
+		.sticky {
+			position: fixed;
+			top: 0;
+			z-index: 20;
+		}
 	}
 </style>

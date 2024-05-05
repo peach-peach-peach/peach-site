@@ -3,6 +3,8 @@
 	import GoBack from '@/components/feature/GoBack.svelte'
 	import MarqueeHeader from '@/components/feature/MarqueeHeader.svelte'
 	import { site } from '@/constants/site'
+	import Main from '@/components/feature/Main.svelte'
+
 	/* eslint-disable svelte/no-at-html-tags */
 </script>
 
@@ -12,52 +14,55 @@
 
 <MarqueeHeader contentType="profile" sticky />
 
-<article>
-	<h1>Profile</h1>
+<Main blur>
+	<article>
+		<h1>Profile</h1>
 
-	<img src="/ppp.jpg" alt="Peach Peach Peachのアーティスト画像" class="eyecatch" />
+		<img src="/ppp.jpg" alt="Peach Peach Peachのアーティスト画像" class="eyecatch" />
 
-	<h2>プロフィール / Profile</h2>
+		<h2>プロフィール / Profile</h2>
 
-	<p>
-		2021年秋、東京で活動を開始。<br />
-		from 福岡の昔からの友だち2人が 一緒に遊んでた果てに、音楽をつくる事に。<br />
-		hiphop も indie rock も neo soul も、好きなジャンルを自在にオーライ。 <br />
-		とにかく楽しみたくて音楽をやってる。
-	</p>
+		<p>
+			2021年秋、東京で活動を開始。<br />
+			from 福岡の昔からの友だち2人が 一緒に遊んでた果てに、音楽をつくる事に。<br />
+			hiphop も indie rock も neo soul も、好きなジャンルを自在にオーライ。 <br />
+			とにかく楽しみたくて音楽をやってる。
+		</p>
 
-	<p lang="en">
-		2021, autumn. Started in Tokyo.<br />
-		2 old friends from Fukuoka, hanging out and playing, end up making songs together.<br />
-		From hiphop to indie rock, freely open genre is welcome to us.<br />
-		We just wanna play music ‘cause we want to have fun!!!
-	</p>
+		<p lang="en">
+			2021, autumn. Started in Tokyo.<br />
+			2 old friends from Fukuoka, hanging out and playing, end up making songs together.<br />
+			From hiphop to indie rock, freely open genre is welcome to us.<br />
+			We just wanna play music ‘cause we want to have fun!!!
+		</p>
 
-	<h2>メンバー / Member</h2>
-	<p>
-		川関浩司:<br />
-		1999年福岡でオルタナティブロックバンド NANANINE を結成。2001年ワーナーミュージックよりメジャーデビュー、海外フェスや国内大型フェスに出演。2006年バンド活動休止後はマイペースに音楽に関わり続けている。
-	</p>
-	<p>
-		西尾大介:<br />
-		2004年、ソロプロジェクト ALOHA として福岡で始動。その後東京に活動拠点を移し、2011年に曽我部恵一主宰の ROSE RECORDS より『うたのゆくえ』をリリース。自身の楽曲制作の他に、プロデュースやマスタリングなども手掛ける。
-	</p>
+		<h2>メンバー / Member</h2>
+		<p>
+			川関浩司:<br />
+			1999年福岡でオルタナティブロックバンド NANANINE を結成。2001年ワーナーミュージックよりメジャーデビュー、海外フェスや国内大型フェスに出演。2006年バンド活動休止後はマイペースに音楽に関わり続けている。
+		</p>
+		<p>
+			西尾大介:<br />
+			2004年、ソロプロジェクト ALOHA として福岡で始動。その後東京に活動拠点を移し、2011年に曽我部恵一主宰の ROSE RECORDS
+			より『うたのゆくえ』をリリース。自身の楽曲制作の他に、プロデュースやマスタリングなども手掛ける。
+		</p>
 
-	<p lang="en">
-		Hiroshi Kawaseki:<br />
-		In 1999, formed Alternative Band “NANANINE” in Fukuoka. In 2001, major debut in Warner Music. Performed in international/domestic
-		music festivals.
-	</p>
-	<p lang="en">
-		Daisuke Nishio:<br />
-		In 2004, start Solo project as ALOHA in Fukuoka. Afterwards, moved the base to Tokyo. In addition to producing my own
-		music, I also produce other peoples producing and mastering.
-	</p>
-</article>
+		<p lang="en">
+			Hiroshi Kawaseki:<br />
+			In 1999, formed Alternative Band “NANANINE” in Fukuoka. In 2001, major debut in Warner Music. Performed in international/domestic
+			music festivals.
+		</p>
+		<p lang="en">
+			Daisuke Nishio:<br />
+			In 2004, start Solo project as ALOHA in Fukuoka. Afterwards, moved the base to Tokyo. In addition to producing my own
+			music, I also produce other peoples producing and mastering.
+		</p>
+	</article>
 
-<GoBack href={'/'} />
+	<GoBack href={'/'} />
 
-<Footer />
+	<Footer />
+</Main>
 
 <style lang="scss">
 	article {

@@ -6,6 +6,7 @@
 	import { paginate, site } from '@/constants/site'
 	import { fetchMoreThruApi } from '@/lib/sdk/cms/fetchMoreThruApi'
 	import GoBack from '@/components/feature/GoBack.svelte'
+	import Main from '@/components/feature/Main.svelte'
 
 	export let data: PageData
 	$: contents = data.contents
@@ -32,12 +33,14 @@
 	<title>Schedule | {site.title}</title>
 </svelte:head>
 
-<h1 class="visually-hidden">スケジュール</h1>
-
 <MarqueeHeader contentType="schedule" sticky />
 
-<CardList categoryId="schedule" items={contents} --theme-color="var(--color-key-emerald)" />
+<Main blur>
+	<h1 class="visually-hidden">スケジュール</h1>
 
-<GoBack href={'/'} />
+	<CardList categoryId="schedule" items={contents} --theme-color="var(--color-key-emerald)" />
 
-<Footer />
+	<GoBack href={'/'} />
+
+	<Footer />
+</Main>

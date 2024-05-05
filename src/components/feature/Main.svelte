@@ -9,6 +9,8 @@
 <style>
 	main {
 		padding: 0px;
+		/* SidebarNav分+ */
+		padding-top: calc(69px + 43px);
 		overflow-x: hidden;
 	}
 
@@ -23,6 +25,7 @@
 			/* Same as the width of the sidebar */
 			margin-left: 150px;
 			padding: 0px;
+			padding-top: 43px;
 			overflow-x: hidden;
 		}
 	}

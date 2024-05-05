@@ -115,10 +115,6 @@
 
 <style lang="scss">
 	/* SP */
-	aside {
-		background-color: var(--color-key-pink-deep);
-	}
-
 	header {
 		position: fixed;
 		top: 0;

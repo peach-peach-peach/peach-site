@@ -1,72 +1,87 @@
-<script>
-	export let backgroundColor = 'white'
-	export let size = '11em'
-</script>
+<div class="dot-typing"></div>
 
-<div class="loader" style="--backgroundColor: {backgroundColor}; --size: {size};"></div>
+<style lang="scss">
+	$dot-width: 10px;
+	$dot-height: 10px;
+	$dot-radius: $dot-width * 0.5;
 
-<style>
-	.loader {
-		font-size: 10px;
-		margin: 0 auto;
-		text-indent: -9999em;
-		width: var(--size);
-		height: var(--size);
-		border-radius: 50%;
-		background: #ffffff;
-		background: -moz-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
-		background: -webkit-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
-		background: -o-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
-		background: -ms-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
-		background: linear-gradient(to right, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+	$dot-color: var(--color);
+	$dot-bg-color: $dot-color;
+	$dot-before-color: $dot-color;
+	$dot-after-color: $dot-color;
+
+	$dot-spacing: $dot-width + $dot-width * 0.5;
+
+	$left-pos: -9999px;
+	$x1: -$left-pos - $dot-spacing;
+	$x2: -$left-pos;
+	$x3: -$left-pos + $dot-spacing;
+
+	.dot-typing {
 		position: relative;
-		-webkit-animation: load3 1.4s infinite linear;
-		animation: load3 1.4s infinite linear;
-		-webkit-transform: translateZ(0);
-		-ms-transform: translateZ(0);
-		transform: translateZ(0);
+		left: $left-pos;
+
+		width: $dot-width;
+		height: $dot-height;
+		border-radius: $dot-radius;
+		background-color: $dot-bg-color;
+		color: $dot-color;
+
+		box-shadow:
+			$x1 0 0 0 $dot-before-color,
+			$x2 0 0 0 $dot-color,
+			$x3 0 0 0 $dot-after-color;
+		animation: dot-typing 1.5s infinite linear;
 	}
-	.loader:before {
-		width: 50%;
-		height: 50%;
-		background: #ffffff;
-		border-radius: 100% 0 0 0;
-		position: absolute;
-		top: 0;
-		left: 0;
-		content: '';
-	}
-	.loader:after {
-		background: var(--backgroundColor);
-		width: 75%;
-		height: 75%;
-		border-radius: 50%;
-		content: '';
-		margin: auto;
-		position: absolute;
-		top: 0;
-		left: 0;
-		bottom: 0;
-		right: 0;
-	}
-	@-webkit-keyframes load3 {
+
+	@keyframes dot-typing {
 		0% {
-			-webkit-transform: rotate(0deg);
-			transform: rotate(0deg);
+			box-shadow:
+				$x1 0 0 0 $dot-before-color,
+				$x2 0 0 0 $dot-color,
+				$x3 0 0 0 $dot-after-color;
 		}
+
+		16.667% {
+			box-shadow:
+				$x1 -10px 0 0 $dot-before-color,
+				$x2 0 0 0 $dot-color,
+				$x3 0 0 0 $dot-after-color;
+		}
+
+		33.333% {
+			box-shadow:
+				$x1 0 0 0 $dot-before-color,
+				$x2 0 0 0 $dot-color,
+				$x3 0 0 0 $dot-after-color;
+		}
+
+		50% {
+			box-shadow:
+				$x1 0 0 0 $dot-before-color,
+				$x2 -10px 0 0 $dot-color,
+				$x3 0 0 0 $dot-after-color;
+		}
+
+		66.667% {
+			box-shadow:
+				$x1 0 0 0 $dot-before-color,
+				$x2 0 0 0 $dot-color,
+				$x3 0 0 0 $dot-after-color;
+		}
+
+		83.333% {
+			box-shadow:
+				$x1 0 0 0 $dot-before-color,
+				$x2 0 0 0 $dot-color,
+				$x3 -10px 0 0 $dot-after-color;
+		}
+
 		100% {
-			-webkit-transform: rotate(360deg);
-			transform: rotate(360deg);
-		}
-	}
-	@keyframes load3 {
-		0% {
-			-webkit-transform: rotate(0deg);
-			transform: rotate(0deg);
-		}
-		100% {
-			-webkit-transform: rotate(360deg);
-			transform: rotate(360deg);
+			box-shadow:
+				$x1 0 0 0 $dot-before-color,
+				$x2 0 0 0 $dot-color,
+				$x3 0 0 0 $dot-after-color;
 		}
 	}
 </style>

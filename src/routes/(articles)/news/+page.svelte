@@ -3,30 +3,13 @@
 	import Footer from '@/components/feature/Footer.svelte'
 	import CardList from '@/components/feature/CardList.svelte'
 	import MarqueeHeader from '@/components/feature/MarqueeHeader.svelte'
-	import { paginate, site } from '@/constants/site'
-	import { fetchMoreThruApi } from '@/lib/sdk/cms/fetchMoreThruApi'
+	import { site } from '@/constants/site'
 	import GoBack from '@/components/feature/GoBack.svelte'
 	import Main from '@/components/feature/Main.svelte'
+	import FetchMore from '@/components/feature/FetchMore.svelte'
 
 	export let data: PageData
 	$: contents = data.contents
-	$: hasMore = contents.length < data.totalCount
-	$: fetchMoreLoading = false
-
-	const handleClick = async () => {
-		if (hasMore) {
-			fetchMoreLoading = true
-
-			const nextPageRes = await fetchMoreThruApi({
-				categoryId: 'news',
-				limit: paginate.list.limit,
-				offset: contents.length
-			})
-			contents = [...contents, ...nextPageRes.contents]
-
-			fetchMoreLoading = false
-		}
-	}
 </script>
 
 <svelte:head>
@@ -39,8 +22,17 @@
 	<h1 class="visually-hidden">ニュース</h1>
 
 	<section>
-		<CardList categoryId="news" items={data.contents} --theme-color="var(--color-key-green)" />
+		<CardList categoryId="news" items={contents} --theme-color="var(--color-key-green)" />
 	</section>
+
+	<FetchMore
+		categoryId="news"
+		{contents}
+		totalCount={data.totalCount}
+		onChange={updated => {
+			contents = updated
+		}}
+	/>
 
 	<GoBack href={'/'} />
 

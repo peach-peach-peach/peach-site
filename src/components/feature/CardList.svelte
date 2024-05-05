@@ -117,8 +117,8 @@
 	}
 
 	a:hover {
-		background-color: var(--theme-color);
-		transition: background-color 0.2s ease-in-out;
+		background-color: unset;
+		color: unset;
 
 		figure {
 			width: calc(100% + 1rem);
@@ -140,10 +140,7 @@
 		}
 
 		h3 {
-			background-color: var(--color-key-pink);
-			transition:
-				color 0.1s ease-in-out,
-				background-color 0.1s ease-in-out;
+			transition: color 0.1s ease-in-out;
 		}
 	}
 
@@ -171,6 +168,16 @@
 		.list-card[aria-hidden='true'] {
 			display: block;
 			border-right: none;
+		}
+
+		a:hover {
+			background-color: var(--theme-color);
+			transition: background-color 0.2s ease-in-out;
+
+			h3 {
+				background-color: var(--color-key-pink);
+				transition: background-color 0.1s ease-in-out;
+			}
 		}
 	}
 </style>

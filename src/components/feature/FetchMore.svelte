@@ -2,14 +2,15 @@
 	import Spinner from '@/components/primitive/Spinner.svelte'
 	import { paginate } from '@/constants/site'
 	import type { CategoryId } from '@/domain/Category/CategoryId'
+	import type { Article } from '@/domain/contents/Article'
 	import { fetchMoreThruApi } from '@/lib/sdk/cms/fetchMoreThruApi'
 	import { throttle } from '@/lib/utils/throttle'
 	import { onMount } from 'svelte'
 
-	export let contents: object[]
+	export let contents: Article[]
 	export let categoryId: CategoryId
 	export let totalCount: number
-	export let onChange: (contents: object[]) => void
+	export let onChange: (contents: Article[]) => void
 
 	$: hasMore = contents.length < totalCount
 	$: loading = false

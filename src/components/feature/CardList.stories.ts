@@ -31,6 +31,36 @@ export const CardX1: Story = {
 	}
 }
 
+export const CardLongTtile: Story = {
+	args: {
+		categoryId: 'news',
+		items: [
+			{
+				id: '1lt',
+				title: Array.from({ length: 10 })
+					.map(_ => '長いタイトル')
+					.join(' '),
+				eyecatch: {
+					url: 'https://placehold.jp/150x150.png'
+				},
+				publishedAt: '2021-01-01T00:00:00+09:00'
+			},
+			...getItems(4),
+			{
+				id: '2lt',
+				title: Array.from({ length: 10 })
+					.map(_ => '長いタイトル')
+					.join(' '),
+				eyecatch: {
+					url: 'https://placehold.jp/150x150.png'
+				},
+				publishedAt: '2021-01-01T00:00:00+09:00'
+			},
+			...getItems(5)
+		]
+	}
+}
+
 export const CardX3: Story = {
 	args: {
 		categoryId: 'news',

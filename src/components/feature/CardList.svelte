@@ -94,12 +94,17 @@
 		}
 
 		h3 {
-			display: inline-block;
 			margin-top: 1rem;
 			font-weight: 600;
 			text-decoration: underline;
-			// 2業までで省略
-			// 高さはわりと固定
+			/* 2行までで省略 */
+			display: -webkit-box;
+			-webkit-box-orient: vertical;
+			-webkit-line-clamp: 2;
+			line-clamp: 2;
+			overflow: hidden;
+			/* 未サポートブラウザのため一応 */
+			max-height: 3rem;
 		}
 
 		time {

@@ -21,7 +21,7 @@
 
 {#if items.length === 0}
 	<section class="no-contents">
-		<p>記事がありません</p>
+		<p>Coming soon</p>
 	</section>
 {:else}
 	<section class="list">
@@ -146,10 +146,13 @@
 
 	.no-contents {
 		padding: 3rem;
-		margin: 3rem;
-		background-color: rgba(#fff, 0.3);
-		backdrop-filter: blur(16px) brightness(1.08);
-		text-align: center;
+
+		p {
+			text-align: center;
+			padding: 3rem;
+			margin: 0;
+			background-color: rgba(#fff, 0.3);
+		}
 	}
 
 	/* PC */

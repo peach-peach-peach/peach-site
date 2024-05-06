@@ -8,6 +8,7 @@
 	import DiscographySection from '@/components/feature/Top/DiscographySection.svelte'
 	import Footer from '@/components/feature/Footer.svelte'
 	import Main from '@/components/feature/Main.svelte'
+	import CatchSection from '@/components/feature/Top/CatchSection.svelte'
 
 	export let data: PageData
 </script>
@@ -21,7 +22,7 @@
 	<section>
 		<h1 class="visually-hidden">Peach Peach Peach</h1>
 
-		<HeaderAnimation />
+		<CatchSection />
 
 		<InformationSection {data} />
 

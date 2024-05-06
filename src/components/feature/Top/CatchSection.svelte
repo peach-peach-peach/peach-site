@@ -1,5 +1,5 @@
 <aside>
-	<video src="/videos/easy.mp4" autoplay muted loop playsinline>
+	<video src="/videos/easy-muted.mp4" autoplay muted loop playsinline>
 		<track kind="captions" />
 	</video>
 </aside>

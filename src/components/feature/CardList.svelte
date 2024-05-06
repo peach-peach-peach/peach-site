@@ -21,7 +21,7 @@
 
 {#if items.length === 0}
 	<section class="no-contents">
-		<p>記事がありません</p>
+		<p>Coming soon</p>
 	</section>
 {:else}
 	<section class="list">

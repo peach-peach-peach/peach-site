@@ -20,7 +20,7 @@
 		<h3>News</h3>
 		<ul>
 			{#if data.news.length === 0}
-				<li>記事がありません</li>
+				<li>Coming soon</li>
 			{:else}
 				{#each data.news as item}
 					<li>
@@ -39,7 +39,7 @@
 		<h3>Schedule</h3>
 		<ul>
 			{#if data.news.length === 0}
-				<li>記事がありません</li>
+				<li>Coming soon</li>
 			{:else}
 				{#each data.schedule as item}
 					<li>

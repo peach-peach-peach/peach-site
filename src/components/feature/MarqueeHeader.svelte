@@ -82,6 +82,7 @@
 
 	.label {
 		margin-right: 0.9rem;
+		vertical-align: middle;
 	}
 
 	.fixed {

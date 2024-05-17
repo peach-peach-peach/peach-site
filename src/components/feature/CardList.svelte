@@ -31,7 +31,7 @@
 					<figure class:squared={squaredImage}>
 						<img src={item.eyecatch?.url ?? '/card-no-image.png'} alt={item.title} />
 					</figure>
-					<h3>{item.title}</h3>
+					<h3><span>{item.title}</span></h3>
 
 					<Spacer size="3rem" />
 					<time>{formatDate(item.publishedAt)}</time>
@@ -95,8 +95,6 @@
 
 		h3 {
 			margin-top: 1rem;
-			font-weight: 600;
-			text-decoration: underline;
 			/* 2行までで省略 */
 			display: -webkit-box;
 			-webkit-box-orient: vertical;
@@ -105,6 +103,11 @@
 			overflow: hidden;
 			/* 未サポートブラウザのため一応 */
 			max-height: 3rem;
+
+			span {
+				font-weight: 600;
+				text-decoration: underline;
+			}
 		}
 
 		time {
@@ -119,29 +122,6 @@
 	a:hover {
 		background-color: unset;
 		color: unset;
-
-		figure {
-			width: calc(100% + 1rem);
-			height: auto;
-			margin: -0.5rem -0.5rem 0;
-			box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
-
-			transition:
-				box-shadow 0.2s ease-in-out,
-				width 0.1s ease-in-out,
-				height 0.1s ease-in-out,
-				margin 0.1s ease-in-out;
-		}
-
-		.squared {
-			width: calc(100% + 8px);
-			margin: -4px;
-			margin: -4px -4px 0;
-		}
-
-		h3 {
-			transition: color 0.1s ease-in-out;
-		}
 	}
 
 	.no-contents {
@@ -174,15 +154,32 @@
 		}
 
 		a:hover {
-			color: var(--color-text-highlight);
 			background-color: var(--theme-color);
-			transition:
-				color 0.1s ease-in-out,
-				background-color 0.2s ease-in-out;
 
-			h3 {
+			figure {
+				width: calc(100% + 1rem);
+				height: auto;
+				margin: -0.5rem -0.5rem 0;
+				box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
+
+				transition:
+					box-shadow 0.3s ease-in-out,
+					width 0.3s ease-in-out,
+					height 0.3s ease-in-out,
+					margin 0.3s ease-in-out;
+			}
+
+			.squared {
+				width: calc(100% + 8px);
+				margin: -4px;
+			}
+
+			h3 > span {
+				color: var(--color-text-highlight);
 				background-color: var(--color-key-pink);
-				transition: background-color 0.1s ease-in-out;
+				transition:
+					color 0.2s ease-in-out,
+					background-color 0.2s ease-in-out;
 			}
 		}
 	}

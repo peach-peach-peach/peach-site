@@ -47,15 +47,15 @@
 		{
 			label: 'YouTube',
 			href: site.social.youtube
-		},
-		{
-			label: 'Spotify',
-			href: site.social.spotify
-		},
-		{
-			label: 'Apple Music',
-			href: site.social.appleMusic
 		}
+		// {
+		// 	label: 'Spotify',
+		// 	href: site.social.spotify
+		// },
+		// {
+		// 	label: 'Apple Music',
+		// 	href: site.social.appleMusic
+		// }
 	]
 
 	export let open: boolean = false
@@ -227,10 +227,10 @@
 
 	li {
 		list-style: none;
-		line-height: 2.2rem;
+		padding: 0.35rem 0;
 
 		a {
-			display: block;
+			display: inline-block;
 			margin: 0;
 			transition:
 				color 0.1s ease-in-out,

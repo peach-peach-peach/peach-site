@@ -15,7 +15,6 @@
 
 <svelte:head>
 	<title>{site.title}</title>
-	<meta name="description" content={site.description} />
 </svelte:head>
 
 <Main>

@@ -119,29 +119,6 @@
 	a:hover {
 		background-color: unset;
 		color: unset;
-
-		figure {
-			width: calc(100% + 1rem);
-			height: auto;
-			margin: -0.5rem -0.5rem 0;
-			box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
-
-			transition:
-				box-shadow 0.2s ease-in-out,
-				width 0.1s ease-in-out,
-				height 0.1s ease-in-out,
-				margin 0.1s ease-in-out;
-		}
-
-		.squared {
-			width: calc(100% + 8px);
-			margin: -4px;
-			margin: -4px -4px 0;
-		}
-
-		h3 {
-			transition: color 0.1s ease-in-out;
-		}
 	}
 
 	.no-contents {
@@ -174,15 +151,30 @@
 		}
 
 		a:hover {
-			color: var(--color-text-highlight);
-			background-color: var(--theme-color);
-			transition:
-				color 0.1s ease-in-out,
-				background-color 0.2s ease-in-out;
+			figure {
+				width: calc(100% + 1rem);
+				height: auto;
+				margin: -0.5rem -0.5rem 0;
+				box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
+
+				transition:
+					box-shadow 0.3s ease-in-out,
+					width 0.3s ease-in-out,
+					height 0.3s ease-in-out,
+					margin 0.3s ease-in-out;
+			}
+
+			.squared {
+				width: calc(100% + 8px);
+				margin: -4px;
+			}
 
 			h3 {
+				color: var(--color-text-highlight);
 				background-color: var(--color-key-pink);
-				transition: background-color 0.1s ease-in-out;
+				transition:
+					color 0.2s ease-in-out,
+					background-color 0.2s ease-in-out;
 			}
 		}
 	}

@@ -10,11 +10,12 @@
 	import { MetaTags } from 'svelte-meta-tags'
 	import SidebarNav from '@/components/feature/SidebarNav.svelte'
 	import GradientBackground from '@/components/primitive/GradientBackground.svelte'
+	import { site } from '@/constants/site'
 </script>
 
-<!-- FIXNE: とりあえずnoindex -->
 <MetaTags
-	robots="noindex"
+	title={site.title}
+	description={site.description}
 	additionalMetaTags={[
 		// StatusBarの色を指定
 		{ name: 'theme-color', content: '#ff3998' /* = color-key-pink-deep */ },
@@ -22,6 +23,20 @@
 		{ name: 'mobile-web-app-capable', content: 'yes' },
 		{ name: 'apple-mobile-web-app-capable', content: 'yes' }
 	]}
+	openGraph={{
+		url: site.url,
+		title: site.title,
+		siteName: site.title,
+		description: site.description,
+		images: [{ url: site.ogpImage }]
+	}}
+	twitter={{
+		cardType: 'summary',
+		title: site.title,
+		description: site.description,
+		image: site.ogpImage,
+		imageAlt: 'Peach Peach Peach site logo'
+	}}
 />
 
 <div class="app">

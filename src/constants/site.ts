@@ -7,7 +7,9 @@ export const site = {
 		// 仮
 		appleMusic: 'https://music.apple.com/jp/browse',
 		spotify: 'https://open.spotify.com/intl-ja'
-	}
+	},
+	url: 'https://peach-peach-peach.com',
+	ogpImage: 'https://peach-peach-peach.com/ogp.jpg'
 }
 
 export const paginate = {

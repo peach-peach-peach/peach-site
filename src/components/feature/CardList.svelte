@@ -154,6 +154,8 @@
 		}
 
 		a:hover {
+			background-color: var(--theme-color);
+
 			figure {
 				width: calc(100% + 1rem);
 				height: auto;

@@ -3,7 +3,6 @@ import { site } from '@/constants/site'
 
 export const load = async ({ url }) => {
 	const canonical = new URL(url.pathname, url.origin).href
-	console.log(canonical)
 
 	const baseMetaTags = Object.freeze({
 		title: site.title,

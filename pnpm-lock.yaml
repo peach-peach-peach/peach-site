@@ -14,6 +14,9 @@ dependencies:
   microcms-js-sdk:
     specifier: ^3.1.1
     version: 3.1.1
+  radash:
+    specifier: ^12.1.0
+    version: 12.1.0
   three:
     specifier: ^0.164.1
     version: 0.164.1
@@ -7444,6 +7447,11 @@ packages:
   /queue-microtask@1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
     dev: true
+
+  /radash@12.1.0:
+    resolution: {integrity: sha512-b0Zcf09AhqKS83btmUeYBS8tFK7XL2e3RvLmZcm0sTdF1/UUlHSsjXdCcWNxe7yfmAlPve5ym0DmKGtTzP6kVQ==}
+    engines: {node: '>=14.18.0'}
+    dev: false
 
   /ramda@0.29.0:
     resolution: {integrity: sha512-BBea6L67bYLtdbOqfp8f58fPMqEwx0doL+pAi8TZyp2YWz8R9G8z9x75CZI8W+ftqhFHCpEX2cRnUUXK130iKA==}

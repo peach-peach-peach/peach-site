@@ -10,34 +10,15 @@
 	import { MetaTags } from 'svelte-meta-tags'
 	import SidebarNav from '@/components/feature/SidebarNav.svelte'
 	import GradientBackground from '@/components/primitive/GradientBackground.svelte'
-	import { site } from '@/constants/site'
+	import { page } from '$app/stores'
+	import { deepMerge } from '@/lib/utils/deepMerge'
+
+	export let data
+
+	$: metaTags = deepMerge(data.baseMetaTags, $page.data.pageMetaTags)
 </script>
 
-<MetaTags
-	title={site.title}
-	description={site.description}
-	additionalMetaTags={[
-		// StatusBarの色を指定
-		{ name: 'theme-color', content: '#ff3998' /* = color-key-pink-deep */ },
-		// ホームに追加対応
-		{ name: 'mobile-web-app-capable', content: 'yes' },
-		{ name: 'apple-mobile-web-app-capable', content: 'yes' }
-	]}
-	openGraph={{
-		url: site.url,
-		title: site.title,
-		siteName: site.title,
-		description: site.description,
-		images: [{ url: site.ogpImage }]
-	}}
-	twitter={{
-		cardType: 'summary',
-		title: site.title,
-		description: site.description,
-		image: site.ogpImage,
-		imageAlt: 'Peach Peach Peach site logo'
-	}}
-/>
+<MetaTags {...metaTags} />
 
 <div class="app">
 	<SidebarNav />

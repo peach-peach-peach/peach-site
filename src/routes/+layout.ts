@@ -2,7 +2,7 @@ import type { MetaTagsProps } from 'svelte-meta-tags'
 import { site } from '@/constants/site'
 
 export const load = async ({ url }) => {
-	const canonical = new URL(url.pathname, url.origin).href
+	const canonical = new URL(url.pathname, url.origin).href.replace(/\/$/, '')
 
 	const baseMetaTags = Object.freeze({
 		title: site.title,

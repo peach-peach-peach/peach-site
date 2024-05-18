@@ -2,15 +2,10 @@
 	import Footer from '@/components/feature/Footer.svelte'
 	import GoBack from '@/components/feature/GoBack.svelte'
 	import MarqueeHeader from '@/components/feature/MarqueeHeader.svelte'
-	import { site } from '@/constants/site'
 	import Main from '@/components/feature/Main.svelte'
 
 	/* eslint-disable svelte/no-at-html-tags */
 </script>
-
-<svelte:head>
-	<title>Profile | {site.title}</title>
-</svelte:head>
 
 <MarqueeHeader contentType="profile" fixed />
 

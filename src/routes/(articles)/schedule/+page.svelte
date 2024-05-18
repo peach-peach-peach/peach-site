@@ -12,10 +12,6 @@
 	$: contents = data.contents
 </script>
 
-<svelte:head>
-	<title>Schedule | {site.title}</title>
-</svelte:head>
-
 <MarqueeHeader contentType="schedule" fixed />
 
 <Main blur>

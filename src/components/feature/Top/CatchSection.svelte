@@ -27,12 +27,11 @@
 		margin-top: -43px;
 		display: flex;
 		justify-content: center;
-		height: calc(100vh - 43px);
+		height: calc(100vh + 45px);
 	}
 
 	video {
 		display: block;
-		width: auto;
 	}
 
 	/* PC */

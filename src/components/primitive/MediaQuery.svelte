@@ -4,7 +4,7 @@
 	export let query: string
 
 	let mql: MediaQueryList | undefined
-	let mqlListener: (this: MediaQueryList, ev: MediaQueryListEvent) => any
+	let mqlListener: (this: MediaQueryList, ev: MediaQueryListEvent) => void
 	let mounted = false
 	let matches = false
 

@@ -12,7 +12,13 @@
 	<article>
 		<h1>Profile</h1>
 
-		<img src="/ppp.jpg" alt="Peach Peach Peachのアーティスト画像" class="eyecatch" width="1920" height="1280" />
+		<img
+			src="/artist-photo.jpg"
+			alt="Peach Peach Peachのアーティスト画像"
+			class="eyecatch"
+			width="1920"
+			height="1280"
+		/>
 
 		<h2>プロフィール / Profile</h2>
 

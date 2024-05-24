@@ -16,4 +16,4 @@ export const load: PageServerLoad = async () => {
 	}
 }
 
-export const ssr = false
+export const ssr = true

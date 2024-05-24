@@ -98,6 +98,9 @@
 		:global(a) {
 			color: var(--color-key-pink);
 		}
+		:global(a:hover) {
+			color: var(--color-text-highlight);
+		}
 	}
 
 	/* PC */

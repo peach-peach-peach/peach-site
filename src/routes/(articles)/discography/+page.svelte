@@ -3,7 +3,6 @@
 	import CardList from '@/components/feature/CardList.svelte'
 	import Footer from '@/components/feature/Footer.svelte'
 	import MarqueeHeader from '@/components/feature/MarqueeHeader.svelte'
-	import { site } from '@/constants/site'
 	import GoBack from '@/components/feature/GoBack.svelte'
 	import Main from '@/components/feature/Main.svelte'
 	import FetchMore from '@/components/feature/FetchMore.svelte'
@@ -11,10 +10,6 @@
 	export let data: PageData
 	$: contents = data.contents
 </script>
-
-<svelte:head>
-	<title>Discography | {site.title}</title>
-</svelte:head>
 
 <MarqueeHeader contentType="discography" fixed />
 

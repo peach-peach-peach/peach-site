@@ -1,6 +1,5 @@
 <script lang="ts">
 	import type { PageData } from './$types'
-	import { site } from '@/constants/site'
 	import HeaderAnimation from '@/components/feature/Top/HeaderAnimation.svelte'
 	import InformationSection from '@/components/feature/Top/InformationSection.svelte'
 	import VideoSection from '@/components/feature/Top/VideoSection.svelte'
@@ -12,11 +11,6 @@
 
 	export let data: PageData
 </script>
-
-<svelte:head>
-	<title>{site.title}</title>
-	<meta name="description" content={site.description} />
-</svelte:head>
 
 <Main>
 	<section>

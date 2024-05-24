@@ -10,19 +10,15 @@
 	import { MetaTags } from 'svelte-meta-tags'
 	import SidebarNav from '@/components/feature/SidebarNav.svelte'
 	import GradientBackground from '@/components/primitive/GradientBackground.svelte'
+	import { page } from '$app/stores'
+	import { deepMerge } from '@/lib/utils/deepMerge'
+
+	export let data
+
+	$: metaTags = deepMerge(data.baseMetaTags, $page.data.pageMetaTags)
 </script>
 
-<!-- FIXNE: とりあえずnoindex -->
-<MetaTags
-	robots="noindex"
-	additionalMetaTags={[
-		// StatusBarの色を指定
-		{ name: 'theme-color', content: '#ff3998' /* = color-key-pink-deep */ },
-		// ホームに追加対応
-		{ name: 'mobile-web-app-capable', content: 'yes' },
-		{ name: 'apple-mobile-web-app-capable', content: 'yes' }
-	]}
-/>
+<MetaTags {...metaTags} />
 
 <div class="app">
 	<SidebarNav />

@@ -227,10 +227,10 @@
 
 	li {
 		list-style: none;
-		line-height: 2.2rem;
+		padding: 0.35rem 0;
 
 		a {
-			display: block;
+			display: inline-block;
 			margin: 0;
 			transition:
 				color 0.1s ease-in-out,

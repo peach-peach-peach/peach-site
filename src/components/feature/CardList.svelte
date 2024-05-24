@@ -2,11 +2,12 @@
 	import type { CategoryId } from '@/domain/Category/CategoryId'
 	import { formatDate } from '@/lib/utils/formatDate'
 	import Spacer from '@/components/primitive/Spacer.svelte'
+	import type { ImageObject } from '@/domain/contents/common'
 
 	type ArticleItem = {
 		id: string
 		title: string
-		eyecatch?: { url: string }
+		eyecatch?: ImageObject
 		publishedAt?: string
 	}
 
@@ -29,7 +30,16 @@
 			<article class="list-card">
 				<a href={`/${categoryId}/${item.id}/`}>
 					<figure class:squared={squaredImage}>
-						<img src={item.eyecatch?.url ?? '/card-no-image.png'} alt={item.title} />
+						{#if item.eyecatch}
+							<img
+								src={item.eyecatch.url ?? '/card-no-image.png'}
+								alt={item.title}
+								height={item.eyecatch.height}
+								width={item.eyecatch.width}
+							/>
+						{:else}
+							<img src={'/card-no-image.png'} alt="" height={517} width={921} />
+						{/if}
 					</figure>
 					<h3><span>{item.title}</span></h3>
 

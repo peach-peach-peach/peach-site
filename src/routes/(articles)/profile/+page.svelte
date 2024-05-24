@@ -3,8 +3,7 @@
 	import GoBack from '@/components/feature/GoBack.svelte'
 	import MarqueeHeader from '@/components/feature/MarqueeHeader.svelte'
 	import Main from '@/components/feature/Main.svelte'
-
-	/* eslint-disable svelte/no-at-html-tags */
+	import SnsAccount from '@/components/primitive/SnsAccount.svelte'
 </script>
 
 <MarqueeHeader contentType="profile" fixed />
@@ -13,7 +12,13 @@
 	<article>
 		<h1>Profile</h1>
 
-		<img src="/ppp.jpg" alt="Peach Peach Peachのアーティスト画像" class="eyecatch" />
+		<img
+			src="/artist-photo.jpg"
+			alt="Peach Peach Peachのアーティスト画像"
+			class="eyecatch"
+			width="1920"
+			height="1280"
+		/>
 
 		<h2>プロフィール / Profile</h2>
 
@@ -36,11 +41,17 @@
 			川関浩司:<br />
 			1999年福岡でオルタナティブロックバンド NANANINE を結成。2001年ワーナーミュージックよりメジャーデビュー、海外フェスや国内大型フェスに出演。2006年バンド活動休止後はマイペースに音楽に関わり続けている。
 		</p>
+		<div class="sns-accounts">
+			<SnsAccount snsType="x" accountId="79hiroshi" />
+		</div>
 		<p>
 			西尾大介:<br />
 			2004年、ソロプロジェクト ALOHA として福岡で始動。その後東京に活動拠点を移し、2011年に曽我部恵一主宰の ROSE RECORDS
 			より『うたのゆくえ』をリリース。自身の楽曲制作の他に、プロデュースやマスタリングなども手掛ける。
 		</p>
+		<div class="sns-accounts">
+			<SnsAccount snsType="x" accountId="ALOHA_NISHIO" />
+		</div>
 
 		<p lang="en">
 			Hiroshi Kawaseki:<br />
@@ -81,6 +92,10 @@
 		font-weight: bold;
 		font-size: 1.2rem;
 		margin: 3rem 0 1rem;
+	}
+
+	.sns-accounts {
+		margin: 0.5rem 0 1.5rem;
 	}
 
 	/* PC */

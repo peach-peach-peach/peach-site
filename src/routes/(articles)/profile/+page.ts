@@ -1,7 +1,7 @@
 import { dev } from '$app/environment'
 import { generateDefaultMetaTag } from '@/lib/utils/generateDefaultMetaTag'
 
-export const ssr = false
+export const ssr = true
 
 // we don't need any JS on this page, though we'll load
 // it in dev so that we get hot module replacement

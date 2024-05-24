@@ -18,4 +18,4 @@ export const load: PageServerLoad = async ({ params, url }) => {
 	}
 }
 
-export const ssr = false
+export const ssr = true

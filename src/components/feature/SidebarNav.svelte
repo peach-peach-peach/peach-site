@@ -47,15 +47,15 @@
 		{
 			label: 'YouTube',
 			href: site.social.youtube
+		},
+		{
+			label: 'Spotify',
+			href: site.social.spotify
+		},
+		{
+			label: 'Apple Music',
+			href: site.social.appleMusic
 		}
-		// {
-		// 	label: 'Spotify',
-		// 	href: site.social.spotify
-		// },
-		// {
-		// 	label: 'Apple Music',
-		// 	href: site.social.appleMusic
-		// }
 	]
 
 	export let open: boolean = false

@@ -18,7 +18,8 @@ export const fetchArticleList = async ({
 		queries: {
 			filters: `category[equals]${categoryId}`,
 			limit,
-			offset
+			offset,
+			orders: '-publishedAt'
 		}
 	})
 

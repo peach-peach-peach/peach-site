@@ -5,26 +5,13 @@ import { fetchTopConfigs } from '@/lib/sdk/cms/fetchTopConfigs'
 
 export const load: PageServerLoad = async () => {
 	try {
-		const newsRes = await fetchArticleList({
-			categoryId: 'news',
-			limit: 4
-		})
-		const scheduelRes = await fetchArticleList({
-			categoryId: 'schedule',
-			limit: 4
-		})
-		const videoRes = await fetchArticleList({
-			categoryId: 'videos',
-			limit: 3
-		})
-		const discoRes = await fetchArticleList({
-			categoryId: 'discography',
-			limit: 3
-		})
-
-		const topConfigsRes = await fetchTopConfigs({
-			draftKey: null
-		})
+		const [newsRes, scheduelRes, videoRes, discoRes, topConfigsRes] = await Promise.all([
+			fetchArticleList({ categoryId: 'news', limit: 4 }),
+			fetchArticleList({ categoryId: 'schedule', limit: 4 }),
+			fetchArticleList({ categoryId: 'videos', limit: 3 }),
+			fetchArticleList({ categoryId: 'discography', limit: 3 }),
+			fetchTopConfigs({ draftKey: null })
+		])
 
 		return {
 			news: newsRes.contents,
@@ -34,6 +21,7 @@ export const load: PageServerLoad = async () => {
 			topConfigs: topConfigsRes.result
 		}
 	} catch (e) {
+		console.warn(e)
 		error(500, 'サーバーエラーが発生しました。')
 	}
 }

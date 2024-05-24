@@ -14,7 +14,6 @@
 	<MediaQuery query="all and (max-width: 767px)" let:matches>
 		{#if matches}
 			<video poster="/videos/easy_sp-thumb.jpg" autoplay muted loop playsinline>
-				<source src="/videos/easy_sp.webm" type="video/webm" />
 				<source src="/videos/easy_sp.mp4" type="video/mp4" />
 				<track kind="captions" />
 			</video>

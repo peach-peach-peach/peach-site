@@ -34,7 +34,13 @@
 		<p class="published"><time>{formatDate(data.item.publishedAt)}</time></p>
 
 		{#if data.item.eyecatch != null && !hideCatch}
-			<img src={data.item.eyecatch.url} alt="アイキャッチ画像" class="eyecatch" />
+			<img
+				src={data.item.eyecatch.url}
+				alt="アイキャッチ画像"
+				class="eyecatch"
+				width={data.item.eyecatch.width}
+				height={data.item.eyecatch.height}
+			/>
 		{/if}
 
 		<div class="content">

@@ -2,8 +2,9 @@ import type { PageServerLoad } from './$types'
 import { error } from '@sveltejs/kit'
 import { fetchArticleList } from '@/lib/sdk/cms/fetchArticleList'
 import { fetchTopConfigs } from '@/lib/sdk/cms/fetchTopConfigs'
+import { dynamicCacheHeaders } from '@/lib/utils/cacheHeaders'
 
-export const load: PageServerLoad = async () => {
+export const load: PageServerLoad = async ({ setHeaders }) => {
 	try {
 		const [newsRes, scheduelRes, videoRes, discoRes, topConfigsRes] = await Promise.all([
 			fetchArticleList({ categoryId: 'news', limit: 4 }),
@@ -12,6 +13,7 @@ export const load: PageServerLoad = async () => {
 			fetchArticleList({ categoryId: 'discography', limit: 3 }),
 			fetchTopConfigs({ draftKey: null })
 		])
+		setHeaders(dynamicCacheHeaders)
 
 		return {
 			news: newsRes.contents,

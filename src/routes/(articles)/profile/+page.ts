@@ -1,4 +1,5 @@
 import { dev } from '$app/environment'
+import { staticCacheHeaders } from '@/lib/utils/cacheHeaders.js'
 import { generateDefaultMetaTag } from '@/lib/utils/generateDefaultMetaTag'
 
 export const ssr = true
@@ -11,7 +12,9 @@ export const csr = dev
 // it so that it gets served as a static asset in production
 export const prerender = true
 
-export const load = () => {
+export const load = ({ setHeaders }) => {
+	setHeaders(staticCacheHeaders)
+
 	return {
 		pageMetaTags: generateDefaultMetaTag({ pageTitle: `Profile` })
 	}

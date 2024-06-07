@@ -3,7 +3,6 @@
 	import CardList from '@/components/feature/CardList.svelte'
 	import Footer from '@/components/feature/Footer.svelte'
 	import MarqueeHeader from '@/components/feature/MarqueeHeader.svelte'
-	import { site } from '@/constants/site'
 	import GoBack from '@/components/feature/GoBack.svelte'
 	import Main from '@/components/feature/Main.svelte'
 	import FetchMore from '@/components/feature/FetchMore.svelte'

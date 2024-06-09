@@ -9,7 +9,7 @@ export const load: PageServerLoad = async ({ params, url, setHeaders }) => {
 
 	try {
 		const res = await fetchArticle({ slug: params.slug, draftKey })
-		setHeaders(dynamicCacheHeaders)
+		if (draftKey == null) setHeaders(dynamicCacheHeaders)
 		return {
 			pageMetaTags: generateDefaultMetaTag({ pageTitle: `Video: ${res.item.title}` }),
 			...res

@@ -6,7 +6,7 @@
 	import SnsAccount from '@/components/primitive/SnsAccount.svelte'
 </script>
 
-<MarqueeHeader contentType="profile" fixed />
+<MarqueeHeader contentType="profile" fixed wrapperStyle="width: 100%" />
 
 <Main blur>
 	<article>

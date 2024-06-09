@@ -43,6 +43,7 @@
 		</p>
 		<div class="sns-accounts">
 			<SnsAccount snsType="x" accountId="79hiroshi" />
+			<SnsAccount snsType="instagram" accountId="phiroshi79" />
 		</div>
 		<p>
 			西尾大介:<br />
@@ -51,6 +52,7 @@
 		</p>
 		<div class="sns-accounts">
 			<SnsAccount snsType="x" accountId="ALOHA_NISHIO" />
+			<SnsAccount snsType="instagram" accountId="aloha_nishio" />
 		</div>
 
 		<p lang="en">
@@ -96,6 +98,8 @@
 
 	.sns-accounts {
 		margin: 0.5rem 0 1.5rem;
+		display: flex;
+		column-gap: 0.4rem;
 	}
 
 	/* PC */
